@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+
+
+
+/* con # (numeral) llamo al ID, con . (punto) llamo a la clase */
+
+/* el ID no es reutilizable, en cambio las clases # si! */
+
+/* el primer selector es el universal, despues de la fuente */
+
+*{ 
+    font-family: "Playfair Display"; /*FUENTE*/
+    box-sizing: border-box; /*SI AGREGO PADDING O BORDE, EL ANCHO O ALTO DE MI ELEMENTO SE RESPETA ;) */
+    margin: 0; 
+    padding: 0;
+    /*LIMPIEZA DE ESPACIADOS Y MARGENES POR DEFECTO PARA ASI PODER CONFIGURAR LOS MIOS PROPIOS*/
+    hr {
+        border: 1px solid #000; /* Color de la línea */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 80%; /* Asegura que ocupe todo el ancho */
+        margin-left: auto; /* Centra la barra */
+        margin-right: auto; /* Centra la barra */
+    }
+}
+
+
+/* HEADER */
+
+
+header {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background-color: #1A1A1A;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    h1{
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+    }
+    nav{
+        width: 60%;
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            font-weight: 900;
+            
+            
+            a{
+                padding: 4px;
+                color: rgb(255, 255, 255);
+                font-size: large;
+                text-decoration: none;
+                border: outset rgb(84, 104, 131); /*BORDER: PROPIEDAD DEL BORDE DE LA CAJA */
+            }
+        }
+    }
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    padding: 10px;    
+    
+}
+
+/* BODY-MAIN INDEX*/
+
+
+.seccionTitulos {
+    background-image: linear-gradient(to right top, #00000050, #00000050), url(../assets/img/FONDO_MATE_EPICO.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    h2{
+        text-shadow: 1px 0 0 rgb(0, 0, 0), 0 1px 0 rgb(0, 0, 0), -1px 0 0 rgb(0, 0, 0), 0 -1px 0 rgb(0, 0, 0);
+        font-weight: 700;
+        font-size: 45px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    p{
+        font-size: 40px;
+        font-weight: 600;
+        text-shadow: 1px 0 0 rgb(0, 0, 0), 0 1px 0 rgb(0, 0, 0), -1px 0 0 rgb(0, 0, 0), 0 -1px 0 rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin: 20px;
+    }
+
+}
+
+.guiaPreparacionMate {
+    background-color: #1A1A1A;
+    font-size: 30px;
+    font-weight: 400;
+    .tituloGuia{
+        text-align: center;
+        font-weight: 800;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(84, 104, 131);
+        color: rgb(241, 241, 241);
+    }
+    
+    .videoYPasos{
+        padding: 60px;
+        .bordeado{
+            border: 1px solid rgba(244, 165, 96, 0.496);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            .listaPasos{
+                background-color: #1A1A1A;
+                text-transform: uppercase;
+                display: flex;
+                flex-direction: column;
+                color: rgb(255, 255, 255);
+
+                h4{
+                    font-size: 2.5rem;
+                    text-align: center;
+                }
+                p{
+                    font-family: "Fjalla One";
+                    font-size: 2.5rem;
+                    padding-top: 20px;
+                }
+                a{
+                    text-decoration: none;
+                    color: rgb(255, 255, 255);
+                    border: outset rgb(84, 104, 131);
+                    margin: 20px;
+                    width: 55%;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+    iframe{
+        width: 450px;
+        height: 300px;
+    }
+}
+
+
+.opiniones{
+
+    .opinionesClientes{
+        text-align: center;
+        font-weight: 800;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(84, 104, 131);
+        color: rgb(241, 241, 241);
+    }
+
+    background-color: rgb(252, 238, 221);
+    text-align: center;
+    h4,h5{
+        font-size: xx-large;
+        padding: 15px;
+        a{
+            
+            color: black;
+            border: outset rgb(132, 37, 37);
+            text-decoration: none;
+
+        }
+    }
+    p{
+        font-size: large;
+    }
+
+    .imagenesOpiniones{
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        row-gap: 20px;
+        column-gap: 20px;
+        
+        
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(63, 178, 255);
+            width: 400px;
+            height: 400px;
+            p{
+                padding: 10px;
+            }
+            img{
+                width: 90%;
+            }
+        }
+    }
+
+}
+
+/*BODY-MAIN-PRODUCTOS */
+
+.productos {
+    background-color: rgb(255, 255, 255);
+
+    h1{
+        font-size: xx-large;
+        font-weight: 700;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .imagenesProductos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        h1{
+            font-size: x-large;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid #000; /* Borde negro */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra */ 
+            a{
+                color: rgb(0, 0, 0);
+                text-decoration: none;
+            }
+        }
+    }
+            h2{
+                padding-top: 50px;
+                padding-bottom: 25px;
+                padding-left: 20px;
+            }
+            nav{
+                padding-bottom: 50px;
+                padding-left: 100px;
+                a{
+                    font-size: 30px;
+                    text-decoration: none;
+                    color: black;
+                    border: outset rgb(132, 37, 37);
+                }
+            }
+        
+        
+        img{
+            width: 240px;
+            height: 240px;
+        }
+}
+
+
+
+/*BODY-MAIN-SUCURSALES */
+.titulos{
+    text-align: center;
+    background-color: rgb(53, 138, 249);
+}
+.mainSucursales{
+    background-color: rgb(252, 238, 221);
+    iframe{
+        width: 400px;
+        height: 300px;
+    }
+    h1{
+        text-align: center;
+        padding: 30px;
+        font-weight: bold;
+        color: #040404;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        background-color: rgb(53, 138, 249);
+    }
+    h3{
+        font-size: x-large;
+    }
+
+    td{
+        padding: 50px;
+    }
+
+}
+
+/*BODY-MAIN-ABOUT */
+.mainAbout{
+    background-color: rgb(252, 238, 221);
+}
+
+.tituloAbout{
+    display: flex;
+    font-size: 35px;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        margin: 20px;
+        height: 40px;
+    }
+}
+
+.ArticuloAbout{
+    
+    text-align: center;
+    p{
+        font-size: large;
+        padding: 30px;
+        font-weight: 700;
+    }
+}
+
+.comoCurarMate{
+    h1{
+        text-align: center;
+        font-size: 30px;
+        margin: 20px;
+    }
+    ol{
+        font-size: 20px;
+        margin-left: 110px;
+        font-weight: 800;
+        
+        padding-bottom: 20px;
+        li{
+            padding: 10px;
+        }
+    }
+    img{
+        margin-left: 125px;
+        width: 1000px;
+    }
+
+}
+
+
+/*BODY-MAIN-CONTACTO */
+
+.seccionContacto{
+    background-color: rgb(252, 238, 221);
+    h1{
+        padding-top: 20px;
+        margin-left: 20px;
+    }
+    
+    form{
+        display: inline-block;
+        border: outset rgb(0, 0, 0);
+        margin-left: 500px;
+        margin-bottom: 70px;
+        div{
+            padding: 20px;
+        }
+    }
+}
+
+
+
+/*FOOTER*/
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: lightsteelblue;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+    
+    h6{
+        font-size: x-large;
+        font-weight: 900;
+        padding-bottom: 10px;
+        padding-right: 15px;
+    }
+    .redesSociales{
+        width: 100%;
+    }
+    
+}
+
