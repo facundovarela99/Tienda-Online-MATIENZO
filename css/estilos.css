@@ -79,6 +79,7 @@
 
     .tituloGuia {
         background-color: rgb(84, 104, 131);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
     }
 
     .videoYPasos {
@@ -147,26 +148,11 @@
 
     .imagenesOpiniones {
 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        row-gap: 20px;
-        column-gap: 20px;
-
-
+         
         div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(63, 178, 255);
+    
             width: 400px;
             height: 400px;
-
-            p {
-                padding: 10px;
-            }
 
             img {
                 width: 90%;
