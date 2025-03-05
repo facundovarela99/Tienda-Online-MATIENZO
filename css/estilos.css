@@ -254,6 +254,10 @@
         h2{
             font-size: 1.2rem;
         }
+        img{
+            width: auto;
+            height: auto;
+        }
     }
 }
 
@@ -304,6 +308,16 @@
     
 }
 
+.separadorAbout{
+    color: #a37f41;
+        hr{
+            border: 0;
+            height: 0.5px; 
+            background-color: #a37f41;
+            opacity: 1;
+        }
+}
+
 .comoCurarMate {
 
     .tituloCuracion{
@@ -315,7 +329,7 @@
     }
 
     li{
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .imagenCuracion{
@@ -332,7 +346,7 @@
 
         .imagenCuracion{
             
-            height: 50vh;
+            height: 40vh;
         }
     }
 }
