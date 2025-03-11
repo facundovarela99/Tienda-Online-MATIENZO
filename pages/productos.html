@@ -43,44 +43,40 @@
           </nav>
     </header>
     <main>
-        <section class="productos">
-            <h1>Nuestros Productos</h1>
-            <div class="imagenesProductos">
-                <div>
-                    <a href="">
-                        <img src="../assets/img/bombilla.jpg" alt="Bombilla">
-                        <h1>BOMBILLAS</h1>
-                    </a>
-                </div>
-                <div>
-                    <a href="">
-                        <img src="../assets/img/yerba_gritosagrado.jpg" alt="yerba">
-                        <h1>YERBAS</h1>
-                    </a>
-                </div>
-                <div>
-                    <a href="">
-                        <img src="../assets/img/TERMO_COLEMAN_NEGRO.jpg" alt="termo">
-                        <h1>TERMOS</h1>
-                    </a>
-                </div>
-                <div>
-                    <a href="">
-                        <img src="../assets/img//imperial_negro.jpg" alt="mates">
-                        <h1>MATES</h1>
-                    </a>
-                </div>
-            </div>
-            <h2>¿Te interesa alguno de nuestros productos?</h2>
-            <nav><a href="../pages/contacto.html">CONTACTANOS</a></nav>
-        </section>
-        <section class="container-fluid bg-primary"> 
-          <!--PENDIENT: USAR BOOTSTRAP PARA PAGINA DE PRODUCTOS
-          <div class="row">
-            <h2>Nuestros Productos</h2>
+      <section class="productos container-fluid">
+        <h1 class="fs-1 fw-bold text-center p-4">NUESTROS PRODUCTOS</h1>
+        <div class="imagenesProductos row d-flex flex-row justify-content-center justify-content-around row-gap-5 row-gap-md-5">
+          <!--PENDIENTE: CORREGIR DESBORDAMIENTO DE IMAGENES PRODUCTOS EN RESPONSIVE 767PX EN ADELANTE-->
+          <div class="p-3 col-8 col-md-2">
+            <a href="">
+              <img class="w-100" src="../assets/img/bombilla.jpg" alt="Bombilla">
+              <h1 class="text-center fs-2 p-4">BOMBILLAS</h1>
+            </a>
           </div>
-        </section>
-        -->  
+          <div class="p-3 col-8 col-md-2">
+            <a href="">
+              <img class="w-100" src="../assets/img/yerba_gritosagrado.jpg" alt="yerba">
+              <h1 class="text-center fs-2 p-4">YERBAS</h1>
+            </a>
+          </div>
+          <div class="p-3 col-8 col-md-2">
+            <a href="">
+              <img class="w-100" src="../assets/img/TERMO_COLEMAN_NEGRO.jpg" alt="termo">
+              <h1 class="text-center fs-2 p-4">TERMOS</h1>
+            </a>
+          </div>
+          <div class="p-3 col-8 col-md-2">
+            <a href="">
+              <img class="w-100" src="../assets/img//imperial_negro.jpg" alt="mates">
+              <h1 class="text-center fs-2 p-4">MATES</h1>
+            </a>
+          </div>
+        </div>
+        <div class="text-center pt-4 pb-4">
+          <h2 class="pb-3">¿Te interesa alguno de nuestros productos?</h2>
+          <nav class="pt-3"><a class="fs-2" href="../pages/contacto.html">CONTACTANOS</a></nav>
+        </div>
+      </section>
     </main>
     <footer>
         <h6>Datos de contacto</h6>

@@ -72,6 +72,27 @@
 
 }
 
+@media screen and (max-width: 768px) {
+
+    .seccionTitulos{
+        .tituloGrande{
+            .preparoUnos,
+            .luego{
+                padding-left: 80px;
+            }
+            padding-left: 40px;
+            .mates,
+            .existo {
+                text-shadow: 5px 5px 0px #A37F41;
+                font-size: 100px;
+            }
+        }
+        .subtitulo{
+            padding-left: 80px;
+        }
+    }
+}
+
 .guiaPreparacionMate {
     background-color: #1A1A1A;
     font-size: 30px;
@@ -165,33 +186,17 @@
 /*BODY-MAIN-PRODUCTOS */
 
 .productos {
-    background-color: rgb(255, 255, 255);
-
-    h1 {
-        font-size: xx-large;
-        font-weight: 700;
-        text-align: center;
-        padding: 30px;
-    }
+    background-color: rgb(252, 238, 221);
 
     .imagenesProductos {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        h1 {
-            font-size: x-large;
-        }
-
+        /*PENDIENTE: CORREGIR DESBORDAMIENTO DE IMAGENES PRODUCTOS EN RESPONSIVE 767PX EN ADELANTE */
         div {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
+            background-color: white;
             border: 1px solid #000;
             /* Borde negro */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-
             /* Sombra */
+
             a {
                 color: rgb(0, 0, 0);
                 text-decoration: none;
@@ -199,15 +204,8 @@
         }
     }
 
-    h2 {
-        padding-top: 50px;
-        padding-bottom: 25px;
-        padding-left: 20px;
-    }
 
     nav {
-        padding-bottom: 50px;
-        padding-left: 100px;
 
         a {
             font-size: 30px;
@@ -219,10 +217,11 @@
 
 
     img {
-        width: 240px;
         height: 240px;
     }
 }
+
+
 
 
 
@@ -251,7 +250,7 @@
     background-color: rgb(252, 238, 221);
 
     h1,h2 {
-        color: #040404;
+        color: black;
         text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     }
 
@@ -278,6 +277,7 @@
     .tituloAbout {
         h1 {
             font-size: 2.5rem;
+            text-align: center;
         }
     }
 
