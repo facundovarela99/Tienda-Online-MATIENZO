@@ -112,7 +112,6 @@
 
                 h4 {
                     font-size: 2.5rem;
-                    text-align: center;
                 }
 
                 p {
@@ -254,6 +253,10 @@
         text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     }
 
+    .mapa1, .mapa2, .mapa3{
+        background-color: aqua;
+    }
+
 }
 
 
@@ -365,21 +368,21 @@
 /*FOOTER*/
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     background-color: lightsteelblue;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
 
     h6 {
-        font-size: x-large;
-        font-weight: 900;
-        padding-bottom: 10px;
-        padding-right: 15px;
+        font-size: 1.5rem;
     }
 
-    .redesSociales {
-        width: 100%;
+    
+
+    .fa-whatsapp{
+        color: #25d366;
+        font-size: 3rem;
+        position:fixed;
+        right: 20px;
+        bottom: 30px;
     }
 
 }
