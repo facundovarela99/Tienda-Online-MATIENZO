@@ -24,6 +24,21 @@
 
 .bgHeader {
     background-color: #1A1A1A;
+    ul{
+        .home:hover, .productos:hover, .sucursales:hover, .acercaDe:hover, .contacto:hover {
+            background-color: #ffe9c400; /* Color más brillante al pasar el mouse */
+            box-shadow: 0 0 7px #fab731cc; /* Efecto de iluminación */
+        }
+    }
+    @media screen and (max-width: 768px) {
+        ul{
+           a{
+            text-align: start;
+            width: 20% !important;
+           }
+        }
+    }
+
 }
 
 
@@ -203,11 +218,8 @@
         }
     }
 
-
     nav {
-
         a {
-            font-size: 30px;
             text-decoration: none;
             color: black;
             border: outset rgb(132, 37, 37);
@@ -220,9 +232,35 @@
     }
 }
 
+@media screen and (max-width: 1400px) {
 
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+/*PENDIENTE: TERMINAR DE EDITAR DISEÑO RESPONSIVE EN IMAGENES DE PRODUCTOS - AGREGAR SASS */
+@media screen and (max-width: 768px) {
 
-
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 2rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
 
 /*BODY-MAIN-SUCURSALES */
 .titulos {
@@ -252,11 +290,6 @@
         color: black;
         text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     }
-
-    .mapa1, .mapa2, .mapa3{
-        background-color: aqua;
-    }
-
 }
 
 
@@ -345,21 +378,85 @@
 
 .seccionContacto {
     background-color: rgb(252, 238, 221);
-
-    form {
-        border: outset rgb(0, 0, 0);
-        }
-    .imagenFondoContacto{
-        background-image: url(../assets/img/fondo_4.jpg);
-        background-size: cover;
+    .tituloContacto{
+        background-image: linear-gradient(to right top, #00000093, #00000093), url(../assets/img/pasando-el-mate.jpg);
         background-position: center;
-    }
+        div{
+            width: 80%;
+            border: 2px solid rgba(244, 165, 96, 0.496);
+            h1{
+                color: white;
+                font-family: "Fjalla One";
+                font-size: 5rem;
+                letter-spacing: 3px;
+                text-shadow: 5px 5px 0px #A37F41
+            }
+            p{
+                color: rgba(0, 0, 0, 0);
+            }
+        }
+        }
+
+        .colorFondo{
+            background-color: #1A1A1A;
+        }
 
     @media screen and (max-width: 768px) {
-        .imagenFondoContacto {
-            height: 50vh;
-            margin-top: 20px;
-            margin-bottom: 20px;
+
+        .tituloContacto{
+            background-size: cover;
+            h1{
+                font-size: 3.5rem;
+                text-shadow: 2.5px 2.5px 0px #A37F41
+            }
+            p{
+                font-size: 1px !important;
+            }
+        }
+    }
+    
+    .bordeado{
+        background-color: #1A1A1A;
+        width: 80%;
+        div{
+            border: 1px solid rgba(244, 165, 96, 0.496);
+            a{
+                text-decoration: none;
+                i{
+                    color: rgb(53, 138, 249);
+                }
+            }
+        }
+    }
+    
+    .bordeadoFormulario{
+        border: 1px solid rgba(244, 165, 96, 0.496);
+        width: 78.7%;
+        margin-bottom: 30px;
+        form {
+            padding: 30px;
+            border: outset rgb(0, 0, 0);
+            background-color: antiquewhite;
+            label{
+                color: #a37f41;
+                font-weight: 500;
+
+            }
+            .enviar,.limpiar{
+                background-color: #a37f41;
+                border-radius: 0;
+            }
+            .enviar:hover, .limpiar:hover {
+                background-color: #eece97; /* Color más brillante al pasar el cursor */
+                box-shadow: 0 0 10px #fab731cc; /* Efecto de iluminación */
+            }
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+
+        .bordeadoFormulario{
+            width: 76%;
         }
     }
 

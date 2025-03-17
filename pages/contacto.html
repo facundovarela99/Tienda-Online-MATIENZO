@@ -1,107 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--TIENE BOOTSTRAP-->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="https://kit.fontawesome.com/ff7679110b.js" crossorigin="anonymous"></script>
-    <title>MATIENZO | CONTACTO</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script src="https://kit.fontawesome.com/ff7679110b.js" crossorigin="anonymous"></script>
+  <title>MATIENZO | CONTACTO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
-    <header class="position-sticky top-0 z-3">
-        <nav class="navbar navbar-expand-lg bgHeader" data-bs-theme="dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="../index.html">
-                <img class="logo" src="../assets/img/logo_mate.png" alt="ICONO DE LA PAGINA WEB">
-                <span class="ps-5 fs-3">MATIENZO</span>
+  <header class="position-sticky top-0 z-3">
+    <nav class="navbar navbar-expand-lg bgHeader" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">
+          <img class="logo" src="../assets/img/logo_mate.png" alt="ICONO DE LA PAGINA WEB">
+          <span class="ps-5 fs-3">MATIENZO</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end">
+            <li class="nav-item pe-5">
+              <a class="home nav-link" aria-current="page" href="../index.html">HOME</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="productos nav-link" href="productos.html">PRODUCTOS</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="sucursales nav-link" href="sucursales.html">SUCURSALES</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="acercaDe nav-link" href="about.html">ACERCA DE</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="contacto nav-link active" href="contacto.html">CONTACTO</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="seccionContacto">
+      <div class="tituloContacto container-fluid d-flex flex-row justify-content-center">
+        <div class="d-flex flex-column">
+          <h1 class="text-center pt-5 pb-5">ESTEMOS EN CONTACTO</h1>
+          <p class="text-center fs-3 pt-4 pb-4">SI TENES ALGUNA DUDA O SUGERENCIA, NO DUDES EN CONTACTARNOS</p>
+        </div>
+      </div>
+      <div class="colorFondo container-fluid">
+        <section class="d-flex flex-row justify-content-center">
+          <div class="row bordeado justify-content-around">
+            <div class="col-12 col-md-4">
+              <h2 class="text-white text-center">ESCRIBINOS</h2>
+              <a class="d-flex flex-row justify-content-center pt-2"
+                href="https://www.microsoft.com/es-ar/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook"
+                target="_blank">
+                <i class="fa-regular fa-envelope fs-3 px-2"></i>
+                <p class="text-white">MATIENZO@hotmail.com</p>
               </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end">
-                  <li class="nav-item pe-5">
-                    <a class="nav-link" aria-current="page" href="../index.html">HOME</a>
-                  </li>
-                  <li class="nav-item pe-5">
-                    <a class="nav-link" href="productos.html">PRODUCTOS</a>
-                  </li>
-                  <li class="nav-item pe-5">
-                    <a class="nav-link" href="sucursales.html">SUCURSALES</a>
-                  </li>
-                  <li class="nav-item pe-5">
-                    <a class="nav-link" href="about.html">ACERCA DE</a>
-                  </li>
-                  <li class="nav-item pe-5">
-                    <a class="nav-link active" href="contacto.html">CONTACTO</a>
-                  </li>
-                </ul>
-              </div>
             </div>
-          </nav>
-    </header>
-    <main>
-        <section class="seccionContacto container-fluid">
-            <h1 class="text-center">Contactanos</h1>
-            <p class="text-center fs-3">Si tienes alguna duda o sugerencia, no dudes en contactarnos</p>
-            <div class="row gap-3 gap-md-0">
-              <div class="col-12 col-md-6 order-2 order-md-1">
-                <form class="row mb-3 mx-3" action="">
-                  <div class="col-12 col-md-6">  
-                      <label class="form-label" for="nombre">Nombre</label>
-                      <input class="form-control" type="text" id="nombre" placeholder="Ingresar nombre completo" required>           
-                  </div>
-                  <div class="col-12 col-md-6">
-                      <label class="form-label" for="email">E-mail</label>
-                      <input class="form-control" type="email" id="email" placeholder="Ingrese su Email" required>  
-                  </div>
-                  <div class="col-12">                      
-                      <label class="form-label" for="asunto">Asunto</label>
-                      <input class="form-control" type="text" id="asunto" placeholder="Asunto" required>               
-                  </div>
-                  <div class="col-12">
-                      <label class="form-label" for="mensaje">Mensaje</label>
-                      <textarea class="form-control" name="" id="mensaje" cols="30" rows="10"></textarea>
-                  </div>
-                  <div class="col-12 col-md-6">
-                      <input class="btn btn-primary mb-3 mt-3" type="submit"  value="Enviar" id="enviar">
-                      <input class="btn btn-primary ms-2 mb-3 mt-3" type="reset" value="Limpiar" id="limpiar">
-                  </div>
-              </form>
-              </div>
-              <div class="col-12 col-md-6 imagenFondoContacto order-1 order-md-2">
-                
-              </div>
+            <div class="col-12 col-md-4">
+              <h2 class="text-white text-center">LLAMANOS</h2>
+              <a class="d-flex flex-row justify-content-center pt-2" href="tel:+ 54 11323-4332">
+                <i class="fa-solid fa-phone fs-3 px-2"></i>
+                <p class="text-white">+ 54 - 11 234-5678</p>
+              </a>
             </div>
+            <div class="col-12 col-md-4">
+              <h2 class="text-white text-center">SEGUINOS</h2>
+              <a class="d-flex flex-row justify-content-center" href="https://www.facebook.com/" target="_blank">
+                <i class="fa-brands fa-facebook fs-3 px-2"></i>
+                <p class="text-white">@Matienzo_</p>
+              </a>
+              <a class="d-flex flex-row justify-content-center" href="https://www.instagram.com/" target="_blank">
+                <i class="fa-brands fa-instagram fs-3 px-2"></i>
+                <p class="text-white">@Matienzo_</p>
+              </a>
+            </div>
+          </div>
         </section>
-    </main>
-    <footer>
-      <div class="datosContacto d-flex flex-column align-items-start">
-        <h6 class="fw-bold fs-4 pe-4 pb-2">DATOS DE CONTACTO</h6>
-        <h6 class="fw-bold fs-4 pe-4 pb-2">TEL: + 54 - 11 323-4332</h6>
-        <h6 class="fw-bold fs-4 pe-4 pb-2">Email: MATIENZO@hotmail.com</h6>
-        <h6 class="fw-bold fs-4 pe-4 pb-2">INSTAGRAM: @Matienzo_</h6>
+        <div class="row d-flex justify-content-center">
+          <div class="bordeadoFormulario pt-5 pb-5 col-12 col-md-12">
+            <form class="row mb-3 mx-3" action="">
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="nombre">NOMBRE Y APELLIDO</label>
+                <input class="form-control" type="text" id="nombre" placeholder="Ingresar nombre completo" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="email">E-MAIL</label>
+                <input class="form-control" type="email" id="email" placeholder="Ingrese su Email" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="asunto">ASUNTO</label>
+                <input class="form-control" type="text" id="asunto" placeholder="Asunto" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="mensaje">MENSAJE</label>
+                <textarea class="form-control" name="" id="mensaje" cols="30" rows="10"></textarea>
+              </div>
+              <div class="col-12 col-md-6">
+                <input class="enviar btn mb-3 mt-3" type="submit" value="Enviar" id="enviar">
+                <input class="limpiar btn ms-2 mb-3 mt-3" type="reset" value="Limpiar" id="limpiar">
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="redesSociales d-flex flex-row justify-content-start ps-4">
-        <a href="https://www.facebook.com/" target="_blank">
-          <i class="fa-brands fa-facebook fs-1 ps-2" target="_blank"></i>
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
-          <i class="fa-brands fa-instagram fs-1 ps-2 text-danger-emphasis"></i>
-        </a>
-        <a href="https://web.whatsapp.com/" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
-      </div>
-      <div>
-        <p class="m-0 fw-bold pt-2">© Copyright 2025 Matienzo - Todos los derechos reservados.
+    </section>
+  </main>
+  <footer>
+    <div class="datosContacto d-flex flex-column align-items-start">
+      <h6 class="fw-bold fs-4 ps-1 pb-2">DATOS DE CONTACTO</h6>
+      <h6 class="fw-bold fs-4 ps-3 pb-2">TEL: + 54 - 11 323-4332</h6>
+      <h6 class="fw-bold fs-4 ps-3 pb-2">Email: MATIENZO@hotmail.com</h6>
+      <h6 class="fw-bold fs-4 ps-3 pb-2">INSTAGRAM: @Matienzo_</h6>
+    </div>
+    <div class="redesSociales d-flex flex-row justify-content-start ps-4">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fa-brands fa-facebook fs-1 ps-2" target="_blank"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="fa-brands fa-instagram fs-1 ps-2 text-danger-emphasis"></i>
+      </a>
+      <a href="https://web.whatsapp.com/" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+    <div>
+      <p class="m-0 fw-bold pt-2 ps-1">© Copyright 2025 Matienzo - Todos los derechos reservados.
         Todos los logos, productos, marcas y nombres aqui utilizados son propiedad registrada.
       </p>
     </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
