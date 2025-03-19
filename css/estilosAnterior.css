@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+
+
+
+/* con # (numeral) llamo al ID, con . (punto) llamo a la clase */
+
+/* el ID no es reutilizable, en cambio las clases # si! */
+
+/* el primer selector es el universal, despues de la fuente */
+
+* {
+    font-family: "Playfair Display";
+    /*FUENTE*/
+    box-sizing: border-box;
+    /*SI AGREGO PADDING O BORDE, EL ANCHO O ALTO DE MI ELEMENTO SE RESPETA ;) */
+    margin: 0;
+    padding: 0;
+    /*LIMPIEZA DE ESPACIADOS Y MARGENES POR DEFECTO PARA ASI PODER CONFIGURAR LOS MIOS PROPIOS*/
+
+}
+
+.bgHeader {
+    background-color: #1A1A1A;
+    ul{
+        .home:hover, .productos:hover, .sucursales:hover, .acercaDe:hover, .contacto:hover {
+            background-color: #ffe9c400; /* Color más brillante al pasar el mouse */
+            box-shadow: 0 0 7px #fab731cc; /* Efecto de iluminación */
+        }
+    }
+    @media screen and (max-width: 768px) {
+        ul{
+           a{
+            text-align: start;
+            width: 20% !important;
+           }
+        }
+    }
+
+}
+
+
+.navbar-expand-lg .navbar-nav .nav-link { /* VER EXPLICACION DE ESTO EN AFTER DE BOOTSTRAP */
+    color: rgba(255, 255, 255, 0.623);
+    font-family: "Fjalla One";
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+}
+
+/* BODY-MAIN INDEX*/
+
+.seccionTitulos {
+    background-image: linear-gradient(to right top, #00000050, #00000050), url(../assets/img/Fondo-Mate-Origen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .mates,
+    .existo {
+        text-shadow: 5px 5px 0px #A37F41;
+        font-size: 150px;
+    }
+
+    h2 {
+        font-family: "Fjalla One";
+    }
+
+    h3 {
+        font-family: "Fjalla One";
+    }
+
+    .separador {
+        color: #a37f41;
+        hr{
+            width: 7%;
+            border: 0;
+            height: 0.5px; /* Ajusta el grosor según tus necesidades */
+            background-color: #a37f41;
+            opacity: 1;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .seccionTitulos{
+        .tituloGrande{
+            .preparoUnos,
+            .luego{
+                padding-left: 80px;
+            }
+            padding-left: 40px;
+            .mates,
+            .existo {
+                text-shadow: 5px 5px 0px #A37F41;
+                font-size: 100px;
+            }
+        }
+        .subtitulo{
+            padding-left: 80px;
+        }
+    }
+}
+
+.guiaPreparacionMate {
+    background-color: #1A1A1A;
+    font-size: 30px;
+    font-weight: 400;
+
+    .tituloGuia {
+        background-color: rgb(84, 104, 131);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .videoYPasos {
+        .bordeado {
+            border: 1px solid rgba(244, 165, 96, 0.496);
+
+            .listaPasos {
+                background-color: #1A1A1A;
+
+                h4 {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-family: "Fjalla One";
+                    font-size: 1.75rem;
+                }
+
+                a {
+                    border: outset rgb(66, 24, 6);
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+
+}
+
+
+.opiniones {
+
+    .opinionesClientes {
+        text-align: center;
+        font-weight: 800;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(84, 104, 131);
+        color: rgb(241, 241, 241);
+    }
+
+    background-color: rgb(252, 238, 221);
+    text-align: center;
+
+    h4,
+    h5 {
+        font-size: xx-large;
+        padding: 15px;
+
+        a {
+
+            color: black;
+            border: outset rgb(132, 37, 37);
+            text-decoration: none;
+
+        }
+    }
+
+    p {
+        font-size: large;
+    }
+
+    .imagenesOpiniones {
+
+         
+        div {
+    
+            width: 400px;
+            height: 400px;
+
+            img {
+                width: 90%;
+            }
+        }
+    }
+
+}
+
+/*BODY-MAIN-PRODUCTOS */
+
+.productos {
+    background-color: rgb(252, 238, 221);
+
+    .imagenesProductos {
+        /*PENDIENTE: CORREGIR DESBORDAMIENTO DE IMAGENES PRODUCTOS EN RESPONSIVE 767PX EN ADELANTE */
+        div {
+            background-color: white;
+            border: 1px solid #000;
+            /* Borde negro */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            /* Sombra */
+
+            a {
+                color: rgb(0, 0, 0);
+                text-decoration: none;
+            }
+        }
+    }
+
+    nav {
+        a {
+            text-decoration: none;
+            color: black;
+            border: outset rgb(132, 37, 37);
+        }
+    }
+
+
+    img {
+        height: 240px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+/*PENDIENTE: TERMINAR DE EDITAR DISEÑO RESPONSIVE EN IMAGENES DE PRODUCTOS - AGREGAR SASS */
+@media screen and (max-width: 768px) {
+
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 2rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*BODY-MAIN-SUCURSALES */
+.titulos {
+    background-color: rgb(53, 138, 249);
+}
+
+@media screen and (max-width: 768px) {
+
+    .titulos {
+        h1{
+            font-size: 1.5rem;
+        }
+        h2{
+            font-size: 1.2rem;
+        }
+        img{
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+.mainSucursales {
+    background-color: rgb(252, 238, 221);
+
+    h1,h2 {
+        color: black;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+/*BODY-MAIN-ABOUT */
+.mainAbout {
+    background-color: rgb(252, 238, 221);
+}
+
+.tituloAbout {
+
+    img {
+        margin: 20px !important;
+        height: 40px !important;
+        width: 40px !important;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .tituloAbout {
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    }
+
+    .ArticuloAbout {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+.separadorAbout{
+    color: #a37f41;
+        hr{
+            border: 0;
+            height: 0.5px; 
+            background-color: #a37f41;
+            opacity: 1;
+        }
+}
+
+.comoCurarMate {
+
+    .tituloCuracion{
+        img {
+            margin: 20px !important;
+            height: 40px !important;
+            width: 40px !important;
+        }
+    }
+
+    li{
+        font-size: 1rem;
+    }
+
+    .imagenCuracion{
+        background-image: url(../assets/img/COMO_CURAR_MATE.jpg);
+        background-size: 90%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .comoCurarMate {
+
+        .imagenCuracion{
+            
+            height: 40vh;
+        }
+    }
+}
+
+/*BODY-MAIN-CONTACTO  */
+
+
+.seccionContacto {
+    background-color: rgb(252, 238, 221);
+    .tituloContacto{
+        background-image: linear-gradient(to right top, #00000093, #00000093), url(../assets/img/pasando-el-mate.jpg);
+        background-position: center;
+        div{
+            width: 80%;
+            border: 2px solid rgba(244, 165, 96, 0.496);
+            h1{
+                color: white;
+                font-family: "Fjalla One";
+                font-size: 5rem;
+                letter-spacing: 3px;
+                text-shadow: 5px 5px 0px #A37F41
+            }
+            p{
+                color: rgba(0, 0, 0, 0);
+            }
+        }
+        }
+
+        .colorFondo{
+            background-color: #1A1A1A;
+        }
+
+    @media screen and (max-width: 768px) {
+
+        .tituloContacto{
+            background-size: cover;
+            h1{
+                font-size: 3.5rem;
+                text-shadow: 2.5px 2.5px 0px #A37F41
+            }
+            p{
+                font-size: 1px !important;
+            }
+        }
+    }
+    
+    .bordeado{
+        background-color: #1A1A1A;
+        width: 80%;
+        div{
+            border: 1px solid rgba(244, 165, 96, 0.496);
+            a{
+                text-decoration: none;
+                i{
+                    color: rgb(53, 138, 249);
+                }
+            }
+        }
+    }
+    
+    .bordeadoFormulario{
+        border: 1px solid rgba(244, 165, 96, 0.496);
+        width: 78.7%;
+        margin-bottom: 30px;
+        form {
+            padding: 30px;
+            border: outset rgb(0, 0, 0);
+            background-color: antiquewhite;
+            label{
+                color: #a37f41;
+                font-weight: 500;
+
+            }
+            .enviar,.limpiar{
+                background-color: #a37f41;
+                border-radius: 0;
+            }
+            .enviar:hover, .limpiar:hover {
+                background-color: #eece97; /* Color más brillante al pasar el cursor */
+                box-shadow: 0 0 10px #fab731cc; /* Efecto de iluminación */
+            }
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+
+        .bordeadoFormulario{
+            width: 76%;
+        }
+    }
+
+}
+
+/*FOOTER*/
+
+footer {
+    background-color: lightsteelblue;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+
+    h6 {
+        font-size: 1.5rem;
+    }
+
+    
+
+    .fa-whatsapp{
+        color: #25d366;
+        font-size: 3rem;
+        position:fixed;
+        right: 20px;
+        bottom: 30px;
+    }
+
+}
