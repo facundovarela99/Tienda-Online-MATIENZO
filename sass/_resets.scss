@@ -1,0 +1,8 @@
+* {
+    font-family: $fuente-principal;
+    box-sizing: border-box;
+    /*SI AGREGO PADDING O BORDE, EL ANCHO O ALTO DE MI ELEMENTO SE RESPETA ;) */
+    margin: 0;
+    padding: 0;
+    /*LIMPIEZA DE ESPACIADOS Y MARGENES POR DEFECTO PARA ASI PODER CONFIGURAR LOS MIOS PROPIOS*/
+}

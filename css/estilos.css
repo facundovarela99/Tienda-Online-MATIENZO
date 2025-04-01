@@ -1,12 +1,10 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
-/* con # (numeral) llamo al ID, con . (punto) llamo a la clase */
-/* el ID no es reutilizable, en cambio las clases # si! */
-/* el primer selector es el universal, despues de la fuente */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+/* MAPA */
 * {
   font-family: "Playfair Display";
-  /*FUENTE*/
   box-sizing: border-box;
   /*SI AGREGO PADDING O BORDE, EL ANCHO O ALTO DE MI ELEMENTO SE RESPETA ;) */
   margin: 0;
@@ -19,7 +17,8 @@
 }
 .bgHeader ul .home:hover, .bgHeader ul .productos:hover, .bgHeader ul .sucursales:hover, .bgHeader ul .acercaDe:hover, .bgHeader ul .contacto:hover {
   background-color: rgba(255, 233, 196, 0); /* Color más brillante al pasar el mouse */
-  box-shadow: 0 0 7px rgba(250, 183, 49, 0.8); /* Efecto de iluminación */
+  box-shadow: 0 0 10px rgba(250, 183, 49, 0.8); /* Efecto de iluminación */
+  color: rgba(250, 183, 49, 0.8);
 }
 @media screen and (max-width: 768px) {
   .bgHeader ul a {
@@ -38,7 +37,21 @@
   height: 45px;
 }
 
-/* BODY-MAIN INDEX*/
+footer {
+  background-color: lightsteelblue;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+}
+footer h6 {
+  font-size: 1.5rem;
+}
+footer .fa-whatsapp {
+  color: #25d366;
+  font-size: 3rem;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+}
+
 .seccionTitulos {
   background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.3137254902), rgba(0, 0, 0, 0.3137254902)), url(../assets/img/Fondo-Mate-Origen.jpg);
   background-size: cover;
@@ -106,6 +119,11 @@
 .guiaPreparacionMate .videoYPasos .bordeado .listaPasos a {
   border: outset rgb(66, 24, 6);
 }
+.guiaPreparacionMate .videoYPasos .bordeado .listaPasos a:hover {
+  border: outset rgb(66, 24, 6);
+  font-weight: 900;
+  padding: 10px;
+}
 .guiaPreparacionMate .videoYPasos .bordeado iframe {
   width: 100%;
   height: 300px;
@@ -145,31 +163,53 @@
   width: 90%;
 }
 
-/*BODY-MAIN-PRODUCTOS */
 .productos {
   background-color: rgb(252, 238, 221);
 }
-.productos .imagenesProductos {
-  /*PENDIENTE: CORREGIR DESBORDAMIENTO DE IMAGENES PRODUCTOS EN RESPONSIVE 767PX EN ADELANTE */
+.productos .tituloProductos {
+  background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.3960784314), rgba(0, 0, 0, 0.3960784314)), url(../assets/img/paquetes_de_yerba.jpg);
+  background-position: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+}
+.productos .tituloProductos h1 {
+  color: white;
+  font-family: "Fjalla One";
+  font-size: 5rem;
+  letter-spacing: 3px;
+  text-shadow: 5px 5px 0px #A37F41;
+}
+@media screen and (max-width: 768px) {
+  .productos .tituloProductos h1 {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
 }
 .productos .imagenesProductos div {
   background-color: white;
-  border: 1px solid #000;
-  /* Borde negro */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  /* Sombra */
+  border: 1px solid #000; /* borde negro */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* sombra */
+  transition: border 0.1s;
+  box-sizing: border-box !important;
 }
 .productos .imagenesProductos div a {
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+.productos .imagenesProductos div a img {
+  height: 240px;
+}
+.productos .imagenesProductos .bombillas:hover, .productos .imagenesProductos .yerbas:hover, .productos .imagenesProductos .termos:hover, .productos .imagenesProductos .mates:hover {
+  border: 5px solid #000;
 }
 .productos nav a {
   text-decoration: none;
   color: black;
   border: outset rgb(132, 37, 37);
 }
-.productos img {
-  height: 240px;
+.productos nav a:hover {
+  border: outset rgb(132, 37, 37);
+  font-weight: 900;
+  padding: 10px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -177,51 +217,86 @@
     font-size: 1rem !important;
   }
 }
-/*PENDIENTE: TERMINAR DE EDITAR DISEÑO RESPONSIVE EN IMAGENES DE PRODUCTOS - AGREGAR SASS */
 @media screen and (max-width: 768px) {
   .productos .imagenesProductos div a h1 {
     font-size: 2rem !important;
   }
 }
-/*BODY-MAIN-SUCURSALES */
 .titulos {
-  background-color: rgb(53, 138, 249);
+  background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.1882352941), rgba(0, 0, 0, 0.1882352941)), url(../assets/img/Paquete-alacena.jpg);
+  background-position: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+}
+.titulos h1 {
+  color: white !important;
+  font-family: "Fjalla One" !important;
+  font-size: 5rem !important;
+  letter-spacing: 3px !important;
+  text-shadow: 5px 5px 0px #A37F41 !important;
+}
+.titulos h2 {
+  color: white !important;
+  font-family: "Fjalla One" !important;
+  letter-spacing: 3px !important;
+  text-shadow: 5px 5px 0px #A37F41 !important;
+  padding-bottom: 8px !important;
 }
 
-@media screen and (max-width: 768px) {
-  .titulos h1 {
-    font-size: 1.5rem;
-  }
-  .titulos h2 {
-    font-size: 1.2rem;
-  }
-  .titulos img {
-    width: auto;
-    height: auto;
-  }
-}
 .mainSucursales {
   background-color: rgb(252, 238, 221);
 }
-.mainSucursales h1, .mainSucursales h2 {
-  color: black;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-}
 
-/*BODY-MAIN-ABOUT */
+@media screen and (max-width: 768px) {
+  .titulos {
+    background-size: cover;
+  }
+  .titulos h2 {
+    font-size: 1.25rem !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .titulos img {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 25px;
+  }
+}
+@media screen and (max-width: 913px) {
+  .titulos {
+    background-size: cover;
+  }
+  .titulos h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    text-shadow: 2.5px 2.5px 0px #A37F41;
+  }
+  .titulos h2 {
+    font-size: 1.25rem !important;
+  }
+  .titulos img {
+    width: 25px;
+  }
+}
 .mainAbout {
   background-color: rgb(252, 238, 221);
 }
 
+.tituloAbout h1 {
+  font-size: 4.5rem;
+}
 .tituloAbout img {
   margin: 20px !important;
-  height: 40px !important;
-  width: 40px !important;
+  height: 60px !important;
+  width: 60px !important;
+}
+
+.ArticuloAbout p {
+  font-family: "Open Sans";
 }
 
 @media screen and (max-width: 768px) {
   .tituloAbout h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
   }
   .ArticuloAbout p {
@@ -249,6 +324,7 @@
 }
 .comoCurarMate li {
   font-size: 1rem;
+  font-family: "Open Sans";
 }
 .comoCurarMate .imagenCuracion {
   background-image: url(../assets/img/COMO_CURAR_MATE.jpg);
@@ -262,7 +338,6 @@
     height: 40vh;
   }
 }
-/*BODY-MAIN-CONTACTO  */
 .seccionContacto .tituloContacto {
   background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.5764705882), rgba(0, 0, 0, 0.5764705882)), url(../assets/img/pasando-el-mate.jpg);
   background-position: center;
@@ -279,7 +354,9 @@
   text-shadow: 5px 5px 0px #A37F41;
 }
 .seccionContacto .tituloContacto div p {
-  color: rgba(0, 0, 0, 0);
+  color: white;
+  text-shadow: 2px 2px 0px #A37F41;
+  font-family: "Fjalla One";
 }
 .seccionContacto .colorFondo {
   background-color: #1A1A1A;
@@ -288,12 +365,9 @@
   .seccionContacto .tituloContacto {
     background-size: cover;
   }
-  .seccionContacto .tituloContacto h1 {
-    font-size: 3.5rem;
-    text-shadow: 2.5px 2.5px 0px #A37F41;
-  }
   .seccionContacto .tituloContacto p {
-    font-size: 1px !important;
+    font-size: 10px !important;
+    text-shadow: 1px 1px 0px #A37F41 !important;
   }
 }
 .seccionContacto .bordeado {
@@ -331,24 +405,45 @@
   background-color: #eece97; /* Color más brillante al pasar el cursor */
   box-shadow: 0 0 10px rgba(250, 183, 49, 0.8); /* Efecto de iluminación */
 }
+@media screen and (max-width: 1300px) {
+  .seccionContacto .bordeadoFormulario {
+    width: 78.5%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .seccionContacto .bordeadoFormulario {
+    width: 78.1%;
+  }
+}
 @media screen and (max-width: 768px) {
   .seccionContacto .bordeadoFormulario {
     width: 76%;
   }
 }
 
-/*FOOTER*/
-footer {
-  background-color: lightsteelblue;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+.termo1 {
+  background-color: rgb(252, 238, 221);
 }
-footer h6 {
-  font-size: 1.5rem;
+.termo1 .fila {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid, #000;
+  position: relative;
 }
-footer .fa-whatsapp {
-  color: #25d366;
-  font-size: 3rem;
-  position: fixed;
-  right: 20px;
-  bottom: 30px;
+.termo1 .fila .imagen {
+  overflow: hidden;
+}
+.termo1 .fila .imagen img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  transition: transform 0.2s ease-in-out;
+  filter: grayscale(100%);
+}
+.termo1 .fila .imagen img:hover {
+  transform: scale(1.09);
+  filter: initial;
+}
+.termo1 .fila p {
+  font-family: "Open Sans";
 }/*# sourceMappingURL=estilos.css.map */

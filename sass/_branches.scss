@@ -1,0 +1,59 @@
+.titulos {
+    background-image: linear-gradient(to right top, #00000030, #00000030), url(../assets/img/Paquete-alacena.jpg);
+    background-position: $alineacion-center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+    h1{
+        color: white !important;
+        font-family: $fuente-secundaria !important;
+        font-size: 5rem !important;
+        letter-spacing: 3px !important;
+        text-shadow: 5px 5px 0px #A37F41 !important; 
+    }
+    h2{
+        color: white !important;
+        font-family: $fuente-secundaria !important;
+        letter-spacing: 3px !important;
+        text-shadow: 5px 5px 0px #A37F41 !important;
+        padding-bottom: 8px !important; 
+
+    }
+
+}
+
+.mainSucursales {
+    background-color: $color-fondo-claro;
+}
+
+@media screen and (max-width: 768px) {
+    .titulos{
+        background-size: cover;
+
+        h2{
+            font-size: 1.25rem !important;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        img{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 913px) {
+    .titulos{
+        background-size: cover;
+        h1{
+            text-align: $alineacion-center;
+            font-size: 3.5rem;
+            text-shadow: 2.5px 2.5px 0px #A37F41
+        }
+        h2{
+            font-size: 1.25rem !important;
+        }
+        img{
+            width: 25px;
+        }
+    }
+}

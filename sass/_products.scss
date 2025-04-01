@@ -1,0 +1,87 @@
+.productos {
+    background-color: $color-fondo-claro;
+    .tituloProductos{
+        background-image: linear-gradient(to right top, #00000065, #00000065), url(../assets/img/paquetes_de_yerba.jpg);
+        background-position: $alineacion-center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+        h1{
+            color: white;
+            font-family: $fuente-secundaria;
+            font-size: 5rem;
+            letter-spacing: 3px;
+            text-shadow: 5px 5px 0px #A37F41; 
+        }
+        @media screen and (max-width: 768px) {
+
+            h1{
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+        }
+        
+    }
+
+    .imagenesProductos {
+        div {
+            background-color: white;
+            border: 1px solid #000; /* borde negro */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* sombra */
+            transition: border 0.1s;
+            box-sizing: border-box !important; 
+            a {
+                color: rgb(0, 0, 0);
+                text-decoration: none;
+                img {
+                    height: 240px;
+                }
+            }
+        }
+        .bombillas:hover, .yerbas:hover, .termos:hover, .mates:hover {
+            border: 5px solid #000;
+        }
+    }
+
+    nav{
+        a{
+            text-decoration: none;
+            color: map-get($colores_textos, negro);
+            border: outset rgb(132, 37, 37);
+            &:hover{
+                border: outset rgb(132, 37, 37);
+                font-weight: 900;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .productos{
+        .imagenesProductos{
+            div{
+                a{
+                    h1{
+                        font-size: 2rem !important;
+                    }
+                }
+            }
+        }
+    }
+}

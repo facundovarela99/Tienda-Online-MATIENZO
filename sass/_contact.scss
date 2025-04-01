@@ -1,0 +1,95 @@
+.seccionContacto {
+    .tituloContacto{
+        background-image: linear-gradient(to right top, #00000093, #00000093), url(../assets/img/pasando-el-mate.jpg);
+        background-position: $alineacion-center;
+        div{
+            width: 80%;
+            border: 2px solid rgba(244, 165, 96, 0.496);
+            h1{
+                color: white;
+                font-family: $fuente-secundaria;
+                font-size: 5rem;
+                letter-spacing: 3px;
+                text-shadow: 5px 5px 0px #A37F41
+            }
+            p{
+                color: white;
+                text-shadow: 2px 2px 0px #A37F41;
+                font-family: $fuente-secundaria;
+            }
+        }
+        }
+        .colorFondo{
+            background-color: $color-fondo-negro;
+        }
+
+    @media screen and (max-width: 768px) {
+
+        .tituloContacto{
+            background-size: cover;
+            p{
+                font-size: 10px !important;
+                text-shadow: 1px 1px 0px #A37F41 !important;
+            }
+        }
+    }
+    
+    .bordeado{
+        background-color: $color-fondo-negro;
+        width: 80%;
+        div{
+            border: 1px solid rgba(244, 165, 96, 0.496);
+            a{
+                text-decoration: none;
+                i{
+                    color: rgb(53, 138, 249);
+                }
+            }
+        }
+    }
+    
+    .bordeadoFormulario{
+        border: 1px solid rgba(244, 165, 96, 0.496);
+        width: 78.7%;
+        margin-bottom: 30px;
+        form {
+            padding: 30px;
+            border: outset rgb(0, 0, 0);
+            background-color: $color-fondo-claro;
+            label{
+                color: #a37f41;
+                font-weight: 700;
+
+            }
+            .enviar,.limpiar{
+                background-color: #a37f41;
+                border-radius: 0;
+            }
+            .enviar:hover, .limpiar:hover {
+                background-color: #eece97; /* Color más brillante al pasar el cursor */
+                box-shadow: 0 0 10px #fab731cc; /* Efecto de iluminación */
+            }
+        }
+    }
+
+    @media screen and (max-width: 1300px) {
+
+        .bordeadoFormulario{
+            width: 78.5%;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+
+        .bordeadoFormulario{
+            width: 78.1%;
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+
+        .bordeadoFormulario{
+            width: 76%;
+        }
+    }
+
+}

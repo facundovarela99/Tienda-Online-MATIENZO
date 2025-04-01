@@ -1,0 +1,136 @@
+.seccionTitulos {
+    background-image: linear-gradient(to right top, #00000050, #00000050), url(../assets/img/Fondo-Mate-Origen.jpg);
+    background-size: cover;
+    background-position: $alineacion-center;
+    background-attachment: fixed;
+
+    .mates,
+    .existo {
+        text-shadow: 5px 5px 0px #A37F41;
+        font-size: 150px;
+    }
+
+    h2,h3 {
+        font-family: $fuente-secundaria;
+    }
+
+    .separador {
+        color: #a37f41;
+        hr{
+            width: 7%;
+            border: 0;
+            height: 0.5px; /* Ajusta el grosor según tus necesidades */
+            background-color: #a37f41;
+            opacity: 1;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .seccionTitulos{
+        .tituloGrande{
+            .preparoUnos,
+            .luego{
+                padding-left: 80px;
+            }
+            padding-left: 40px;
+            .mates,
+            .existo {
+                text-shadow: 5px 5px 0px #A37F41;
+                font-size: 100px;
+            }
+        }
+        .subtitulo{
+            padding-left: 80px;
+        }
+    }
+}
+
+.guiaPreparacionMate {
+    background-color: $color-fondo-negro;
+    font-size: 30px;
+    font-weight: 400;
+
+    .tituloGuia {
+        background-color: rgb(84, 104, 131);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .videoYPasos {
+        .bordeado {
+            border: 1px solid rgba(244, 165, 96, 0.496);
+
+            .listaPasos {
+                background-color: $color-fondo-negro;
+
+                h4 {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-family: $fuente-secundaria;
+                    font-size: 1.75rem;
+                }
+
+                a {
+                    border: outset rgb(66, 24, 6);
+                    &:hover{
+                        border: outset rgb(66, 24, 6);
+                        font-weight: 900;
+                        padding: 10px;
+                    }
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+
+}
+
+
+.opiniones {
+
+    .opinionesClientes {
+        text-align: $alineacion-center;
+        font-weight: 800;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(84, 104, 131);
+        color: rgb(241, 241, 241);
+    }
+
+    background-color: $color-fondo-claro;
+    text-align: $alineacion-center;
+
+    h4,
+    h5 {
+        font-size: xx-large;
+        padding: 15px;
+
+        a {
+            color: map-get($colores_textos, negro);
+            border: outset rgb(132, 37, 37);
+            text-decoration: none;
+        }
+    }
+
+    p {
+        font-size: large;
+    }
+
+    .imagenesOpiniones {
+        div {
+            width: 400px;
+            height: 400px;
+            img {
+                width: 90%;
+            }
+        }
+    }
+}

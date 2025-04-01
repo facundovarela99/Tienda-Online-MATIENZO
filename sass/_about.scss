@@ -1,0 +1,84 @@
+.mainAbout {
+    background-color: $color-fondo-claro;
+}
+
+.tituloAbout {
+    h1{
+        font-size: 4.5rem;
+    }
+    img {
+        margin: 20px !important;
+        height: 60px !important;
+        width: 60px !important;
+    }
+}
+
+.ArticuloAbout{
+    p{
+        font-family: $fuente-terciaria;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tituloAbout {
+        h1 {
+            font-size: 3rem;
+            text-align: $alineacion-center;
+        }
+    }
+
+    .ArticuloAbout {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.separadorAbout{
+    color: #a37f41;
+        hr{
+            border: 0;
+            height: 0.5px; 
+            background-color: #a37f41;
+            opacity: 1;
+        }
+}
+
+.comoCurarMate {
+
+    .tituloCuracion{
+        img {
+            margin: 20px !important;
+            height: 40px !important;
+            width: 40px !important;
+        }
+    }
+
+    li{
+        font-size: 1rem;
+        font-family: $fuente-terciaria;
+    }
+
+    .imagenCuracion{
+        background-image: url(../assets/img/COMO_CURAR_MATE.jpg);
+        background-size: 90%;
+        background-position: $alineacion-center;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .comoCurarMate {
+
+        .imagenCuracion{
+            
+            height: 40vh;
+        }
+    }
+}
