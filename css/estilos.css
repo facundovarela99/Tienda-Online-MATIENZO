@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 /* MAPA */
+/* MIXIN */
 * {
   font-family: "Playfair Display";
   box-sizing: border-box;
@@ -50,6 +51,10 @@ footer .fa-whatsapp {
   position: fixed;
   right: 20px;
   bottom: 30px;
+}
+footer .redesSociales a i:hover {
+  color: #a37f41;
+  transform: scale(1.5);
 }
 
 .seccionTitulos {
@@ -151,6 +156,12 @@ footer .fa-whatsapp {
   color: black;
   border: outset rgb(132, 37, 37);
   text-decoration: none;
+}
+.opiniones h4 a:hover,
+.opiniones h5 a:hover {
+  border: outset rgb(132, 37, 37);
+  font-weight: 900;
+  padding: 10px;
 }
 .opiniones p {
   font-size: large;
@@ -379,9 +390,11 @@ footer .fa-whatsapp {
 }
 .seccionContacto .bordeado div a {
   text-decoration: none;
-}
-.seccionContacto .bordeado div a i {
   color: rgb(53, 138, 249);
+}
+.seccionContacto .bordeado div a:hover {
+  color: #a37f41;
+  transform: scale(1.5);
 }
 .seccionContacto .bordeadoFormulario {
   border: 1px solid rgba(244, 165, 96, 0.496);
@@ -421,7 +434,24 @@ footer .fa-whatsapp {
   }
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+main {
+  background-color: rgb(252, 238, 221);
+}
+
 .termo1 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
   background-color: rgb(252, 238, 221);
 }
 .termo1 .fila {
@@ -446,4 +476,258 @@ footer .fa-whatsapp {
 }
 .termo1 .fila p {
   font-family: "Open Sans";
+}
+
+@media screen and (max-width: 768px) {
+  .termo1 {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .termo1 .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: end !important;
+    width: 80% !important;
+  }
+  .termo1 .fila p {
+    padding: 0 !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .termo1 {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .termo1 .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .termo1 .fila p {
+    padding: 0 !important;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+main {
+  background-color: rgb(252, 238, 221);
+}
+
+.yerba {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  background-color: rgb(252, 238, 221);
+}
+.yerba .fila {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid, #000;
+  position: relative;
+}
+.yerba .fila .imagen {
+  overflow: hidden;
+}
+.yerba .fila .imagen img {
+  width: 90%;
+  height: 90%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  transition: transform 0.2s ease-in-out;
+  filter: grayscale(100%);
+}
+.yerba .fila .imagen img:hover {
+  transform: scale(1.09);
+  filter: initial;
+}
+.yerba .fila p {
+  font-family: "Open Sans";
+}
+
+@media screen and (max-width: 768px) {
+  .yerba {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .yerba .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: end !important;
+    width: 80% !important;
+  }
+  .yerba .fila p {
+    padding: 0 !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .yerba {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .yerba .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .yerba .fila p {
+    padding: 0 !important;
+    font-size: 1.2rem !important;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+main {
+  background-color: rgb(252, 238, 221);
+}
+
+.mate {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  background-color: rgb(252, 238, 221);
+}
+.mate .fila {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid, #000;
+  position: relative;
+}
+.mate .fila .imagen {
+  overflow: hidden;
+}
+.mate .fila .imagen img {
+  width: 90%;
+  height: 90%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  transition: transform 0.2s ease-in-out;
+  filter: grayscale(100%);
+}
+.mate .fila .imagen img:hover {
+  transform: scale(1.09);
+  filter: initial;
+}
+.mate .fila p {
+  font-family: "Open Sans";
+}
+
+@media screen and (max-width: 768px) {
+  .mate {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .mate .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: end !important;
+    width: 80% !important;
+  }
+  .mate .fila p {
+    padding: 0 !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .mate {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .mate .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .mate .fila p {
+    padding: 0 !important;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+main {
+  background-color: rgb(252, 238, 221);
+}
+
+.bombilla {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  background-color: rgb(252, 238, 221);
+}
+.bombilla .fila {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid, #000;
+  position: relative;
+}
+.bombilla .fila .imagen {
+  overflow: hidden;
+}
+.bombilla .fila .imagen img {
+  width: 90%;
+  height: 90%;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  transition: transform 0.2s ease-in-out;
+  filter: grayscale(100%);
+}
+.bombilla .fila .imagen img:hover {
+  transform: scale(1.09);
+  filter: initial;
+}
+.bombilla .fila p {
+  font-family: "Open Sans";
+}
+
+@media screen and (max-width: 768px) {
+  .bombilla {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .bombilla .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: end !important;
+    width: 80% !important;
+  }
+  .bombilla .fila p {
+    padding: 0 !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .bombilla {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .bombilla .fila {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .bombilla .fila p {
+    padding: 0 !important;
+  }
 }/*# sourceMappingURL=estilos.css.map */

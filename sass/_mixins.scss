@@ -1,0 +1,5 @@
+@mixin flex-alineacion($direction, $align){
+    display: flex !important;
+    flex-direction: $direction !important;
+    align-items: $align !important;
+}

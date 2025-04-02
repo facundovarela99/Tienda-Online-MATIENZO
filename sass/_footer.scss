@@ -13,5 +13,12 @@ footer {
         right: 20px;
         bottom: 30px;
     }
-
+    .redesSociales{
+        a{
+            i:hover{
+                    color: #a37f41;
+                    transform: scale(1.5);   
+            }
+        }
+    }
 }

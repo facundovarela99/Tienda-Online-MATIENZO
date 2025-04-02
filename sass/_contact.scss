@@ -41,9 +41,12 @@
             border: 1px solid rgba(244, 165, 96, 0.496);
             a{
                 text-decoration: none;
-                i{
-                    color: rgb(53, 138, 249);
-                }
+                color: rgb(53, 138, 249);
+                &:hover{
+                    color: #a37f41;
+                    transform: scale(1.5);   
+                   }       
+            
             }
         }
     }
