@@ -19,7 +19,7 @@
         hr{
             width: 7%;
             border: 0;
-            height: 0.5px; /* Ajusta el grosor según tus necesidades */
+            height: 0.5px; 
             background-color: #a37f41;
             opacity: 1;
         }
@@ -48,14 +48,64 @@
     }
 }
 
+.productosDestacados {
+    .tituloDestacados {
+      background-color: rgb(84, 104, 131);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+      position: relative; // necesario para que el z-index funcione
+      z-index: 1;
+    }
+  
+    h3 {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  
+    .imagenesDestacados {
+      background-color: $color-fondo-claro;
+      position: relative;
+      div {
+        width: 400px;
+        height: 475px;
+        overflow: hidden;
+        justify-content: space-around !important;
+
+        a{
+            width: 60%;
+            height: 65%;
+            text-decoration: none;
+            background-color: rgb(255, 105, 105);
+            img {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #000; /* borde negro */
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* sombra */
+                object-fit: cover;
+                transition: transform 0.2s ease-in-out;
+                &:hover{
+                    transform: scale(1.09);
+                    filter: initial;
+                }
+            }
+        }
+        p{
+            font-family: $fuente-secundaria;
+        }
+      }
+    }
+  }
+
 .guiaPreparacionMate {
     background-color: $color-fondo-negro;
     font-size: 30px;
     font-weight: 400;
 
+
     .tituloGuia {
         background-color: rgb(84, 104, 131);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
+        position: relative; /* necesario para que el z-index funcione */
+        z-index: 1;
     }
 
     .videoYPasos {
@@ -93,22 +143,16 @@
 
 }
 
-
 .opiniones {
 
-    .opinionesClientes {
-        text-align: $alineacion-center;
-        font-weight: 800;
-        padding-top: 15px;
-        padding-bottom: 15px;
+    .TituloOpinionesClientes {
         background-color: rgb(84, 104, 131);
-        color: rgb(241, 241, 241);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
     }
 
     background-color: $color-fondo-claro;
     text-align: $alineacion-center;
 
-    h4,
     h5 {
         font-size: xx-large;
         padding: 15px;
