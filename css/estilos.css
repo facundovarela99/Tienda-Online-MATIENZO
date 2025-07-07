@@ -37,6 +37,10 @@
   height: 45px;
 }
 
+.logo-carrito {
+  width: 30px;
+}
+
 footer {
   background-color: lightsteelblue;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
@@ -250,7 +254,7 @@ footer .redesSociales a i:hover {
   height: 240px;
 }
 .productos .imagenesProductos .bombillas:hover, .productos .imagenesProductos .yerbas:hover, .productos .imagenesProductos .termos:hover, .productos .imagenesProductos .mates:hover {
-  border: 5px solid #000;
+  outline: 5px solid #000;
 }
 .productos nav a {
   text-decoration: none;
@@ -536,6 +540,10 @@ main .titulo_termos h1, main .titulo_termos h2 {
 .termo1 .fila p {
   font-family: "Open Sans";
 }
+.termo1 .button {
+  padding: 10px;
+  margin: 10px;
+}
 
 @media screen and (max-width: 768px) {
   .termo1 {
@@ -628,6 +636,10 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
 }
 .yerba .fila p {
   font-family: "Open Sans";
+}
+.yerba .button {
+  padding: 10px;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -723,6 +735,10 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
 .mate .fila p {
   font-family: "Open Sans";
 }
+.mate .button {
+  padding: 10px;
+  margin: 10px;
+}
 
 @media screen and (max-width: 768px) {
   .mate {
@@ -815,6 +831,10 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
 }
 .bombilla .fila p {
   font-family: "Open Sans";
+}
+.bombilla .button {
+  padding: 10px;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {

@@ -11,6 +11,7 @@
   <title>MATIENZO | CODERHOUSE</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="./js/cartShop.js"></script>
 </head>
 
 <body>
@@ -42,6 +43,13 @@
             <li class="nav-item pe-5">
               <a class="contacto nav-link botonesNav" href="./pages/contacto.html">CONTACTO</a>
             </li>
+            <li class="nav-item pe-5">
+              <a href="#" class="nav-link position-relative" onclick="toggleMiniCarrito()">
+                <img class="logo-carrito" src="./assets/img/carritos-de-compra.png" alt="Carrito">
+                <span id="cantidadCarrito"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -71,24 +79,25 @@
       <div class="tituloDestacados text-white text-center fw-bold text-light row">
         <h3 class="fs-3">PRODUCTOS DESTACADOS</h3>
       </div>
-      <div class="imagenesDestacados pt-5 pb-5 mx-0 d-flex flex-row justify-content-center flex-wrap column-gap-5 row-gap-4">
+      <div
+        class="imagenesDestacados pt-5 pb-5 mx-0 d-flex flex-row justify-content-center flex-wrap column-gap-5 row-gap-4">
         <div class="d-flex flex-column align-items-center bg-primary-subtle rounded shadow">
-          <a href="./pages/termos.html#TermoStanley" class="mt-4"> 
+          <a href="./pages/termos.html#TermoStanley" class="mt-4">
             <img src="./assets/img/termo_stanley.png" alt="Termo">
           </a>
-            <p class="pt-4 fs-1">TERMO CLASICO STANLEY</p>
+          <p class="pt-4 fs-1">TERMO CLASICO STANLEY</p>
         </div>
         <div class="d-flex flex-column align-items-center bg-primary-subtle rounded shadow">
           <a href="./pages/yerbas.html#YerbaGritoSagrado" class="mt-4">
             <img src="./assets/img/yerba_gritosagrado.jpg" alt="Yerba">
           </a>
-            <p class="pt-4 fs-1">YERBA GRITO SAGRADO</p>
+          <p class="pt-4 fs-1">YERBA GRITO SAGRADO</p>
         </div>
         <div class="d-flex flex-column align-items-center bg-primary-subtle rounded shadow">
           <a href="./pages/mates.html#MateMundialista" class="mt-4">
             <img src="./assets/img/mate_mundialista.png" alt="Mate">
           </a>
-            <p class="pt-4 fs-1">MATE MUNDIALISTA</p>
+          <p class="pt-4 fs-1">MATE MUNDIALISTA</p>
         </div>
       </div>
     </section>
