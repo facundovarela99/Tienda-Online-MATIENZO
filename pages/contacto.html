@@ -43,12 +43,27 @@
             <li class="nav-item pe-5">
               <a class="contacto nav-link active" href="contacto.html">CONTACTO</a>
             </li>
-            <li class="nav-item pe-5">
-              <a href="#" class="nav-link position-relative" onclick="toggleMiniCarrito()">
+            <li class="nav-item dropdown pe-5">
+              <a href="#" class="nav-link position-relative dropdown-toggle" id="carritoDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="logo-carrito" src="../assets/img/carritos-de-compra.png" alt="Carrito">
                 <span id="cantidadCarrito"
                   class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
               </a>
+              <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="carritoDropdown"
+                style="min-width: 300px; max-height: 400px; overflow-y: auto;">
+                <li>
+                  <h5>Carrito</h5>
+                </li>
+                <li>
+                  <div id="itemsMiniCarrito"></div>
+                </li>
+                <li class="mt-2 fw-bold">Total: $<span id="totalMiniCarrito">0</span></li>
+                <li class="d-flex justify-content-between mt-2">
+                  <button onclick="vaciarCarrito()" class="btn btn-outline-danger btn-sm">Vaciar</button>
+                  <a href="../pages/pago.html" class="btn btn-success btn-sm">Ir a Pagar</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
