@@ -59,7 +59,7 @@
                 </li>
                 <li class="mt-2 fw-bold">Total: $<span id="totalMiniCarrito">0</span></li>
                 <li class="d-flex justify-content-between mt-2">
-                  <button onclick="vaciarCarrito()" class="btn btn-outline-danger btn-sm">Vaciar</button>
+                  <button class="btn btn-outline-danger btn-sm">Vaciar</button>
                   <a href="../pages/pago.html" class="btn btn-success btn-sm">Ir a Pagar</a>
                 </li>
               </ul>
@@ -84,14 +84,14 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Stanley</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Stanley</p>
           <p class="fs-2 fw-bolder">Mate-System | 1.2 lts.</p>
           <p class="fs-4 fw-normal ps-5">30 HORAS CALIENTE</p>
           <p class="fs-4 fw-normal ps-5">30 HORAS FRIO</p>
           <p class="fs-4 fw-normal ps-5">4 DIAS HELADO</p>
-          <p class="fs-4 fw-normal ps-5">$ 146.000</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$ 146.000</p>
           <p class="fs-5 fw-normal ps-5">Hasta 6 cuotas sin interés de $24.416,66</p>
-          <button onclick="agregarAlCarrito(9, 'TermoStanley', 146000)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
@@ -105,14 +105,14 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Stanley</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Stanley</p>
           <p class="fs-2 fw-bolder">Mate-System | 1.2 lts.</p>
           <p class="fs-4 fw-normal ps-5">30 HORAS CALIENTE</p>
           <p class="fs-4 fw-normal ps-5">30 HORAS FRIO</p>
           <p class="fs-4 fw-normal ps-5">4 DIAS HELADO</p>
-          <p class="fs-4 fw-normal ps-5">$ 175.000</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$ 175.000</p>
           <p class="fs-5 fw-normal ps-5">Hasta 6 cuotas sin interés de $29.166,66</p>
-          <button onclick="agregarAlCarrito(10, 'TermoStanley2', 175000)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
@@ -126,14 +126,14 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Coleman</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Coleman</p>
           <p class="fs-2 fw-bolder">Col-System | 0.75 lts.</p>
           <p class="fs-4 fw-normal ps-5">20 HORAS CALIENTE</p>
           <p class="fs-4 fw-normal ps-5">20 HORAS FRIO</p>
           <p class="fs-4 fw-normal ps-5">3 DIAS HELADO</p>
-          <p class="fs-4 fw-normal ps-5">$ 94.000</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$ 94.000</p>
           <p class="fs-5 fw-normal ps-5">Hasta 6 cuotas sin interés de $16.666,66</p>
-          <button onclick="agregarAlCarrito(11, 'TermoColeman', 94000)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
@@ -147,14 +147,14 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Stanley</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Stanley</p>
           <p class="fs-2 fw-bolder">Mate-System | 1.2 lts.</p>
           <p class="fs-4 fw-normal ps-5">20 HORAS CALIENTE</p>
           <p class="fs-4 fw-normal ps-5">20 HORAS FRIO</p>
           <p class="fs-4 fw-normal ps-5">3 DIAS HELADO</p>
-          <p class="fs-4 fw-normal ps-5">$ 126.500</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$ 126.500</p>
           <p class="fs-5 fw-normal ps-5">Hasta 6 cuotas sin interés de $21.083,33</p>
-          <button onclick="agregarAlCarrito(12, 'TermoStanley2', 126500)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
@@ -168,14 +168,14 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Termolar</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Termolar</p>
           <p class="fs-2 fw-bolder">Col-System | 1 lts.</p>
           <p class="fs-4 fw-normal ps-5">ACERO INOXIDABLE</p>
           <p class="fs-4 fw-normal ps-5">20hs caliente</p>
           <p class="fs-4 fw-normal ps-5">36hs frío</p>
-          <p class="fs-4 fw-normal ps-5">$116.881,00</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$116.881,00</p>
           <p class="fs-5 fw-normal ps-5">6 cuotas sin interés de $19.480,17</p>
-          <button onclick="agregarAlCarrito(13, 'TermoTermolar1', 116881)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
@@ -189,13 +189,13 @@
           </a>
         </div>
         <div class="parrafos d-flex flex-column ps-3">
-          <p class="fs-2 fw-bolder">Termo Termolar</p>
+          <p class="fs-2 fw-bolder" id="itemName">Termo Termolar</p>
           <p class="fs-2 fw-bolder">Beige-Chimarrita | 1 lts.</p>
           <p class="fs-4 fw-normal ps-5">12 HORAS CALIENTE</p>
           <p class="fs-4 fw-normal ps-5">24 HORAS FRIO</p>
-          <p class="fs-4 fw-normal ps-5">$ 21.589</p>
+          <p class="fs-4 fw-normal ps-5" id="itemValue">$ 21.589</p>
           <p class="fs-5 fw-normal ps-5">Hasta 6 cuotas sin interés de $3.600</p>
-          <button onclick="agregarAlCarrito(14, 'TermoTermolar2', 21589)" class="button btn btn-dark">Agregar al
+          <button class="button btn btn-dark" id="buttonAddToCart">Agregar al
             carrito</button>
         </div>
       </div>
