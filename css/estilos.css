@@ -49,6 +49,7 @@ footer {
 }
 footer h6 {
   font-size: 1.5rem;
+  font-family: "Fjalla One";
 }
 footer .fa-whatsapp {
   color: #25d366;
@@ -239,21 +240,29 @@ footer .redesSociales a i:hover {
     padding-bottom: 50px !important;
   }
 }
-.productos .imagenesProductos div {
+.productos .imagenesProductos div.producto {
+  width: 250px;
+  /* todos los productos tendrán el mismo ancho */
   background-color: white;
-  border: 1px solid #000; /* borde negro */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* sombra */
+  border: 1px solid #000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   transition: border 0.1s;
   box-sizing: border-box !important;
 }
-.productos .imagenesProductos div a {
+.productos .imagenesProductos div.producto a {
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
-.productos .imagenesProductos div a img {
+.productos .imagenesProductos div.producto a img {
   height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
-.productos .imagenesProductos .bombillas:hover, .productos .imagenesProductos .yerbas:hover, .productos .imagenesProductos .termos:hover, .productos .imagenesProductos .mates:hover {
+.productos .imagenesProductos .bombillas:hover,
+.productos .imagenesProductos .yerbas:hover,
+.productos .imagenesProductos .termos:hover,
+.productos .imagenesProductos .mates:hover {
   outline: 5px solid #000;
 }
 .productos nav a {
@@ -269,7 +278,7 @@ footer .redesSociales a i:hover {
 
 @media screen and (max-width: 1400px) {
   .productos .imagenesProductos div a h1 {
-    font-size: 1rem !important;
+    font-size: 1.5rem !important;
   }
 }
 @media screen and (max-width: 768px) {
