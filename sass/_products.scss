@@ -32,7 +32,7 @@
             background-color: white;
             border: 1px solid #000;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            transition: border 0.1s;
+            transition: transform 0.3s ease, outline 0.3s ease; //agregados para la animación de agrandar el div
             box-sizing: border-box !important;
 
             a {
@@ -52,6 +52,8 @@
         .termos:hover,
         .mates:hover {
             outline: 5px solid #000;
+            transform: scale(1.09); //agregados para la animación de agrandar el div
+            filter: initial; //agregados para la animación de agrandar el div
         }
     }
 
