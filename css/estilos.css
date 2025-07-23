@@ -879,8 +879,9 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
   }
 }
 .offcanvas-title {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-family: "Fjalla One";
+  font-weight: 400;
 }
 
 .divHrOffcanvas {
@@ -889,13 +890,14 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
   justify-content: center;
 }
 .divHrOffcanvas .hrOffcanvas {
-  width: 75%;
+  width: 90%;
   border: 0;
   height: 1.5px;
   background-color: #a37f41;
   opacity: 1;
 }
 
-.listaProductos {
-  background-color: aqua;
+#listaProductosCarrito {
+  background-color: rgb(255, 0, 0);
+  width: 100%;
 }/*# sourceMappingURL=estilos.css.map */
