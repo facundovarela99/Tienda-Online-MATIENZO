@@ -877,4 +877,25 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
   .bombilla .fila p {
     padding: 0 !important;
   }
+}
+.offcanvas-title {
+  font-size: 1.5rem;
+  font-family: "Fjalla One";
+}
+
+.divHrOffcanvas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.divHrOffcanvas .hrOffcanvas {
+  width: 75%;
+  border: 0;
+  height: 1.5px;
+  background-color: #a37f41;
+  opacity: 1;
+}
+
+.listaProductos {
+  background-color: aqua;
 }/*# sourceMappingURL=estilos.css.map */

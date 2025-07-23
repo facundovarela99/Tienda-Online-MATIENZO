@@ -60,7 +60,8 @@
                 <li class="mt-2 fw-bold">Total: $<span id="totalMiniCarrito">0</span></li>
                 <li class="d-flex justify-content-between mt-2">
                   <button class="btn btn-outline-danger btn-sm">Vaciar</button>
-                  <a href="../pages/pago.html" class="btn btn-success btn-sm">Ir a Pagar</a>
+                  <button id="sidebar" class="btn btn-success btn-sm" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Ir a pagar</button>
                 </li>
               </ul>
             </li>
@@ -182,6 +183,25 @@
       </p>
     </div>
   </footer>
+    <!--OFFCANVAS-->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h6 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h6>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="divHrOffcanvas">
+      <hr class="hrOffcanvas">
+    </div>
+    <div class="offcanvas-body">
+      <div class="divListaProductos">
+        <ul id="listaProductosCarrito">
+
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <!--OFFCANVAS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
