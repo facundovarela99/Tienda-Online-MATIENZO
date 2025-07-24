@@ -1,7 +1,13 @@
-let totalCarrito = 0;
-let valorTotalItem = 0;
-let totalItems = 0;
+let item=0;
+let botones = document.querySelectorAll(".buttonAddToCart");
+let itemsCarrito = document.querySelector(".cantidadItemsCarrito");
 
-function addItemCart(){
-    let item = document.getElementById("itemName").innerHTML;
+function addItemToCart(){
+    itemsCarrito.innerHTML=(item+=1);
 }
+
+document.querySelector(".buttonAddToCart").addEventListener("click",addItemToCart);
+
+botones.forEach(boton => {
+    boton.addEventListener("click",addItemToCart);
+});

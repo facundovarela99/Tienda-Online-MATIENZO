@@ -51,7 +51,7 @@
               <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="carritoDropdown"
                 style="min-width: 300px; max-height: 400px; overflow-y: auto;">
                 <li>
-                  <h5>Carrito</h5>
+                  <p class="fs-5">Carrito</p>
                 </li>
                 <li>
                   <div id="itemsMiniCarrito"></div>
@@ -155,6 +155,7 @@
         </div>
       </div>
     </div>
+    </main>
     <footer>
       <div class="datosContacto d-flex flex-column align-items-start">
         <h6 class="fw-bold fs-4 ps-1 pb-2">DATOS DE CONTACTO</h6>
@@ -180,23 +181,29 @@
       </div>
     </footer>
     <!--OFFCANVAS-->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-        <h6 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h6 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h6>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="divHrOffcanvas">
+        <hr class="hrOffcanvas">
+      </div>
+      <div class="divListaProductos">
+        <ul id="listaProductosCarrito">
+          Lista de productos
+        </ul>
       </div>
       <div class="divHrOffcanvas">
         <hr class="hrOffcanvas">
       </div>
-      <div class="offcanvas-body">
-        <div class="divListaProductos">
-          <ul id="listaProductosCarrito">
-
-          </ul>
-        </div>
-
+      <div class="subtotal" style="font-family: Fjalla One;">
+        Acumulador total
       </div>
+
     </div>
+  </div>
     <!--OFFCANVAS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
