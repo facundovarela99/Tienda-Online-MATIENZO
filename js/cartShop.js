@@ -122,6 +122,44 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    if (botonMate2){
+        let valorMate2 = parseFloat(document.querySelector('.mateValue2').dataset.precioMate2);
+        botonMate2.addEventListener('click', function(){
+            acumuladorTotal+= valorMate2;
+            itemsCarrito.innerHTML = (item+=1);
+            totalMiniCarrito.innerHTML = `${acumuladorTotal}`;
+        })
+    }
+
+    if (botonMate3){
+        let valorMate3 = parseFloat(document.querySelector('.mateValue3').dataset.precioMate3);
+        botonMate3.addEventListener('click', function(){
+            acumuladorTotal+= valorMate3;
+            itemsCarrito.innerHTML = (item+=1);
+            totalMiniCarrito.innerHTML = `${acumuladorTotal}`;
+        })
+    }
+
+    if (botonMate4){
+        let valorMate4 = parseFloat(document.querySelector('.mateValue4').dataset.precioMate4);
+        botonMate4.addEventListener('click', function(){
+            acumuladorTotal+= valorMate4;
+            itemsCarrito.innerHTML = (item+=1);
+            totalMiniCarrito.innerHTML = `${acumuladorTotal}`;
+        })
+    }
+
+    if (botonMate5){
+        let valorMate5 = parseFloat(document.querySelector('.mateValue5').dataset.precioMate5);
+        botonMate5.addEventListener('click', function(){
+            acumuladorTotal+= valorMate5;
+            itemsCarrito.innerHTML = (item+=1);
+            totalMiniCarrito.innerHTML = `${acumuladorTotal}`;
+        })
+    }
+
+   
+
 
 });
 
