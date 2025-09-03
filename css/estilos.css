@@ -900,4 +900,9 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
 #listaProductosCarrito {
   background-color: rgb(255, 0, 0);
   width: 100%;
+}
+
+.divSubtotalSidebar h6, .divSubtotalSidebar .spanSubtotal {
+  font-family: "Fjalla One";
+  font-size: 2rem;
 }/*# sourceMappingURL=estilos.css.map */
