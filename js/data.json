@@ -1,32 +1,118 @@
-[
+{
+  "yerbas": [
     {
       "id": 1,
       "nombre": "Yerba Mate ROAPIPO 100 %",
-      "descripcion": ["Organica Certificada", "500 gr", "Elaborada con palo", "Envasada en origen"],
+      "descripcion": [
+        "Organica Certificada",
+        "500 gr",
+        "Elaborada con palo",
+        "Envasada en origen"
+      ],
       "precio": 3165,
       "imagen": "../assets/img/roapipo-tradicional.jpg"
     },
     {
       "id": 2,
       "nombre": "Yerba Mate Grito Sagrado",
-      "descripcion": ["500 gr", "Estacionamiento natural", "Mix de secados", "(Cinta + Barbacuá)", "Envasada en Misiones"],
+      "descripcion": [
+        "500 gr",
+        "Estacionamiento natural",
+        "Mix de secados",
+        "(Cinta + Barbacuá)",
+        "Envasada en Misiones"
+      ],
       "precio": 4200,
       "imagen": "../assets/img/yerba_gritosagrado.jpg"
     },
     {
       "id": 3,
       "nombre": "Yerba Mate Hija de la Selva",
-      "descripcion": ["1 Kg", "Molienda fina", "Método Agrícola: Agroecológico", "Secado Barbacuá", "Envasada en Salta"],
+      "descripcion": [
+        "1 Kg",
+        "Molienda fina",
+        "Método Agrícola: Agroecológico",
+        "Secado Barbacuá",
+        "Envasada en Salta"
+      ],
       "precio": 1950,
       "imagen": "../assets/img/yerba-mate-hija-de-la-selva.jpg"
     },
     {
       "id": 4,
       "nombre": "Yerba Mate Sol de Acuario",
-      "descripcion": ["Elaborada con palo", "Estacionamiento natural", "Molienda semi-fina", "500gr", "Envasada en Jujuy"],
+      "descripcion": [
+        "Elaborada con palo",
+        "Estacionamiento natural",
+        "Molienda semi-fina",
+        "500gr",
+        "Envasada en Jujuy"
+      ],
       "precio": 2215,
       "imagen": "../assets/img/yerba-mate-sol-de-acuario.webp"
     }
-]
-
-
+  ],
+  "mates": [
+    {
+      "id": 1,
+      "nombre": "Mate Imperial Premium",
+      "descripcion": [
+        "De calabaza de alta calidad",
+        "Forrado en cuero",
+        "Base sólida de 4 patas reforzadas"
+      ],
+      "precio": 65000,
+      "cuotas": "4 cuotas de $21.666,67",
+      "imagen": "../assets/img/imperial_negro.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Mate Imperial Extra Grande",
+      "descripcion": [
+        "De calabaza refinada",
+        "Forrado en cuero bordó",
+        "Base sólida de 4 patas reforzadas"
+      ],
+      "precio": 72000,
+      "cuotas": "3 cuotas de $24.000",
+      "imagen": "../assets/img/imperial_rojo.png"
+    },
+    {
+      "id": 3,
+      "nombre": "Mate Stanley Edicion limitada",
+      "descripcion": [
+        "236 ml.",
+        "Mantiene la temperatura",
+        "Práctico e higiénico",
+        "30 minutos caliente"
+      ],
+      "precio": 80000,
+      "cuotas": "6 cuotas de $13.333,33",
+      "imagen": "../assets/img/mate_stanley_verde.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Mate Stanley Limestrone",
+      "descripcion": [
+        "236 ml.",
+        "Mantiene la temperatura",
+        "Práctico e higiénico",
+        "30 minutos caliente"
+      ],
+      "precio": 75000,
+      "cuotas": "3 cuotas de $25.000",
+      "imagen": "../assets/img/mate_stanley_rosa.png"
+    },
+    {
+      "id": 5,
+      "nombre": "Mate Calabaza Edición Mundialista",
+      "descripcion": [
+        "Calabaza y cuero",
+        "Base sólida de 4 patas reforzadas"
+      ],
+      "precio": 100000,
+      "cuotas": "4 cuotas de $25.000",
+      "imagen": "../assets/img/mate_mundialista.png"
+    }
+  ]
+}

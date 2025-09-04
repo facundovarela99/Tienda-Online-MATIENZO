@@ -2,7 +2,7 @@ const url = "../js/data.json";
 
 fetch(url)
     .then(res => res.json())
-    .then(data => mostrarYerbas(data))
+    .then(data => mostrarYerbas(data.yerbas))
     .catch(err => console.error("Error cargando JSON:", err));
 
 
@@ -11,17 +11,17 @@ let subTotalCarrito = document.querySelector('.totalMiniCarrito');
 let subTotal = 0;
 
 
-if (localStorage.getItem('contadorYerbas') === null) {
+if (localStorage.getItem('contadorProductos') === null) {
     contadorElementosCarrito.innerHTML = 0;
 } else {
-    contadorElementosCarrito.innerHTML = localStorage.getItem('contadorYerbas');
+    contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
 }
 
 
-if (localStorage.getItem('subTotalYerbas') === null) {
+if (localStorage.getItem('subTotalProductos') === null) {
     subTotalCarrito.innerHTML = 0;
 } else {
-    subTotalCarrito.innerHTML = localStorage.getItem('subTotalYerbas');
+    subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
 }
 
 const contenedorYerbas = document.querySelector('.containerYerbas');
@@ -41,12 +41,14 @@ function renderDescripcion(array) {
 function mostrarYerbas(yerbas) {
     yerbas.forEach(yerba => {
         const divPadre = document.createElement('div');
-        divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5';
+        (yerba.id % 2 === 0)
+        ?divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5'
+        :divPadre.className = 'yerba w-100 d-flex flex-column align-items-end pe-5 py-5'
         divPadre.innerHTML = `
         <div class="fila d-flex flex-row w-50" data-aos="fade-right">
           <div class="imagen w-50">
             <a href="../pages/contacto.html">
-              <img src="${yerba.imagen}" alt="">
+              <img src="${yerba.imagen}" alt="${yerba.nombre}">
             </a>
           </div>
           <div class="parrafos d-flex flex-column ps-3">
@@ -84,10 +86,10 @@ function mostrarYerbas(yerbas) {
             let productosAlmacenados = Number(contadorElementosCarrito.textContent);
             productosAlmacenados++;
             subTotal += parseInt(precioYerba);
-            localStorage.setItem('contadorYerbas', Number(productosAlmacenados));
-            localStorage.setItem('subTotalYerbas', Number(subTotal));
-            contadorElementosCarrito.innerHTML = localStorage.getItem('contadorYerbas');
-            subTotalCarrito.innerHTML = localStorage.getItem('subTotalYerbas');
+            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
+            localStorage.setItem('subTotalProductos', Number(subTotal));
+            contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
+            subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
         });
     });
 };
@@ -98,8 +100,8 @@ botonVaciarCarrito.addEventListener('click', () => {
     contadorElementosCarrito.innerHTML = 0;
     subTotalCarrito.innerHTML = 0;
     localStorage.removeItem('carrito');
-    localStorage.removeItem('contadorYerbas');
-    localStorage.removeItem('subTotalYerbas');
+    localStorage.removeItem('contadorProductos');
+    localStorage.removeItem('subTotalProductos');
     document.querySelector('.spanSubtotal').innerHTML = 0;
 })
 
@@ -119,7 +121,7 @@ botonSideBar.addEventListener('click', () => {
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
         `;
         contenedorBodySidebar.appendChild(etiquetaProductoEnCarrito);
-        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalYerbas');
+        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     })
 })
 
