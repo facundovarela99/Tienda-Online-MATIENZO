@@ -100,6 +100,7 @@ botonVaciarCarrito.addEventListener('click', () => {
     localStorage.removeItem('carrito');
     localStorage.removeItem('contadorYerbas');
     localStorage.removeItem('subTotalYerbas');
+    document.querySelector('.spanSubtotal').innerHTML = 0;
 })
 
 const botonSideBar = document.getElementById('sidebarButton');
