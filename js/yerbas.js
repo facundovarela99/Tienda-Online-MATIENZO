@@ -85,7 +85,9 @@ function mostrarYerbas(yerbas) {
             localStorage.setItem('carrito', JSON.stringify(carrito));
             let productosAlmacenados = Number(contadorElementosCarrito.textContent);
             productosAlmacenados++;
-            subTotal += parseInt(precioYerba);
+            (localStorage.getItem('subTotalProductos') === null)
+            ? subTotal += parseInt(precioYerba)
+            : subTotal = parseInt(precioYerba)+Number(localStorage.getItem('subTotalProductos'))
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             localStorage.setItem('subTotalProductos', Number(subTotal));
             contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');

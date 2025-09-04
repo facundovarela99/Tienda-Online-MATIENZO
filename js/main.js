@@ -2,14 +2,14 @@ const contadorElementosCarrito = document.getElementById('cantidadItemsCarrito')
 const subTotalYerbas = document.getElementById('totalMiniCarrito');
 const divListaProductos = document.querySelector('.divListaProductos');
 
-if (localStorage.getItem('contadorYerbas') === null && localStorage.getItem('subTotalYerbas') === null) {
+if (localStorage.getItem('contadorProductos') === null && localStorage.getItem('subTotalProductos') === null) {
     contadorElementosCarrito.innerHTML = 0;
     subTotalYerbas.innerHTML = 0;
     divListaProductos.innerHTML = "";
 
 } else {
-    contadorElementosCarrito.innerHTML = localStorage.getItem('contadorYerbas');
-    subTotalYerbas.innerHTML = localStorage.getItem('subTotalYerbas');
+    contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
+    subTotalYerbas.innerHTML = localStorage.getItem('subTotalProductos');
 }
 
 const botonSideBar = document.getElementById('sidebarButton');
@@ -21,13 +21,13 @@ botonSideBar.addEventListener('click', () => {
 
     carrito.forEach((producto) => {
         const etiquetaProductoEnCarrito = document.createElement('div')
-        etiquetaProductoEnCarrito.className = 'yerbaCarrito';
+        etiquetaProductoEnCarrito.className = 'productoCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
             <img src="${producto.img}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
         `;
         contenedorBodySidebar.appendChild(etiquetaProductoEnCarrito);
-        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalYerbas');
+        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     })
 })
