@@ -66,7 +66,7 @@ function mostrarYerbas(yerbas) {
             const nombreYerba = botonComprar.getAttribute('data-name');
             const idYerba = botonComprar.getAttribute('data-id');
             const precioYerba = botonComprar.getAttribute('data-precio');
-            const imgYerba = botonComprar.getAttribute('data-img');
+            const imagenYerba = botonComprar.getAttribute('data-img');
             let carrito;
 
             if (localStorage.getItem('carrito') === null) {
@@ -79,7 +79,7 @@ function mostrarYerbas(yerbas) {
                 'id': idYerba,
                 'nombre': nombreYerba,
                 'precio': precioYerba,
-                'img': imgYerba
+                'imagen': imagenYerba
             };
             carrito.push(nuevoProducto);
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -118,7 +118,7 @@ botonSideBar.addEventListener('click', () => {
         const etiquetaProductoEnCarrito = document.createElement('div')
         etiquetaProductoEnCarrito.className = 'yerbaCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
-            <img src="${producto.img}" alt="${producto.nombre}" width="140">
+            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
         `;

@@ -23,7 +23,7 @@ botonSideBar.addEventListener('click', () => {
         const etiquetaProductoEnCarrito = document.createElement('div')
         etiquetaProductoEnCarrito.className = 'productoCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
-            <img src="${producto.img}" alt="${producto.nombre}" width="140">
+            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
         `;
@@ -31,3 +31,14 @@ botonSideBar.addEventListener('click', () => {
         document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     })
 })
+
+const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
+
+botonVaciarCarrito.addEventListener('click',()=>{
+    localStorage.removeItem('carrito')
+    localStorage.removeItem('contadorProductos');
+    localStorage.removeItem('subTotalProductos');
+    contadorElementosCarrito.innerHTML = 0;
+    subTotalYerbas.innerHTML = 0;
+})
+
