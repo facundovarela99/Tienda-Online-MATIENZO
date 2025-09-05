@@ -114,5 +114,55 @@
       "cuotas": "4 cuotas de $25.000",
       "imagen": "../assets/img/mate_mundialista.png"
     }
+  ],
+  "termos":[
+    {
+      "id":1,
+      "nombre":"Termo Stanley",
+      "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
+      "precio":146000,
+      "cuotas":"Hasta 6 cuotas sin interes de $24.416,66",
+      "imagen":"../assets/img/termo_stanley.png"
+    },
+    {
+      "id":2,
+      "nombre":"Termo Stanley",
+      "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
+      "precio":175000,
+      "cuotas":"Hasta 6 cuotas sin interes de $29.166,66",
+      "imagen":"../assets/img/termo-stanley-rosa.png"
+    },
+    {
+      "id":3,
+      "nombre":"Termo Coleman",
+      "descripcion":["Col-System | 0.75 lts", "20 horas caliente", "20 horas frío", "3 días helado"],
+      "precio":94000,
+      "cuotas":"Hasta 6 cuotas sin interes de $16.666,66",
+      "imagen":"../assets/img/TERMO_COLEMAN_NEGRO.jpg"
+    },
+    {
+      "id":4,
+      "nombre":"Termo Stanley",
+      "descripcion":["Mate-System | 1.2 lts.", "20 horas caliente", "20 horas frío", "3 días helado"],
+      "precio":126500,
+      "cuotas":"Hasta 6 cuotas sin interes de $21.083,33",
+      "imagen":"../assets/img/termo_stanley_blanco.png"
+    },
+    {
+      "id":5,
+      "nombre":"Termo Termolar",
+      "descripcion":["Col-System | 1 lts.", "ACERO INOXIDABLE", "20 horas caliente", "36 horas frío"],
+      "precio":116881,
+      "cuotas":"Hasta 6 cuotas sin interes de $19.480,17",
+      "imagen":"../assets/img/termolar.jpg"
+    },
+    {
+      "id":6,
+      "nombre":"Termo Termolar",
+      "descripcion":["Beige-Chimarrita | 1 lts.", "12 horas caliente", "24 horas frío"],
+      "precio":21589,
+      "cuotas":"Hasta 6 cuotas sin interes de $3.600",
+      "imagen":"../assets/img/termo_beige.jpg"
+    }
   ]
 }
