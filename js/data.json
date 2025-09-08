@@ -164,5 +164,39 @@
       "cuotas":"Hasta 6 cuotas sin interes de $3.600",
       "imagen":"../assets/img/termo_beige.jpg"
     }
+  ],
+  "bombillas":[
+    {
+      "id":1,
+      "nombre":"Bombilla Stanley Spoon",
+      "descripcion":["Filtrado limitado de yerba", "Boquilla ancha"],
+      "precio":32750,
+      "cuotas":"3 cuotas de $ 10.666,67",
+      "imagen":"../assets/img/bombilla_stanley_spoon.jpg"
+    },
+    {
+      "id":2,
+      "nombre":"Bombilla La Merced",
+      "descripcion":["Alpaca", "Curva corta", "Boquilla fina"],
+      "precio":37000,
+      "cuotas":"3 cuotas sin interes de $12.333,33",
+      "imagen":"../assets/img/bombilla_laMerced.jpg"
+    },
+    {
+      "id":3,
+      "nombre":"Bombilla Union",
+      "descripcion":["Alpaca", "Curva larga", "Boquilla ancha"],
+      "precio":28000,
+      "cuotas":"6 cuotas sin interes de $9.333,33",
+      "imagen":"../assets/img/bombilla_union.jpg"
+    },
+    {
+      "id":4,
+      "nombre":"Bombilla Pico Loro",
+      "descripcion":["Alpaca", "Curva larga", "Cincelada", "Filtro cuchara"],
+      "precio":40000,
+      "cuotas":"6 cuotas de $ 6.666,66",
+      "imagen":"../assets/img/termo_beige.jpg"
+    }
   ]
 }

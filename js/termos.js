@@ -122,7 +122,6 @@ botonSideBar.addEventListener('click',()=>{
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
         `;
-        console.log(`Nombre termo: ${producto.nombre}`)
         contenedorBodySidebar.appendChild(etiquetaProductoEnCarrito);
         document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     });
