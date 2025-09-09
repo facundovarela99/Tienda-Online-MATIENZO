@@ -99,12 +99,32 @@ function mostrarTermos(termos){
 };
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-botonVaciarCarrito.addEventListener('click', ()=>{
+function vaciarCarrito() {
+    localStorage.removeItem('carrito')
     localStorage.removeItem('contadorProductos');
     localStorage.removeItem('subTotalProductos');
-    localStorage.removeItem('carrito');
     contadorElementosCarrito.innerHTML = 0;
-    subTotalCarrito.innerHTML = 0;
+    subTotalYerbas.innerHTML = 0;
+}
+
+botonVaciarCarrito.addEventListener('click', () => {
+    if (localStorage.getItem('contadorProductos')) {
+        swal({
+            title: "¿Está seguro de que desea vaciar el carrito?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Su carrito fue vaciado", {
+                        icon: "success",
+                    });
+                    vaciarCarrito();
+                }
+            });
+    }
+
 })
 
 const contenedorBodySidebar = document.querySelector('.divListaProductos');

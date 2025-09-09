@@ -34,27 +34,31 @@ botonSideBar.addEventListener('click', () => {
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
 
-botonVaciarCarrito.addEventListener('click', () => {
+function vaciarCarrito() {
     localStorage.removeItem('carrito')
     localStorage.removeItem('contadorProductos');
     localStorage.removeItem('subTotalProductos');
     contadorElementosCarrito.innerHTML = 0;
     subTotalYerbas.innerHTML = 0;
-    // swal({
-    //     title: "Are you sure?",
-    //     text: "Once deleted, you will not be able to recover this imaginary file!",
-    //     icon: "warning",
-    //     buttons: true,
-    //     dangerMode: true,
-    // })
-    //     .then((willDelete) => {
-    //         if (willDelete) {
-    //             swal("Poof! Your imaginary file has been deleted!", {
-    //                 icon: "success",
-    //             });
-    //         } else {
-    //             swal("Your imaginary file is safe!");
-    //         }
-    //     });
+}
+
+botonVaciarCarrito.addEventListener('click', () => {
+    if (localStorage.getItem('contadorProductos')) {
+        swal({
+            title: "¿Está seguro de que desea vaciar el carrito?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Su carrito fue vaciado", {
+                        icon: "success",
+                    });
+                    vaciarCarrito();
+                }
+            });
+    }
+
 })
 
