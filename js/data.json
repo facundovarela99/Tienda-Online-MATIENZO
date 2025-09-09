@@ -9,7 +9,7 @@
         "Elaborada con palo",
         "Envasada en origen"
       ],
-      "precio": 3165,
+      "precio": 5665,
       "imagen": "../assets/img/roapipo-tradicional.jpg"
     },
     {
@@ -22,7 +22,7 @@
         "(Cinta + Barbacuá)",
         "Envasada en Misiones"
       ],
-      "precio": 4200,
+      "precio": 7240,
       "imagen": "../assets/img/yerba_gritosagrado.jpg"
     },
     {
@@ -35,7 +35,7 @@
         "Secado Barbacuá",
         "Envasada en Salta"
       ],
-      "precio": 1950,
+      "precio": 3450,
       "imagen": "../assets/img/yerba-mate-hija-de-la-selva.jpg"
     },
     {
@@ -48,7 +48,7 @@
         "500gr",
         "Envasada en Jujuy"
       ],
-      "precio": 2215,
+      "precio": 3215,
       "imagen": "../assets/img/yerba-mate-sol-de-acuario.webp"
     }
   ],
@@ -61,8 +61,8 @@
         "Forrado en cuero",
         "Base sólida de 4 patas reforzadas"
       ],
-      "precio": 65000,
-      "cuotas": "4 cuotas de $21.666,67",
+      "precio": 35000,
+      "cuotas": "4 cuotas de $8.750,00",
       "imagen": "../assets/img/imperial_negro.jpg"
     },
     {
@@ -73,8 +73,8 @@
         "Forrado en cuero bordó",
         "Base sólida de 4 patas reforzadas"
       ],
-      "precio": 72000,
-      "cuotas": "3 cuotas de $24.000",
+      "precio": 38400,
+      "cuotas": "3 cuotas de $12.800,00",
       "imagen": "../assets/img/imperial_rojo.png"
     },
     {
@@ -86,8 +86,8 @@
         "Práctico e higiénico",
         "30 minutos caliente"
       ],
-      "precio": 80000,
-      "cuotas": "6 cuotas de $13.333,33",
+      "precio": 41200,
+      "cuotas": "6 cuotas de $6.866,66",
       "imagen": "../assets/img/mate_stanley_verde.jpg"
     },
     {
@@ -99,8 +99,8 @@
         "Práctico e higiénico",
         "30 minutos caliente"
       ],
-      "precio": 75000,
-      "cuotas": "3 cuotas de $25.000",
+      "precio": 43000,
+      "cuotas": "3 cuotas de $14.333,33",
       "imagen": "../assets/img/mate_stanley_rosa.png"
     },
     {
@@ -110,8 +110,8 @@
         "Calabaza y cuero",
         "Base sólida de 4 patas reforzadas"
       ],
-      "precio": 100000,
-      "cuotas": "4 cuotas de $25.000",
+      "precio": 55800,
+      "cuotas": "4 cuotas de $13.950,00",
       "imagen": "../assets/img/mate_mundialista.png"
     }
   ],
@@ -120,48 +120,48 @@
       "id":1,
       "nombre":"Termo Stanley",
       "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
-      "precio":146000,
-      "cuotas":"Hasta 6 cuotas sin interes de $24.416,66",
+      "precio":60999,
+      "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
       "imagen":"../assets/img/termo_stanley.png"
     },
     {
       "id":2,
       "nombre":"Termo Stanley",
       "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
-      "precio":175000,
-      "cuotas":"Hasta 6 cuotas sin interes de $29.166,66",
+      "precio":60999,
+      "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
       "imagen":"../assets/img/termo-stanley-rosa.png"
     },
     {
       "id":3,
       "nombre":"Termo Coleman",
       "descripcion":["Col-System | 0.75 lts", "20 horas caliente", "20 horas frío", "3 días helado"],
-      "precio":94000,
-      "cuotas":"Hasta 6 cuotas sin interes de $16.666,66",
+      "precio":54680,
+      "cuotas":"Hasta 6 cuotas sin interes de $9.113,33",
       "imagen":"../assets/img/TERMO_COLEMAN_NEGRO.jpg"
     },
     {
       "id":4,
       "nombre":"Termo Stanley",
       "descripcion":["Mate-System | 1.2 lts.", "20 horas caliente", "20 horas frío", "3 días helado"],
-      "precio":126500,
-      "cuotas":"Hasta 6 cuotas sin interes de $21.083,33",
+      "precio":48999,
+      "cuotas":"Hasta 6 cuotas sin interes de $8.166,50",
       "imagen":"../assets/img/termo_stanley_blanco.png"
     },
     {
       "id":5,
       "nombre":"Termo Termolar",
       "descripcion":["Col-System | 1 lts.", "ACERO INOXIDABLE", "20 horas caliente", "36 horas frío"],
-      "precio":116881,
-      "cuotas":"Hasta 6 cuotas sin interes de $19.480,17",
+      "precio":37560,
+      "cuotas":"Hasta 6 cuotas sin interes de $6.260",
       "imagen":"../assets/img/termolar.jpg"
     },
     {
       "id":6,
       "nombre":"Termo Termolar",
       "descripcion":["Beige-Chimarrita | 1 lts.", "12 horas caliente", "24 horas frío"],
-      "precio":21589,
-      "cuotas":"Hasta 6 cuotas sin interes de $3.600",
+      "precio":34870,
+      "cuotas":"Hasta 6 cuotas sin interes de $5.811,66",
       "imagen":"../assets/img/termo_beige.jpg"
     }
   ],
@@ -170,32 +170,32 @@
       "id":1,
       "nombre":"Bombilla Stanley Spoon",
       "descripcion":["Filtrado limitado de yerba", "Boquilla ancha"],
-      "precio":32750,
-      "cuotas":"3 cuotas de $ 10.666,67",
+      "precio":15330,
+      "cuotas":"3 cuotas de $5.110",
       "imagen":"../assets/img/bombilla_stanley_spoon.jpg"
     },
     {
       "id":2,
       "nombre":"Bombilla La Merced",
       "descripcion":["Alpaca", "Curva corta", "Boquilla fina"],
-      "precio":37000,
-      "cuotas":"3 cuotas sin interes de $12.333,33",
+      "precio":12600,
+      "cuotas":"3 cuotas sin interes de $4.200",
       "imagen":"../assets/img/bombilla_laMerced.jpg"
     },
     {
       "id":3,
       "nombre":"Bombilla Union",
       "descripcion":["Alpaca", "Curva larga", "Boquilla ancha"],
-      "precio":28000,
-      "cuotas":"6 cuotas sin interes de $9.333,33",
+      "precio":16800,
+      "cuotas":"6 cuotas sin interes de $2.800",
       "imagen":"../assets/img/bombilla_union.jpg"
     },
     {
       "id":4,
       "nombre":"Bombilla Pico Loro",
       "descripcion":["Alpaca", "Curva larga", "Cincelada", "Filtro cuchara"],
-      "precio":40000,
-      "cuotas":"6 cuotas de $ 6.666,66",
+      "precio":17200,
+      "cuotas":"6 cuotas de $ 2.866,66",
       "imagen":"../assets/img/termo_beige.jpg"
     }
   ]

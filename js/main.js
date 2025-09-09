@@ -34,11 +34,27 @@ botonSideBar.addEventListener('click', () => {
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
 
-botonVaciarCarrito.addEventListener('click',()=>{
+botonVaciarCarrito.addEventListener('click', () => {
     localStorage.removeItem('carrito')
     localStorage.removeItem('contadorProductos');
     localStorage.removeItem('subTotalProductos');
     contadorElementosCarrito.innerHTML = 0;
     subTotalYerbas.innerHTML = 0;
+    // swal({
+    //     title: "Are you sure?",
+    //     text: "Once deleted, you will not be able to recover this imaginary file!",
+    //     icon: "warning",
+    //     buttons: true,
+    //     dangerMode: true,
+    // })
+    //     .then((willDelete) => {
+    //         if (willDelete) {
+    //             swal("Poof! Your imaginary file has been deleted!", {
+    //                 icon: "success",
+    //             });
+    //         } else {
+    //             swal("Your imaginary file is safe!");
+    //         }
+    //     });
 })
 
