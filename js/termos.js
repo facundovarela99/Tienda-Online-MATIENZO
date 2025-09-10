@@ -104,7 +104,7 @@ function vaciarCarrito() {
     localStorage.removeItem('contadorProductos');
     localStorage.removeItem('subTotalProductos');
     contadorElementosCarrito.innerHTML = 0;
-    subTotalYerbas.innerHTML = 0;
+    subTotalCarrito.innerHTML = 0;
 }
 
 botonVaciarCarrito.addEventListener('click', () => {

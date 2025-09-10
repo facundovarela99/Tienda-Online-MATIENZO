@@ -5,7 +5,7 @@ fetch(url)
     .then(data => mostrarBombillas(data.bombillas))
     .catch(err => console.error("Error cargando JSON:", err));
 
-let cantidadItemsCarrito = document.querySelector('.cantidadItemsCarrito');
+let contadorElementosCarrito = document.querySelector('.cantidadItemsCarrito');
 let subTotalCarrito = document.querySelector('.totalMiniCarrito');
 let subTotal = 0;
 
@@ -17,7 +17,7 @@ function validarStorage(storage) {
     }
 }
 
-cantidadItemsCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'));
+contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'));
 subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'));
 
 const contenedorBombillas = document.querySelector('.contenedorBombillas');
@@ -26,9 +26,9 @@ function renderDescripcion(array) {
     let html = "";
     for (let index = 0; index < array.length; index++) {
         if (index === 0) {
-            html += `<p class="fs-2 fw-normal ps-5">${array[i]}</p>`
+            html += `<p class="fs-2 fw-normal ps-5">${array[index]}</p>`
         } else {
-            html += `<p class="fs-4 fw-normal ps-5">${array[i]}</p>`
+            html += `<p class="fs-4 fw-normal ps-5">${array[index]}</p>`
         }
     }
     return html
@@ -63,58 +63,49 @@ function mostrarBombillas(bombillas) {
         const btnComprar = document.querySelector(`.btnComprar${bombilla.id}`);
         btnComprar.addEventListener('click', () => {
             const idBombilla = btnComprar.getAttribute('data-id');
-            const nombreBombilla =  btnComprar.getAttribute('data-nombre');
+            const nombreBombilla = btnComprar.getAttribute('data-nombre');
             const precioBombilla = btnComprar.getAttribute('data-precio');
             const imagenBombilla = btnComprar.getAttribute('data-imagen');
 
             let carrito;
 
-            (localStorage.getItem('carrito')=== null)
-            ? carrito = []
-            : carrito = JSON.parse(localStorage.getItem('carrito'));
+            (localStorage.getItem('carrito') === null)
+                ? carrito = []
+                : carrito = JSON.parse(localStorage.getItem('carrito'));
 
-            let nuevoProducto ={
-                "id":idBombilla,
-                "nombre":nombreBombilla,
-                "precio":precioBombilla,
-                "imagen":imagenBombilla
+            let nuevoProducto = {
+                "id": idBombilla,
+                "nombre": nombreBombilla,
+                "precio": precioBombilla,
+                "imagen": imagenBombilla
             }
 
             carrito.push(nuevoProducto);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             (localStorage.getItem('subTotalProductos') === null)
-            ? subTotal+=parseInt(precioBombilla)
-            : subTotal=parseInt(precioBombilla) + Number(localStorage.getItem('subTotalProductos'));
+                ? subTotal += parseInt(precioBombilla)
+                : subTotal = parseInt(precioBombilla) + Number(localStorage.getItem('subTotalProductos'));
             localStorage.setItem('subTotalProductos', Number(subTotal))
             subTotalCarrito.innerHTML = subTotal;
             let productosAlmacenados;
-            productosAlmacenados = validarStorage(localStorage.getItem('.contadorProductos'));
+            productosAlmacenados = validarStorage(localStorage.getItem('contadorProductos'));
             productosAlmacenados++;
+            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             contadorElementosCarrito.innerHTML = productosAlmacenados;
         });
     });
 };
 
-const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-
-botonVaciarCarrito.addEventListener('click', ()=>{
-    localStorage.removeItem('contadorProductos');
-    localStorage.removeItem('subTotalProductos');
-    localStorage.removeItem('carrito');
-    contadorElementosCarrito.innerHTML = 0;
-    subTotalCarrito.innerHTML = 0;
-})
-
 const contenedorBodySidebar = document.querySelector('.divListaProductos');
 const botonSideBar = document.getElementById('sidebarButton');
 
-botonSideBar.addEventListener('click',()=>{
+botonSideBar.addEventListener('click', () => {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     contenedorBodySidebar.innerHTML = "";
-    carrito.forEach((producto)=>{
+    carrito.forEach((producto) => {
         const etiquetaProductoEnCarrito = document.createElement('div');
         etiquetaProductoEnCarrito.className = 'bombillaCarrito';
-        etiquetaProductoEnCarrito.innerHTML=`
+        etiquetaProductoEnCarrito.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
@@ -123,3 +114,33 @@ botonSideBar.addEventListener('click',()=>{
         document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     });
 });
+
+const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
+
+function vaciarCarrito() {
+    localStorage.removeItem('carrito')
+    localStorage.removeItem('contadorProductos');
+    localStorage.removeItem('subTotalProductos');
+    contadorElementosCarrito.innerHTML = 0;
+    subTotalCarrito.innerHTML = 0;
+}
+
+botonVaciarCarrito.addEventListener('click', () => {
+    if (localStorage.getItem('contadorProductos')) {
+        swal({
+            title: "¿Está seguro de que desea vaciar el carrito?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Su carrito fue vaciado", {
+                        icon: "success",
+                    });
+                    vaciarCarrito();
+                }
+            });
+    }
+})
+

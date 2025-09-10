@@ -1,15 +1,15 @@
 const contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
-const subTotalYerbas = document.getElementById('totalMiniCarrito');
+const subTotalProductos = document.getElementById('totalMiniCarrito');
 const divListaProductos = document.querySelector('.divListaProductos');
 
 if (localStorage.getItem('contadorProductos') === null && localStorage.getItem('subTotalProductos') === null) {
     contadorElementosCarrito.innerHTML = 0;
-    subTotalYerbas.innerHTML = 0;
+    subTotalProductos.innerHTML = 0;
     divListaProductos.innerHTML = "";
 
 } else {
     contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
-    subTotalYerbas.innerHTML = localStorage.getItem('subTotalProductos');
+    subTotalProductos.innerHTML = localStorage.getItem('subTotalProductos');
 }
 
 const botonSideBar = document.getElementById('sidebarButton');
@@ -39,7 +39,7 @@ function vaciarCarrito() {
     localStorage.removeItem('contadorProductos');
     localStorage.removeItem('subTotalProductos');
     contadorElementosCarrito.innerHTML = 0;
-    subTotalYerbas.innerHTML = 0;
+    subTotalProductos.innerHTML = 0;
 }
 
 botonVaciarCarrito.addEventListener('click', () => {
