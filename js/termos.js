@@ -7,7 +7,7 @@ fetch(url)
     .then(data => mostrarTermos(data.termos))
     .catch(err => console.error("Error cargando JSON:", err));
 
-let contadorElementosCarrito = document.querySelector('.cantidadItemsCarrito');
+let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
 let subTotalCarrito = document.querySelector('.totalMiniCarrito');
 let subTotal = 0;
 

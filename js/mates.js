@@ -1,4 +1,4 @@
-import { abrirSidebar } from "./carrito.js";
+import { abrirSidebar, manejarCarrito } from "./carrito.js";
 
 async function obtenerMates() {
     const response = await fetch("../js/data.json")
@@ -18,7 +18,7 @@ async function mostrarMates() {
     }
 }
 
-let contadorElementosCarrito = document.querySelector('.cantidadItemsCarrito');
+let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
 let subTotalCarrito = document.querySelector('.totalMiniCarrito');
 let subTotal = 0;
 
@@ -107,33 +107,8 @@ sidebarButton.addEventListener('click',abrirSidebar)
 
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-function vaciarCarrito() {
-    localStorage.removeItem('carrito')
-    localStorage.removeItem('contadorProductos');
-    localStorage.removeItem('subTotalProductos');
-    contadorElementosCarrito.innerHTML = 0;
-    subTotalCarrito.innerHTML = 0;
-}
 
-botonVaciarCarrito.addEventListener('click', () => {
-    if (localStorage.getItem('contadorProductos')) {
-        swal({
-            title: "¿Está seguro de que desea vaciar el carrito?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Su carrito fue vaciado", {
-                        icon: "success",
-                    });
-                    vaciarCarrito();
-                }
-            });
-    }
-
-})
+botonVaciarCarrito.addEventListener('click', manejarCarrito)
 
 
 mostrarMates();
