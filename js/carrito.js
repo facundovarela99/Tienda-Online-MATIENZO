@@ -32,3 +32,37 @@ export function abrirSidebar(){
     document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
 };
 
+
+const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito');
+const subTotalProductos = document.getElementById('totalMiniCarrito');
+
+function vaciarCarrito() {
+    localStorage.removeItem('carrito')
+    localStorage.removeItem('contadorProductos');
+    localStorage.removeItem('subTotalProductos');
+    cantidadElementosCarrito.innerHTML = 0;
+    subTotalProductos.innerHTML = 0;
+}
+
+export function manejarCarrito(){
+    if (localStorage.getItem('contadorProductos')) {
+        swal({
+            title: "¿Está seguro de que desea vaciar el carrito?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Su carrito fue vaciado", {
+                        icon: "success",
+                    });
+                    vaciarCarrito();
+                }
+            });
+        }else{
+            swal('No hay elementos en el carrito')
+        }
+}
+
+
