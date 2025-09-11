@@ -1,4 +1,4 @@
-import { abrirSidebar } from "./carrito.js";
+import { abrirSidebar, manejarCarrito } from "./carrito.js";
 
 const url = "../js/data.json";
 
@@ -26,7 +26,7 @@ subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProduct
 const contenedorTermos = document.querySelector('.containerTermos');
 
 function renderDescripcion(array){
-    html = "";
+    let html = "";
     for (let i = 0; i < array.length; i++) {
         if (i === 0) {
             html += `<p class="fs-2 fw-bolder">${array[i]}</p>`;
@@ -101,33 +101,7 @@ function mostrarTermos(termos){
 };
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-function vaciarCarrito() {
-    localStorage.removeItem('carrito')
-    localStorage.removeItem('contadorProductos');
-    localStorage.removeItem('subTotalProductos');
-    contadorElementosCarrito.innerHTML = 0;
-    subTotalCarrito.innerHTML = 0;
-}
-
-botonVaciarCarrito.addEventListener('click', () => {
-    if (localStorage.getItem('contadorProductos')) {
-        swal({
-            title: "¿Está seguro de que desea vaciar el carrito?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Su carrito fue vaciado", {
-                        icon: "success",
-                    });
-                    vaciarCarrito();
-                }
-            });
-    }
-
-})
+botonVaciarCarrito.addEventListener('click', manejarCarrito);
 
 
 const botonSideBar = document.getElementById('sidebarButton');

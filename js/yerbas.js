@@ -1,4 +1,4 @@
-import { abrirSidebar } from "./carrito.js";
+import { abrirSidebar, manejarCarrito } from "./carrito.js";
 
 const url = "../js/data.json";
 
@@ -99,34 +99,7 @@ function mostrarYerbas(yerbas) {
 };
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-
-function vaciarCarrito() {
-    localStorage.removeItem('carrito')
-    localStorage.removeItem('contadorProductos');
-    localStorage.removeItem('subTotalProductos');
-    contadorElementosCarrito.innerHTML = 0;
-    subTotalCarrito.innerHTML = 0;
-}
-
-botonVaciarCarrito.addEventListener('click', () => {
-    if (localStorage.getItem('contadorProductos')) {
-        swal({
-            title: "¿Está seguro de que desea vaciar el carrito?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Su carrito fue vaciado", {
-                        icon: "success",
-                    });
-                    vaciarCarrito();
-                }
-            });
-    }
-
-})
+botonVaciarCarrito.addEventListener('click', manejarCarrito);
 
 const botonSideBar = document.getElementById('sidebarButton');
 botonSideBar.addEventListener('click', abrirSidebar)

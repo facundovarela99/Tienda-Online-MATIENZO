@@ -107,7 +107,6 @@ sidebarButton.addEventListener('click',abrirSidebar)
 
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-
 botonVaciarCarrito.addEventListener('click', manejarCarrito)
 
 
