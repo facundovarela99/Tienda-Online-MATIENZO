@@ -1,3 +1,5 @@
+import { abrirSidebar } from "./carrito.js";
+
 const url = "../js/data.json";
 
 fetch(url)
@@ -127,24 +129,7 @@ botonVaciarCarrito.addEventListener('click', () => {
 })
 
 const botonSideBar = document.getElementById('sidebarButton');
-
-botonSideBar.addEventListener('click', () => {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || []
-    const contenedorBodySidebar = document.querySelector('.divListaProductos');
-    contenedorBodySidebar.innerHTML = '';
-
-    carrito.forEach((producto) => {
-        const etiquetaProductoEnCarrito = document.createElement('div')
-        etiquetaProductoEnCarrito.className = 'yerbaCarrito';
-        etiquetaProductoEnCarrito.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
-        `;
-        contenedorBodySidebar.appendChild(etiquetaProductoEnCarrito);
-        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
-    })
-})
+botonSideBar.addEventListener('click', abrirSidebar)
 
 
 

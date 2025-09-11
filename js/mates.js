@@ -1,3 +1,5 @@
+import { abrirSidebar } from "./carrito.js";
+
 async function obtenerMates() {
     const response = await fetch("../js/data.json")
     const data = await response.json();
@@ -101,23 +103,7 @@ function crearTarjetaMate(producto){
 
 
 const sidebarButton = document.getElementById('sidebarButton');
-sidebarButton.addEventListener('click',()=>{
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || []
-    const contenedorBodySidebar = document.querySelector('.divListaProductos');
-    contenedorBodySidebar.innerHTML = '';
-
-    carrito.forEach((producto)=>{
-        const etiquetaProductoEnCarrito = document.createElement('div');
-        etiquetaProductoEnCarrito.className = 'mateCarrito';
-        etiquetaProductoEnCarrito.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
-        `;
-        contenedorBodySidebar.appendChild(etiquetaProductoEnCarrito);
-        document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
-    })
-})
+sidebarButton.addEventListener('click',abrirSidebar)
 
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');

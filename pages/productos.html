@@ -18,7 +18,7 @@
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- JAVASCRIPT -->
-  <script defer src="../js/main.js"></script>
+  <script type="module" defer src="../js/main.js"></script>
 </head>
 
 <body>
@@ -149,8 +149,8 @@
       <h6 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h6>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <div class="divHrOffcanvas">
+    <div id="sideBarBody" class="offcanvas-body">
+      <!-- <div class="divHrOffcanvas">
         <hr class="hrOffcanvas">
       </div>
       <div class="divListaProductos">
@@ -164,8 +164,7 @@
       <div class="divSubtotalSidebar d-flex flex-row">
         <h6>Subtotal: $</h6>
         <span class="spanSubtotal"></span>
-      </div>
-
+      </div> -->
     </div>
   </div>
   <!--OFFCANVAS-->
