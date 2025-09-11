@@ -19,7 +19,7 @@ async function mostrarMates() {
 }
 
 let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
-let subTotalCarrito = document.querySelector('.totalMiniCarrito');
+let subTotalCarrito = document.getElementById('totalMiniCarrito');
 let subTotal = 0;
 
 (localStorage.getItem('contadorProductos')===null)

@@ -8,7 +8,7 @@ fetch(url)
     .catch(err => console.error("Error cargando JSON:", err));
 
 let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
-let subTotalCarrito = document.querySelector('.totalMiniCarrito');
+let subTotalCarrito = document.getElementById('totalMiniCarrito');
 let subTotal = 0;
 
 function validarStorage(storage) {
