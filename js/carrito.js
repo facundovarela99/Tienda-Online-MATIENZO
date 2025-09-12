@@ -30,6 +30,9 @@ export function abrirSidebar(){
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
     })
     document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+    
+    const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
+    btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
 };
 
 
@@ -42,6 +45,8 @@ function vaciarCarrito() {
     localStorage.removeItem('subTotalProductos');
     cantidadElementosCarrito.innerHTML = 0;
     subTotalProductos.innerHTML = 0;
+    document.querySelector('.divListaProductos').innerHTML="";
+    document.querySelector('.spanSubtotal').innerHTML = 0;
 }
 
 export function manejarCarrito(){
