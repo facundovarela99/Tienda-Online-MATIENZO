@@ -1,4 +1,6 @@
+
 export function abrirSidebar(){
+    localStorage.setItem('constante', 0);
     const bodySideBar = document.getElementById('sideBarBody');
     bodySideBar.innerHTML= `
         <div class="divHrOffcanvas">
@@ -16,6 +18,11 @@ export function abrirSidebar(){
             <button id="btnVaciarCarritoSideBar" style="font-family: Fjalla One; padding: 5px;">Vaciar carrito</button>
         </div>
     `;
+
+    (localStorage.getItem('subTotalProductos')===null)
+    ? document.querySelector('.spanSubtotal').innerHTML = 0
+    : document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+
     const carrito = JSON.parse(localStorage.getItem('carrito')) || []
     const contenedorSidebarProductos = document.querySelector('.divListaProductos');
 
@@ -29,7 +36,6 @@ export function abrirSidebar(){
         `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
     })
-    document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
     
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
     btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);

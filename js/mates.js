@@ -98,16 +98,22 @@ function crearTarjetaMate(producto){
         localStorage.setItem('subTotalProductos', Number(subTotal));
         contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
         subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
+        console.log(`SUMA DEL SUBTOTAL ${subTotal}`)
     })
 }
 
 
 const sidebarButton = document.getElementById('sidebarButton');
-sidebarButton.addEventListener('click',abrirSidebar)
+sidebarButton.addEventListener('click',abrirSidebar);
 
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-botonVaciarCarrito.addEventListener('click', manejarCarrito)
+botonVaciarCarrito.addEventListener('click', manejarCarrito);
+botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
+
+function limpiarSubtotal(){
+    subTotal=localStorage.getItem('subTotalConstante');
+}
 
 
 mostrarMates();

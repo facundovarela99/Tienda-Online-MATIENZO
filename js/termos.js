@@ -102,6 +102,11 @@ function mostrarTermos(termos){
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
 botonVaciarCarrito.addEventListener('click', manejarCarrito);
+botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
+
+function limpiarSubtotal(){
+    subTotal=localStorage.getItem('subTotalConstante');
+}
 
 
 const botonSideBar = document.getElementById('sidebarButton');
