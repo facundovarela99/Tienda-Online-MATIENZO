@@ -10,7 +10,8 @@
         "Envasada en origen"
       ],
       "precio": 5665,
-      "imagen": "../assets/img/roapipo-tradicional.jpg"
+      "imagen": "../assets/img/roapipo-tradicional.jpg",
+      "categoria":"yerbas"
     },
     {
       "id": 2,
@@ -23,7 +24,8 @@
         "Envasada en Misiones"
       ],
       "precio": 7240,
-      "imagen": "../assets/img/yerba_gritosagrado.jpg"
+      "imagen": "../assets/img/yerba_gritosagrado.jpg",
+      "categoria":"yerbas"
     },
     {
       "id": 3,
@@ -36,7 +38,8 @@
         "Envasada en Salta"
       ],
       "precio": 3450,
-      "imagen": "../assets/img/yerba-mate-hija-de-la-selva.jpg"
+      "imagen": "../assets/img/yerba-mate-hija-de-la-selva.jpg",
+      "categoria":"yerbas"
     },
     {
       "id": 4,
@@ -49,7 +52,8 @@
         "Envasada en Jujuy"
       ],
       "precio": 3215,
-      "imagen": "../assets/img/yerba-mate-sol-de-acuario.webp"
+      "imagen": "../assets/img/yerba-mate-sol-de-acuario.webp",
+      "categoria":"yerbas"
     }
   ],
   "mates": [
@@ -63,7 +67,8 @@
       ],
       "precio": 35000,
       "cuotas": "4 cuotas de $8.750,00",
-      "imagen": "../assets/img/imperial_negro.jpg"
+      "imagen": "../assets/img/imperial_negro.jpg",
+      "categoria":"mates"
     },
     {
       "id": 2,
@@ -75,7 +80,8 @@
       ],
       "precio": 38400,
       "cuotas": "3 cuotas de $12.800,00",
-      "imagen": "../assets/img/imperial_rojo.png"
+      "imagen": "../assets/img/imperial_rojo.png",
+      "categoria":"mates"
     },
     {
       "id": 3,
@@ -88,7 +94,8 @@
       ],
       "precio": 41200,
       "cuotas": "6 cuotas de $6.866,66",
-      "imagen": "../assets/img/mate_stanley_verde.jpg"
+      "imagen": "../assets/img/mate_stanley_verde.jpg",
+      "categoria":"mates"
     },
     {
       "id": 4,
@@ -101,7 +108,8 @@
       ],
       "precio": 43000,
       "cuotas": "3 cuotas de $14.333,33",
-      "imagen": "../assets/img/mate_stanley_rosa.png"
+      "imagen": "../assets/img/mate_stanley_rosa.png",
+      "categoria":"mates"
     },
     {
       "id": 5,
@@ -112,7 +120,8 @@
       ],
       "precio": 55800,
       "cuotas": "4 cuotas de $13.950,00",
-      "imagen": "../assets/img/mate_mundialista.png"
+      "imagen": "../assets/img/mate_mundialista.png",
+      "categoria":"mates"
     }
   ],
   "termos":[
@@ -122,7 +131,8 @@
       "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
       "precio":60999,
       "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
-      "imagen":"../assets/img/termo_stanley.png"
+      "imagen":"../assets/img/termo_stanley.png",
+      "categoria":"termos"
     },
     {
       "id":2,
@@ -130,7 +140,8 @@
       "descripcion":["Mate-System | 1.2 lts.", "30 horas caliente", "30 horas frío", "4 días helado"],
       "precio":60999,
       "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
-      "imagen":"../assets/img/termo-stanley-rosa.png"
+      "imagen":"../assets/img/termo-stanley-rosa.png",
+      "categoria":"termos"
     },
     {
       "id":3,
@@ -138,7 +149,8 @@
       "descripcion":["Col-System | 0.75 lts", "20 horas caliente", "20 horas frío", "3 días helado"],
       "precio":54680,
       "cuotas":"Hasta 6 cuotas sin interes de $9.113,33",
-      "imagen":"../assets/img/TERMO_COLEMAN_NEGRO.jpg"
+      "imagen":"../assets/img/TERMO_COLEMAN_NEGRO.jpg",
+      "categoria":"termos"
     },
     {
       "id":4,
@@ -146,7 +158,8 @@
       "descripcion":["Mate-System | 1.2 lts.", "20 horas caliente", "20 horas frío", "3 días helado"],
       "precio":48999,
       "cuotas":"Hasta 6 cuotas sin interes de $8.166,50",
-      "imagen":"../assets/img/termo_stanley_blanco.png"
+      "imagen":"../assets/img/termo_stanley_blanco.png",
+      "categoria":"termos"
     },
     {
       "id":5,
@@ -154,7 +167,8 @@
       "descripcion":["Col-System | 1 lts.", "ACERO INOXIDABLE", "20 horas caliente", "36 horas frío"],
       "precio":37560,
       "cuotas":"Hasta 6 cuotas sin interes de $6.260",
-      "imagen":"../assets/img/termolar.jpg"
+      "imagen":"../assets/img/termolar.jpg",
+      "categoria":"termos"
     },
     {
       "id":6,
@@ -162,7 +176,8 @@
       "descripcion":["Beige-Chimarrita | 1 lts.", "12 horas caliente", "24 horas frío"],
       "precio":34870,
       "cuotas":"Hasta 6 cuotas sin interes de $5.811,66",
-      "imagen":"../assets/img/termo_beige.jpg"
+      "imagen":"../assets/img/termo_beige.jpg",
+      "categoria":"termos"
     }
   ],
   "bombillas":[
@@ -172,7 +187,8 @@
       "descripcion":["Filtrado limitado de yerba", "Boquilla ancha"],
       "precio":15330,
       "cuotas":"3 cuotas de $5.110",
-      "imagen":"../assets/img/bombilla_stanley_spoon.jpg"
+      "imagen":"../assets/img/bombilla_stanley_spoon.jpg",
+      "categoria":"bombillas"
     },
     {
       "id":2,
@@ -180,7 +196,8 @@
       "descripcion":["Alpaca", "Curva corta", "Boquilla fina"],
       "precio":12600,
       "cuotas":"3 cuotas sin interes de $4.200",
-      "imagen":"../assets/img/bombilla_laMerced.jpg"
+      "imagen":"../assets/img/bombilla_laMerced.jpg",
+      "categoria":"bombillas"
     },
     {
       "id":3,
@@ -188,7 +205,8 @@
       "descripcion":["Alpaca", "Curva larga", "Boquilla ancha"],
       "precio":16800,
       "cuotas":"6 cuotas sin interes de $2.800",
-      "imagen":"../assets/img/bombilla_union.jpg"
+      "imagen":"../assets/img/bombilla_union.jpg",
+      "categoria":"bombillas"
     },
     {
       "id":4,
@@ -196,7 +214,8 @@
       "descripcion":["Alpaca", "Curva larga", "Cincelada", "Filtro cuchara"],
       "precio":17200,
       "cuotas":"6 cuotas de $ 2.866,66",
-      "imagen":"../assets/img/termo_beige.jpg"
+      "imagen":"../assets/img/termo_beige.jpg",
+      "categoria":"bombillas"
     }
   ]
 }

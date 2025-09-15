@@ -57,7 +57,7 @@ function mostrarTermos(termos){
                     ${renderDescripcion(termo.descripcion)}
                     <p class="fs-4 fw-normal ps-5">$${termo.precio}</p>
                     <p class="fs-5 fw-normal ps-5">${termo.cuotas}</p>
-                    <button class="button btn btn-dark btnComprar${termo.id}" data-id="${termo.id}" data-nombre="${termo.nombre}" data-precio="${termo.precio}" data-imagen="${termo.imagen}">Agregar al
+                    <button class="button btn btn-dark btnComprar${termo.id}" data-id="${termo.id}" data-nombre="${termo.nombre}" data-precio="${termo.precio}" data-imagen="${termo.imagen}" data-categoria="${termo.categoria}">Agregar al
                     carrito</button>
                 </div>
             </div>
@@ -70,6 +70,7 @@ function mostrarTermos(termos){
             const nombreTermo = botonComprar.getAttribute('data-nombre');
             const precioTermo = botonComprar.getAttribute('data-precio');
             const imagenTermo = botonComprar.getAttribute('data-imagen');
+            const categoriaTermo = botonComprar.getAttribute('data-categoria');
 
             let carrito;
 
@@ -81,7 +82,8 @@ function mostrarTermos(termos){
                 "id":idTermo,
                 "nombre":nombreTermo,
                 "precio":precioTermo,
-                "imagen":imagenTermo
+                "imagen":imagenTermo,
+                "categoria":categoriaTermo
             };
 
             carrito.push(nuevoProducto);
@@ -96,6 +98,8 @@ function mostrarTermos(termos){
             productosAlmacenados++;
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             contadorElementosCarrito.innerHTML = productosAlmacenados;
+
+            swal(`¡${nombreTermo} agregado al carrito!`,"", "success");
         });
     });
 };

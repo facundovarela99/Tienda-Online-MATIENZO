@@ -18,17 +18,19 @@ async function mostrarMates() {
     }
 }
 
+function validarStorage(storage, valorDefault){
+    if (storage) {
+        return storage
+    }
+    return valorDefault
+}
+
 let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
 let subTotalCarrito = document.getElementById('totalMiniCarrito');
 let subTotal = 0;
 
-(localStorage.getItem('contadorProductos')===null)
-? contadorElementosCarrito.innerHTML = 0
-: contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
-
-(localStorage.getItem('subTotalProductos') ===  null)
-? subTotalCarrito.innerHTML = 0
-: subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
+contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'), 0);
+subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'), 0)
 
 function renderDescripcion(array){
     let html = "";
@@ -60,7 +62,7 @@ function crearTarjetaMate(producto){
             ${renderDescripcion(producto.descripcion)}
             <p class="fs-5 fw-normal ps-5">$ ${producto.precio},00</p>
             <p class="fs-5 fw-normal ps-5">${producto.cuotas}</p>
-            <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}">Agregar al
+            <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}" data-categoria="${producto.categoria}">Agregar al
               carrito</button>
           </div>
         </div>
@@ -75,17 +77,21 @@ function crearTarjetaMate(producto){
         const nombreMate = botonComprar.getAttribute('data-name');
         const precioMate = botonComprar.getAttribute('data-precio');
         const imagenMate = botonComprar.getAttribute('data-img');
+        const categoriaMate = botonComprar.getAttribute('data-categoria');
         let carrito;
+        
         if (localStorage.getItem('carrito') === null) {
             carrito = [];
         } else {
             carrito = JSON.parse(localStorage.getItem('carrito'));
         }
+
         let mate = {
             'id':idMate,
             'nombre':nombreMate,
             'precio':precioMate,
-            'imagen':imagenMate
+            'imagen':imagenMate,
+            'categoria':categoriaMate
         }
         carrito.push(mate);
         localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -98,7 +104,8 @@ function crearTarjetaMate(producto){
         localStorage.setItem('subTotalProductos', Number(subTotal));
         contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
         subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
-        console.log(`SUMA DEL SUBTOTAL ${subTotal}`)
+
+        swal(`¡${nombreMate} agregado al carrito!`,"", "success");
     })
 }
 

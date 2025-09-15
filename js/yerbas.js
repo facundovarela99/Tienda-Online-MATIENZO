@@ -57,18 +57,20 @@ function mostrarYerbas(yerbas) {
             <p class="fs-2 fw-bolder">${yerba.nombre}</p>
             ${renderDescripcion(yerba.descripcion)}
             <p class="fs-5 fw-normal ps-5">$ ${yerba.precio}.00</p>
-            <button class="button btnComprar${yerba.id} btn btn-dark buttonAddToCart" data-name="${yerba.nombre}" data-id="${yerba.id}" data-precio="${yerba.precio}" data-img="${yerba.imagen}">Agregar al carrito</button>
+            <button class="button btnComprar${yerba.id} btn btn-dark buttonAddToCart" data-name="${yerba.nombre}" data-id="${yerba.id}" data-precio="${yerba.precio}" data-img="${yerba.imagen}" data-categoria="${yerba.categoria}">Agregar al carrito</button>
           </div>
         </div>
         `
         contenedorYerbas.appendChild(divPadre);
 
-        const botonComprar = divPadre.querySelector(`.btnComprar${yerba.id}`);
+        const botonComprar = document.querySelector(`.btnComprar${yerba.id}`);
         botonComprar.addEventListener('click', () => {
             const nombreYerba = botonComprar.getAttribute('data-name');
             const idYerba = botonComprar.getAttribute('data-id');
             const precioYerba = botonComprar.getAttribute('data-precio');
             const imagenYerba = botonComprar.getAttribute('data-img');
+            const categoriaYerba = botonComprar.getAttribute('data-categoria');
+
             let carrito;
 
             if (localStorage.getItem('carrito') === null) {
@@ -81,7 +83,8 @@ function mostrarYerbas(yerbas) {
                 'id': idYerba,
                 'nombre': nombreYerba,
                 'precio': precioYerba,
-                'imagen': imagenYerba
+                'imagen': imagenYerba,
+                'categoria':categoriaYerba
             };
             carrito.push(nuevoProducto);
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -94,6 +97,7 @@ function mostrarYerbas(yerbas) {
             localStorage.setItem('subTotalProductos', Number(subTotal));
             contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
             subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
+            swal(`¡${nombreYerba} agregada al carrito!`,"", "success");
         });
     });
 };

@@ -31,10 +31,14 @@ export function abrirSidebar(){
             <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
+            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
         `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
     })
-    
+
+    //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
+
+
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
     btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
 };
@@ -44,13 +48,14 @@ const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito')
 const subTotalProductos = document.getElementById('totalMiniCarrito');
 
 function vaciarCarrito() {
-    localStorage.removeItem('carrito')
-    localStorage.removeItem('contadorProductos');
-    localStorage.removeItem('subTotalProductos');
+    localStorage.clear();
     cantidadElementosCarrito.innerHTML = 0;
     subTotalProductos.innerHTML = 0;
-    document.querySelector('.divListaProductos').innerHTML="";
-    document.querySelector('.spanSubtotal').innerHTML = 0;
+    const listaProductos = document.querySelector('.divListaProductos');
+    if (listaProductos) listaProductos.innerHTML = "";
+
+    const spanSubtotal = document.querySelector('.spanSubtotal');
+    if (spanSubtotal) spanSubtotal.innerHTML = 0
 }
 
 export function manejarCarrito(){

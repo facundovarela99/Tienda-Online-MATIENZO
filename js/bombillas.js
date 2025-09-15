@@ -14,9 +14,8 @@ let subTotal = 0;
 function validarStorage(storage) {
     if (storage) {
         return storage;
-    } else {
-        return 0;
-    }
+    } 
+    return 0;
 }
 
 contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'));
@@ -55,7 +54,7 @@ function mostrarBombillas(bombillas) {
                 ${renderDescripcion(bombilla.descripcion)}
                 <p class="fs-5 fw-normal ps-5 itemValue">$${bombilla.precio}</p>
                 <p class="fs-5 fw-normal ps-5">${bombilla.cuotas}</p>
-                <button class="button btn btn-dark btnComprar${bombilla.id}" data-id="${bombilla.id}" data-nombre="${bombilla.nombre}" data-precio="${bombilla.precio}" data-imagen="${bombilla.imagen}">Agregar al
+                <button class="button btn btn-dark btnComprar${bombilla.id}" data-id="${bombilla.id}" data-nombre="${bombilla.nombre}" data-precio="${bombilla.precio}" data-imagen="${bombilla.imagen}" data-categoria="${bombilla.categoria}">Agregar al
                 carrito</button>
             </div>
             </div>
@@ -68,25 +67,28 @@ function mostrarBombillas(bombillas) {
             const nombreBombilla = btnComprar.getAttribute('data-nombre');
             const precioBombilla = btnComprar.getAttribute('data-precio');
             const imagenBombilla = btnComprar.getAttribute('data-imagen');
+            const categoriaBombilla = btnComprar.getAttribute('data-categoria');
 
             let carrito;
 
+            
             (localStorage.getItem('carrito') === null)
-                ? carrito = []
-                : carrito = JSON.parse(localStorage.getItem('carrito'));
+            ? carrito = []
+            : carrito = JSON.parse(localStorage.getItem('carrito'));
 
             let nuevoProducto = {
                 "id": idBombilla,
                 "nombre": nombreBombilla,
                 "precio": precioBombilla,
-                "imagen": imagenBombilla
+                "imagen": imagenBombilla,
+                "categoria":categoriaBombilla
             }
 
             carrito.push(nuevoProducto);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             (localStorage.getItem('subTotalProductos') === null)
-                ? subTotal += parseInt(precioBombilla)
-                : subTotal = parseInt(precioBombilla) + Number(localStorage.getItem('subTotalProductos'));
+            ? subTotal += parseInt(precioBombilla)
+            : subTotal = parseInt(precioBombilla) + Number(localStorage.getItem('subTotalProductos'));
             localStorage.setItem('subTotalProductos', Number(subTotal))
             subTotalCarrito.innerHTML = subTotal;
             let productosAlmacenados;
@@ -94,20 +96,23 @@ function mostrarBombillas(bombillas) {
             productosAlmacenados++;
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             contadorElementosCarrito.innerHTML = productosAlmacenados;
+
+            swal(`¡${nombreBombilla} agregada al carrito!`, "", "success");
+
         });
     });
 };
 
 const botonSideBar = document.getElementById('sidebarButton');
-botonSideBar.addEventListener('click',abrirSidebar);
-botonSideBar.addEventListener('click',()=>{
-    subTotal=0;
+botonSideBar.addEventListener('click', abrirSidebar);
+botonSideBar.addEventListener('click', () => {
+    subTotal = 0;
 })
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
 botonVaciarCarrito.addEventListener('click', manejarCarrito)
 botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
 
-function limpiarSubtotal(){
-    subTotal=0;
+function limpiarSubtotal() {
+    subTotal = 0;
 }
