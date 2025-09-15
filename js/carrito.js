@@ -25,42 +25,30 @@ export function abrirSidebar() {
     const contenedorSidebarProductos = document.querySelector('.divListaProductos');
 
     //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
-    const productosAgrupados = {};
+    const productosAgrupados = {}; //Crea un objeto vacío para almacenar los productos agrupados por su id.
     for (let i = 0; i < carrito.length; i++) {
-        const producto = carrito[i];
-        if (!productosAgrupados[producto.id]) {
-            productosAgrupados[producto.id] = { ...producto, cantidad: 1 };
-        } else {
-            productosAgrupados[producto.id].cantidad += 1;
+        const producto = carrito[i]; //Obtiene el producto actual del carrito.
+        if (!productosAgrupados[producto.id]) { //Verifica si el producto con ese id aún no está en el objeto productosAgrupados.
+            productosAgrupados[producto.id] = { ...producto, cantidad: 1 }; //Si no existe, lo agrega al objeto copiando todas sus propiedades y le asigna cantidad: 1.
+        } else { //Si el producto ya existe en el objeto...
+            productosAgrupados[producto.id].cantidad += 1; //...incrementa la propiedad cantidad en 1.
         }
     }
 
     // Mostrar solo un bloque por tipo de producto
-    for (const id in productosAgrupados) {
-        const producto = productosAgrupados[id];
+    for (const id in productosAgrupados) { //Inicia un bucle para recorrer cada producto agrupado por su id.
+        const producto = productosAgrupados[id]; //Obtiene el producto agrupado actual.
         const etiquetaProductoEnCarrito = document.createElement('div');
         etiquetaProductoEnCarrito.className = 'productoCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
         <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Subtotal: $${producto.precio * producto.cantidad}</h6>
     `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
     }
-
-    // carrito.forEach((producto) => {        
-    //     const etiquetaProductoEnCarrito = document.createElement('div')
-    //     etiquetaProductoEnCarrito.className = 'productoCarrito';
-    //     etiquetaProductoEnCarrito.innerHTML = `
-    //         <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
-    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
-    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
-    //     `;
-    //     contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
-    // })
-
 
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
     btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
