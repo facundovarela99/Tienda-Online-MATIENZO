@@ -1,6 +1,4 @@
-
 export function abrirSidebar(){
-    localStorage.setItem('constante', 0);
     const bodySideBar = document.getElementById('sideBarBody');
     bodySideBar.innerHTML= `
         <div class="divHrOffcanvas">

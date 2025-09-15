@@ -100,11 +100,14 @@ function mostrarBombillas(bombillas) {
 
 const botonSideBar = document.getElementById('sidebarButton');
 botonSideBar.addEventListener('click',abrirSidebar);
+botonSideBar.addEventListener('click',()=>{
+    subTotal=0;
+})
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
 botonVaciarCarrito.addEventListener('click', manejarCarrito)
 botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
 
 function limpiarSubtotal(){
-    subTotal=localStorage.getItem('subTotalConstante');
+    subTotal=0;
 }

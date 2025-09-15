@@ -105,6 +105,9 @@ function crearTarjetaMate(producto){
 
 const sidebarButton = document.getElementById('sidebarButton');
 sidebarButton.addEventListener('click',abrirSidebar);
+sidebarButton.addEventListener('click',()=>{
+    subTotal=0;
+})
 
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
@@ -112,7 +115,7 @@ botonVaciarCarrito.addEventListener('click', manejarCarrito);
 botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
 
 function limpiarSubtotal(){
-    subTotal=localStorage.getItem('subTotalConstante');
+    subTotal=0;
 }
 
 
