@@ -1,6 +1,6 @@
-export function abrirSidebar(){
+export function abrirSidebar() {
     const bodySideBar = document.getElementById('sideBarBody');
-    bodySideBar.innerHTML= `
+    bodySideBar.innerHTML = `
         <div class="divHrOffcanvas">
             <hr class="hrOffcanvas">
         </div>
@@ -17,26 +17,49 @@ export function abrirSidebar(){
         </div>
     `;
 
-    (localStorage.getItem('subTotalProductos')===null)
-    ? document.querySelector('.spanSubtotal').innerHTML = 0
-    : document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+    (localStorage.getItem('subTotalProductos') === null)
+        ? document.querySelector('.spanSubtotal').innerHTML = 0
+        : document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
 
     const carrito = JSON.parse(localStorage.getItem('carrito')) || []
     const contenedorSidebarProductos = document.querySelector('.divListaProductos');
 
-    carrito.forEach((producto) => {        
-        const etiquetaProductoEnCarrito = document.createElement('div')
+    //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
+    const productosAgrupados = {};
+    for (let i = 0; i < carrito.length; i++) {
+        const producto = carrito[i];
+        if (!productosAgrupados[producto.id]) {
+            productosAgrupados[producto.id] = { ...producto, cantidad: 1 };
+        } else {
+            productosAgrupados[producto.id].cantidad += 1;
+        }
+    }
+
+    // Mostrar solo un bloque por tipo de producto
+    for (const id in productosAgrupados) {
+        const producto = productosAgrupados[id];
+        const etiquetaProductoEnCarrito = document.createElement('div');
         etiquetaProductoEnCarrito.className = 'productoCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
-            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
-        `;
+        <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
+    `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
-    })
+    }
 
-    //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
+    // carrito.forEach((producto) => {        
+    //     const etiquetaProductoEnCarrito = document.createElement('div')
+    //     etiquetaProductoEnCarrito.className = 'productoCarrito';
+    //     etiquetaProductoEnCarrito.innerHTML = `
+    //         <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
+    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">${producto.nombre}</h6>
+    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">$${producto.precio}</h6>
+    //         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
+    //     `;
+    //     contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
+    // })
 
 
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
@@ -58,7 +81,7 @@ function vaciarCarrito() {
     if (spanSubtotal) spanSubtotal.innerHTML = 0
 }
 
-export function manejarCarrito(){
+export function manejarCarrito() {
     if (localStorage.getItem('contadorProductos')) {
         swal({
             title: "¿Está seguro de que desea vaciar el carrito?",
@@ -74,9 +97,9 @@ export function manejarCarrito(){
                     vaciarCarrito();
                 }
             });
-        }else{
-            swal('No hay elementos en el carrito')
-        }
+    } else {
+        swal('No hay elementos en el carrito')
+    }
 }
 
 
