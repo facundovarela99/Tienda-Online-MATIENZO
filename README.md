@@ -16,8 +16,8 @@ La idea es practicar la modularización de código JS, el preprocesado con SCSS 
 
 ##### Puedes ver la tienda desplegada en: https://matienzocoderhouse.netlify.app/
 
+#### Tecnologías
 
-Tecnologías
 HTML5 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 CSS3 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -42,9 +42,13 @@ Netlify (deploy continuo) ![Netlify](https://img.shields.io/badge/Netlify-00C7B7
 
 ###### Estructura del proyecto
 /index.html            – Página principal
+
 /css/                  – CSS compilado desde SCSS
+
 /sass/                 – Archivos fuente SCSS
+
 /js/                   – Lógica del carrito, eventos y modularización
+
 /assets/img/           – Imágenes e íconos
 
 
