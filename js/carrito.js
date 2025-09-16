@@ -1,3 +1,14 @@
+function renderBotonesCarrito(localStorage){
+    let html = "";
+    if (localStorage) {
+        html+=`
+        <button class="btn btn-success btn-sm" id="btnPagarCarritoSideBar" style="padding: 5px; color: black;"><a href="https://www.mercadopago.com.ar/" target="_blank" style="color: inherit; text-decoration: none; font-family: Fjalla One;">Ir a pagar</a></button>
+        <button class="btn btn-danger btn-sm" id="btnVaciarCarritoSideBar" style="font-family: Fjalla One; padding: 5px; color: black">Vaciar carrito</button>`;
+        return html
+    }
+    return html;
+}
+
 export function abrirSidebar() {
     const bodySideBar = document.getElementById('sideBarBody');
     bodySideBar.innerHTML = `
@@ -12,8 +23,8 @@ export function abrirSidebar() {
             <h6>Subtotal: $</h6>
             <span class="spanSubtotal"></span>
         </div>
-        <div>
-            <button id="btnVaciarCarritoSideBar" style="font-family: Fjalla One; padding: 5px;">Vaciar carrito</button>
+        <div class="divBotonesCarrito">
+            ${renderBotonesCarrito(localStorage.getItem('contadorProductos'))}
         </div>
     `;
 
@@ -45,7 +56,7 @@ export function abrirSidebar() {
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Subtotal: $${producto.precio * producto.cantidad}</h6>
+        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio total: $${producto.precio * producto.cantidad}</h6>
     `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
     }
@@ -62,6 +73,7 @@ function vaciarCarrito() {
     localStorage.clear();
     cantidadElementosCarrito.innerHTML = 0;
     subTotalProductos.innerHTML = 0;
+    document.querySelector('.divBotonesCarrito').innerHTML = "";
     const listaProductos = document.querySelector('.divListaProductos');
     if (listaProductos) listaProductos.innerHTML = "";
 

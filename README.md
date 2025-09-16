@@ -43,6 +43,10 @@ Netlify (deploy continuo) ![Netlify](https://img.shields.io/badge/Netlify-00C7B7
 ###### Estructura del proyecto
 /index.html            – Página principal
 
+/pages                 - Paginas secundarias
+
+/pages/productos       - Páginas de los productos
+
 /css/                  – CSS compilado desde SCSS
 
 /sass/                 – Archivos fuente SCSS
