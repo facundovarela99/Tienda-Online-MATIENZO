@@ -1,7 +1,7 @@
-function renderBotonesCarrito(localStorage){
+function renderBotonesCarrito(localStorage) {
     let html = "";
     if (localStorage) {
-        html+=`
+        html += `
         <button class="btn btn-success btn-sm" id="btnPagarCarritoSideBar" style="padding: 5px; color: black;"><a href="https://www.mercadopago.com.ar/" target="_blank" style="color: inherit; text-decoration: none; font-family: Fjalla One;">Ir a pagar</a></button>
         <button class="btn btn-danger btn-sm" id="btnVaciarCarritoSideBar" style="font-family: Fjalla One; padding: 5px; color: black">Vaciar carrito</button>`;
         return html
@@ -57,12 +57,35 @@ export function abrirSidebar() {
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
         <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio total: $${producto.precio * producto.cantidad}</h6>
+        <button id="botonQuitar${producto.id}" type="button" class="btn btn-warning" style="font-family: Fjalla One">Quitar</button>
+        <hr>
     `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
+
+        const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`);
+        btnQuitarProducto.addEventListener('click', () => {
+            swal({
+                title: "¿Está seguro de que quiere quitar este producto?",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal(`Se removió ${producto.nombre} del carrito`, {
+                            icon: "success",
+                        });
+                        quitarProducto();
+                    } else {
+                        swal("");
+                    }
+                });
+        })
     }
 
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
     btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
+
+
 };
 
 
