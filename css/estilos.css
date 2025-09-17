@@ -781,6 +781,24 @@ main .titulo_yerbas h1, main .titulo_yerbas h2 {
     padding: 0 !important;
   }
 }
+.inputCantidadYagregar .inputCantidad {
+  height: 55%;
+  width: 30%;
+  font-size: 2rem;
+  text-align: center;
+  padding: 15px;
+  font-family: brandon-grotesque;
+}
+
+@media screen and (max-width: 768px) {
+  .inputCantidadYagregar {
+    justify-content: space-around;
+    padding-bottom: 20px;
+  }
+  .inputCantidadYagregar .inputCantidad {
+    width: 35%;
+  }
+}
 @keyframes appear {
   from {
     opacity: 0;

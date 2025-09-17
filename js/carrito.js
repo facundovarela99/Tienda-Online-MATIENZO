@@ -65,7 +65,7 @@ export function abrirSidebar() {
         const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`);
         btnQuitarProducto.addEventListener('click', () => {
             swal({
-                title: "¿Está seguro de que quiere quitar este producto?",
+                title: "¿Está seguro de que quiere remover este producto del carrito?",
                 buttons: true,
                 dangerMode: true,
             })
@@ -83,9 +83,7 @@ export function abrirSidebar() {
     }
 
     const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
-    btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
-
-
+    btnVaciarCarritoSideBar && btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
 };
 
 

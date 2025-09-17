@@ -98,3 +98,24 @@ main{
         }
     }
 }
+
+.inputCantidadYagregar{
+    .inputCantidad{
+        height: 55%;
+        width: 30%;
+        font-size: 2rem;
+        text-align: center;
+        padding: 15px;
+        font-family: brandon-grotesque;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .inputCantidadYagregar{
+        justify-content: space-around;
+        padding-bottom: 20px;
+        .inputCantidad{
+            width: 35%;
+        }
+    }
+}

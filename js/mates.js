@@ -37,8 +37,9 @@ function renderDescripcion(array){
     for (let i = 0; i < array.length; i++) {
         if(i===0){
             html+=`<p class="fs-2 fw-bolder">${array[i]}</p>`
+        } else{
+            html+=`<p class="fs-5 fw-normal">${array[i]}</p>`
         }
-        html+=`<p class="fs-2 fw-bolder">${array[i]}</p>`
     }
     return html;
 }
@@ -60,14 +61,17 @@ function crearTarjetaMate(producto){
           <div class="parrafos d-flex flex-column ps-3">
             <p class="fs-2 fw-bolder">${producto.nombre}</p>
             ${renderDescripcion(producto.descripcion)}
-            <p class="fs-5 fw-normal ps-5">$ ${producto.precio},00</p>
-            <p class="fs-5 fw-normal ps-5">${producto.cuotas}</p>
-            <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}" data-categoria="${producto.categoria}">Agregar al
-              carrito</button>
+            <p class="fs-5 fw-normal">$ ${producto.precio},00</p>
+            <p class="fs-5 fw-normal">${producto.cuotas}</p>
+            <hr>
+            <div class="inputCantidadYagregar d-flex flex-row align-items-center">
+                <input class="inputCantidad" type="number" value="1" min="1">
+                <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}" data-categoria="${producto.categoria}">Agregar al carrito</button>
+            </div>
           </div>
         </div>
     `
-
+    
     const contenedorMates = document.querySelector('.containerMates');
     contenedorMates.appendChild(divPadre);
 
@@ -86,6 +90,8 @@ function crearTarjetaMate(producto){
             carrito = JSON.parse(localStorage.getItem('carrito'));
         }
 
+        const inputCantidad = document.querySelector('.inputCantidad');
+
         let mate = {
             'id':idMate,
             'nombre':nombreMate,
@@ -93,19 +99,21 @@ function crearTarjetaMate(producto){
             'imagen':imagenMate,
             'categoria':categoriaMate
         }
-        carrito.push(mate);
+        for (let i = 0; i <inputCantidad.value; i++) {
+            carrito.push(mate);
+        }
         localStorage.setItem('carrito', JSON.stringify(carrito));
-        let productosAlmacenados = contadorElementosCarrito.textContent;
-        productosAlmacenados++;
+        let productosAlmacenados = Number(contadorElementosCarrito.textContent);
         (localStorage.getItem('subTotalProductos') === null)
-        ? subTotal+=parseInt(precioMate)
-        : subTotal = parseInt(precioMate)+ Number(localStorage.getItem('subTotalProductos'))
+        ? subTotal+=parseInt(precioMate*inputCantidad.value)
+        : subTotal = parseInt(precioMate*inputCantidad.value)+ Number(localStorage.getItem('subTotalProductos'))
+        productosAlmacenados+=Number(inputCantidad.value)
         localStorage.setItem('contadorProductos', Number(productosAlmacenados));
         localStorage.setItem('subTotalProductos', Number(subTotal));
         contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
         subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
 
-        swal(`¡${nombreMate} agregado al carrito!`,"", "success");
+        swal(`¡ Se agregaron x${inputCantidad.value} ${nombreMate} al carrito!`,"", "success");
     })
 }
 
