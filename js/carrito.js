@@ -32,7 +32,7 @@ export function abrirSidebar() {
         ? document.querySelector('.spanSubtotal').innerHTML = 0
         : document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
 
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || []
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || []
     const contenedorSidebarProductos = document.querySelector('.divListaProductos');
 
     //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
@@ -50,7 +50,8 @@ export function abrirSidebar() {
     for (const id in productosAgrupados) { //Inicia un bucle para recorrer cada producto agrupado por su id.
         const producto = productosAgrupados[id]; //Obtiene el producto agrupado actual.
         const etiquetaProductoEnCarrito = document.createElement('div');
-        etiquetaProductoEnCarrito.className = 'productoCarrito';
+        etiquetaProductoEnCarrito.className = "productoCarrito";
+        etiquetaProductoEnCarrito.id = `id${producto.id}`;
         etiquetaProductoEnCarrito.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
@@ -74,7 +75,7 @@ export function abrirSidebar() {
                         swal(`Se removió ${producto.nombre} del carrito`, {
                             icon: "success",
                         });
-                        carrito = quitarProducto(producto.id, carrito);
+                        carrito = quitarProducto(producto, carrito);
                     }
                 });
         })
@@ -84,12 +85,26 @@ export function abrirSidebar() {
     btnVaciarCarritoSideBar && btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
 };
 
-function quitarProducto(idProd, carro){
+function quitarProducto(prod, carro){
 
+    document.getElementById(`id${prod.id}`).innerHTML = "";
 
-const sinProducto = carro.filter(prod => prod.id !== idProd);
+    const sinProducto = carro.filter(PROD => PROD.id !== prod.id);
+    localStorage.setItem('carrito', JSON.stringify(sinProducto)); //CONTINUAR LABURANDO LA LÓGICA
+    let contadorActual = Number(localStorage.getItem('contadorProductos'));
+    localStorage.setItem('contadorProductos', contadorActual-prod.cantidad)
+    let subtotalActual = Number(localStorage.getItem('subTotalProductos'));
+    localStorage.setItem('subTotalProductos', subtotalActual-(prod.precio*prod.cantidad));
 
-localStorage.setItem('carrito', JSON.stringify(sinProducto)); //CONTINUAR LABURANDO LA LÓGICA
+    cantidadElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
+    subTotalProductos.innerHTML = localStorage.getItem('subTotalProductos');
+    document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+
+    console.log(sinProducto);
+    if(localStorage.getItem('subTotalProductos')<= 0 || localStorage.getItem('contadorProductos')<=0) {
+        vaciarCarrito();
+    } 
+    return sinProducto;
 }
 
 const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito');
