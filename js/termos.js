@@ -57,8 +57,13 @@ function mostrarTermos(termos){
                     ${renderDescripcion(termo.descripcion)}
                     <p class="fs-4 fw-normal ps-5">$${termo.precio}</p>
                     <p class="fs-5 fw-normal ps-5">${termo.cuotas}</p>
-                    <button class="button btn btn-dark btnComprar${termo.id}" data-id="${termo.id}" data-nombre="${termo.nombre}" data-precio="${termo.precio}" data-imagen="${termo.imagen}" data-categoria="${termo.categoria}">Agregar al
-                    carrito</button>
+                    <hr>
+                    <div class="inputCantidadYagregar d-flex flex-row align-items-center">
+                        <label for="inputCantidad${termo.id}" class="visually-hidden">Cantidad</label>
+                        <input name="cantidadParaAgregar" id="inputCantidad${termo.id}" class="inputCantidad" type="number" value="1" min="1">
+                        <button class="button btn btn-dark btnComprar${termo.id}" data-id="${termo.id}" data-nombre="${termo.nombre}" data-precio="${termo.precio}" data-imagen="${termo.imagen}" data-categoria="${termo.categoria}">Agregar al
+                        carrito</button>
+                    </div>
                 </div>
             </div>
         `
@@ -78,6 +83,8 @@ function mostrarTermos(termos){
             ? carrito = []
             : carrito = JSON.parse(localStorage.getItem('carrito'));
 
+            const inputCantidad = document.getElementById(`inputCantidad${termo.id}`);
+
             let nuevoProducto = {
                 "id":idTermo,
                 "nombre":nombreTermo,
@@ -86,20 +93,23 @@ function mostrarTermos(termos){
                 "categoria":categoriaTermo
             };
 
-            carrito.push(nuevoProducto);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            (localStorage.getItem('subTotalProductos') ===  null)
-            ? subTotal += parseInt(precioTermo)
-            : subTotal = parseInt(precioTermo)+Number(localStorage.getItem('subTotalProductos'));
-            localStorage.setItem('subTotalProductos', Number(subTotal))
-            subTotalCarrito.innerHTML = subTotal;
-            let productosAlmacenados;
-            productosAlmacenados = validarStorage(localStorage.getItem('contadorProductos'), Number(contadorElementosCarrito.textContent));
-            productosAlmacenados++;
-            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
-            contadorElementosCarrito.innerHTML = productosAlmacenados;
+            for (let i = 0; i < inputCantidad.value; i++) {
+                carrito.push(nuevoProducto);
+            }
 
-            swal(`¡${nombreTermo} agregado al carrito!`,"", "success");
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            let productosAlmacenados = Number(contadorElementosCarrito.textContent);
+            (localStorage.getItem('subTotalProductos') ===  null)
+            ? subTotal += parseInt(precioTermo*inputCantidad.value)
+            : subTotal = parseInt(precioTermo*inputCantidad.value)+Number(localStorage.getItem('subTotalProductos'));
+            productosAlmacenados+=Number(inputCantidad.value);
+            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
+            localStorage.setItem('subTotalProductos', Number(subTotal))
+            contadorElementosCarrito.innerHTML = productosAlmacenados;
+            subTotalCarrito.innerHTML = subTotal;
+
+            swal(`¡ Se agregaron x${inputCantidad.value} ${nombreTermo} al carrito!`,"", "success");
+
         });
     });
 };

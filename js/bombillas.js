@@ -103,8 +103,8 @@ function mostrarBombillas(bombillas) {
             productosAlmacenados+=Number(inputCantidad.value);
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             localStorage.setItem('subTotalProductos', Number(subTotal));
-            contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
-            subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
+            contadorElementosCarrito.innerHTML = productosAlmacenados;
+            subTotalCarrito.innerHTML = subTotal;
 
             swal(`¡ Se agregaron x${inputCantidad.value} ${nombreBombilla} al carrito!`,"", "success");
 
