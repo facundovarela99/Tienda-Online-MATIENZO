@@ -44,19 +44,24 @@ function mostrarBombillas(bombillas) {
 
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-            <div class="imagen w-50">
-                <a href="../pages/contacto.html">
-                <img src="${bombilla.imagen}" alt="${bombilla.nombre}">
-                </a>
-            </div>
-            <div class="parrafos d-flex flex-column ps-3">
-                <p class="fs-2 fw-bolder" id="itemName">${bombilla.nombre}</p>
-                ${renderDescripcion(bombilla.descripcion)}
-                <p class="fs-5 fw-normal ps-5 itemValue">$${bombilla.precio}</p>
-                <p class="fs-5 fw-normal ps-5">${bombilla.cuotas}</p>
-                <button class="button btn btn-dark btnComprar${bombilla.id}" data-id="${bombilla.id}" data-nombre="${bombilla.nombre}" data-precio="${bombilla.precio}" data-imagen="${bombilla.imagen}" data-categoria="${bombilla.categoria}">Agregar al
-                carrito</button>
-            </div>
+                <div class="imagen w-50">
+                    <a href="../pages/contacto.html">
+                    <img src="${bombilla.imagen}" alt="${bombilla.nombre}">
+                    </a>
+                </div>
+                <div class="parrafos d-flex flex-column ps-3">
+                    <p class="fs-2 fw-bolder" id="itemName">${bombilla.nombre}</p>
+                    ${renderDescripcion(bombilla.descripcion)}
+                    <p class="fs-5 fw-normal ps-5 itemValue">$${bombilla.precio}</p>
+                    <p class="fs-5 fw-normal ps-5">${bombilla.cuotas}</p>
+                    <hr>
+                    <div class="inputCantidadYagregar d-flex flex-row align-items-center">                
+                        <label for="inputCantidad${bombilla.id}" class="visually-hidden">Cantidad</label>
+                        <input name="cantidadParaAgregar" id="inputCantidad${bombilla.id}" class="inputCantidad" type="number" value="1" min="1">
+                        <button class="button btn btn-dark btnComprar${bombilla.id}" data-id="${bombilla.id}" data-nombre="${bombilla.nombre}" data-precio="${bombilla.precio}" data-imagen="${bombilla.imagen}" data-categoria="${bombilla.categoria}">Agregar al
+                        carrito</button>
+                    </div>
+                </div>
             </div>
         `;
         contenedorBombillas.appendChild(divPadre);
@@ -76,6 +81,8 @@ function mostrarBombillas(bombillas) {
             ? carrito = []
             : carrito = JSON.parse(localStorage.getItem('carrito'));
 
+            const inputCantidad = document.getElementById(`inputCantidad${bombilla.id}`);
+
             let nuevoProducto = {
                 "id": idBombilla,
                 "nombre": nombreBombilla,
@@ -84,20 +91,22 @@ function mostrarBombillas(bombillas) {
                 "categoria":categoriaBombilla
             }
 
-            carrito.push(nuevoProducto);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            (localStorage.getItem('subTotalProductos') === null)
-            ? subTotal += parseInt(precioBombilla)
-            : subTotal = parseInt(precioBombilla) + Number(localStorage.getItem('subTotalProductos'));
-            localStorage.setItem('subTotalProductos', Number(subTotal))
-            subTotalCarrito.innerHTML = subTotal;
-            let productosAlmacenados;
-            productosAlmacenados = validarStorage(localStorage.getItem('contadorProductos'));
-            productosAlmacenados++;
-            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
-            contadorElementosCarrito.innerHTML = productosAlmacenados;
+            for (let i = 0; i < inputCantidad.value; i++) {
+                carrito.push(nuevoProducto);
+            }
 
-            swal(`¡${nombreBombilla} agregada al carrito!`, "", "success");
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            let productosAlmacenados = Number(contadorElementosCarrito.textContent);
+            (localStorage.getItem('subTotalProductos') === null)
+            ? subTotal += parseInt(precioBombilla*inputCantidad.value)
+            : subTotal = parseInt(precioBombilla*inputCantidad.value) + Number(localStorage.getItem('subTotalProductos'));
+            productosAlmacenados+=Number(inputCantidad.value);
+            localStorage.setItem('contadorProductos', Number(productosAlmacenados));
+            localStorage.setItem('subTotalProductos', Number(subTotal));
+            contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
+            subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
+
+            swal(`¡ Se agregaron x${inputCantidad.value} ${nombreBombilla} al carrito!`,"", "success");
 
         });
     });

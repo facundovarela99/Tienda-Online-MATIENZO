@@ -114,7 +114,9 @@ function vaciarCarrito() {
     localStorage.clear();
     cantidadElementosCarrito.innerHTML = 0;
     subTotalProductos.innerHTML = 0;
-    document.querySelector('.divBotonesCarrito').innerHTML = "";
+    if (document.querySelector('.divBotonesCarrito')) {
+        document.querySelector('.divBotonesCarrito').innerHTML = "";
+    }
     const listaProductos = document.querySelector('.divListaProductos');
     if (listaProductos) listaProductos.innerHTML = "";
 

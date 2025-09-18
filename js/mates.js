@@ -107,7 +107,7 @@ function crearTarjetaMate(producto){
         let productosAlmacenados = Number(contadorElementosCarrito.textContent);
         (localStorage.getItem('subTotalProductos') === null)
         ? subTotal+=parseInt(precioMate*inputCantidad.value)
-        : subTotal = parseInt(precioMate*inputCantidad.value)+ Number(localStorage.getItem('subTotalProductos'))
+        : subTotal = parseInt(precioMate*inputCantidad.value)+ Number(localStorage.getItem('subTotalProductos'));
         productosAlmacenados+=Number(inputCantidad.value)
         localStorage.setItem('contadorProductos', Number(productosAlmacenados));
         localStorage.setItem('subTotalProductos', Number(subTotal));
