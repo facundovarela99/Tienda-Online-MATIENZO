@@ -65,7 +65,8 @@ function crearTarjetaMate(producto){
             <p class="fs-5 fw-normal">${producto.cuotas}</p>
             <hr>
             <div class="inputCantidadYagregar d-flex flex-row align-items-center">
-                <input class="inputCantidad" type="number" value="1" min="1">
+                <label for="inputCantidad${producto.id}" class="visually-hidden">Cantidad</label>
+                <input name="cantidadParaAgregar" id="inputCantidad${producto.id}" class="inputCantidad" type="number" value="1" min="1">
                 <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}" data-categoria="${producto.categoria}">Agregar al carrito</button>
             </div>
           </div>
@@ -90,7 +91,7 @@ function crearTarjetaMate(producto){
             carrito = JSON.parse(localStorage.getItem('carrito'));
         }
 
-        const inputCantidad = document.querySelector('.inputCantidad');
+        const inputCantidad = document.getElementById(`inputCantidad${producto.id}`);
 
         let mate = {
             'id':idMate,
@@ -112,7 +113,7 @@ function crearTarjetaMate(producto){
         localStorage.setItem('subTotalProductos', Number(subTotal));
         contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
         subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
-
+        
         swal(`¡ Se agregaron x${inputCantidad.value} ${nombreMate} al carrito!`,"", "success");
     })
 }

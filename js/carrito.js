@@ -52,14 +52,14 @@ export function abrirSidebar() {
         const etiquetaProductoEnCarrito = document.createElement('div');
         etiquetaProductoEnCarrito.className = 'productoCarrito';
         etiquetaProductoEnCarrito.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
-        <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio total: $${producto.precio * producto.cantidad}</h6>
-        <button id="botonQuitar${producto.id}" type="button" class="btn btn-warning" style="font-family: Fjalla One">Quitar</button>
-        <hr>
-    `;
+            <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
+            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
+            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
+            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Cantidad: ${producto.cantidad}</h6>
+            <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio total: $${producto.precio * producto.cantidad}</h6>
+            <button id="botonQuitar${producto.id}" type="button" class="btn btn-warning" style="font-family: Fjalla One">Quitar</button>
+            <hr>
+        `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
 
         const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`);
@@ -74,9 +74,7 @@ export function abrirSidebar() {
                         swal(`Se removió ${producto.nombre} del carrito`, {
                             icon: "success",
                         });
-                        quitarProducto();
-                    } else {
-                        swal("");
+                        carrito = quitarProducto(producto.id, carrito);
                     }
                 });
         })
@@ -86,6 +84,13 @@ export function abrirSidebar() {
     btnVaciarCarritoSideBar && btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
 };
 
+function quitarProducto(idProd, carro){
+
+
+const sinProducto = carro.filter(prod => prod.id !== idProd);
+
+localStorage.setItem('carrito', JSON.stringify(sinProducto)); //CONTINUAR LABURANDO LA LÓGICA
+}
 
 const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito');
 const subTotalProductos = document.getElementById('totalMiniCarrito');

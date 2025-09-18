@@ -119,3 +119,12 @@ main{
         }
     }
 }
+@media screen and (max-width: 1468px) {
+    .inputCantidadYagregar{
+        justify-content: space-around;
+        padding-bottom: 20px;
+        .inputCantidad{
+            width: 35%;
+        }
+    }
+}
