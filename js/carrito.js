@@ -1,4 +1,7 @@
-function renderBotonesCarrito(localStorage) {
+//Script que maneja la lógica del carrito en general
+import validarStorage from "./main.js";
+
+function renderBotonesCarrito(localStorage) { //Renderizado de los botones por cada producto en el carro siempre y cuando haya productos en el mismo
     let html = "";
     if (localStorage) {
         html += `
@@ -9,7 +12,7 @@ function renderBotonesCarrito(localStorage) {
     return html;
 }
 
-export function abrirSidebar() {
+export function abrirSidebar() { //Función que maneja la lógica del side-bar, el cual funciona como carrito en lugar de un nuevo HTML, renderizando el contenido dinámicamente
     const bodySideBar = document.getElementById('sideBarBody');
     bodySideBar.innerHTML = `
         <div class="divHrOffcanvas">
@@ -24,16 +27,15 @@ export function abrirSidebar() {
             <span class="spanSubtotal"></span>
         </div>
         <div class="divBotonesCarrito">
-            ${renderBotonesCarrito(localStorage.getItem('contadorProductos'))}
+            ${renderBotonesCarrito(localStorage.getItem('contadorProductos'))} 
         </div>
     `;
 
-    (localStorage.getItem('subTotalProductos') === null)
-        ? document.querySelector('.spanSubtotal').innerHTML = 0
-        : document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+    const spanSubtotal = document.querySelector('.spanSubtotal'); //contador subtotal del carrito
+    spanSubtotal.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'), 0);
 
     let carrito = JSON.parse(localStorage.getItem('carrito')) || []
-    const contenedorSidebarProductos = document.querySelector('.divListaProductos');
+    const contenedorSidebarProductos = document.querySelector('.divListaProductos'); //contenedor de las tarjetas de productos en el carrito
 
     //Lógica para mostrar la cantidad del mismo tipo de producto en el Carrito/Sidebar
     const productosAgrupados = {}; //Crea un objeto vacío para almacenar los productos agrupados por su id.
@@ -49,10 +51,10 @@ export function abrirSidebar() {
     // Mostrar solo un bloque por tipo de producto
     for (const id in productosAgrupados) { //Inicia un bucle para recorrer cada producto agrupado por su id.
         const producto = productosAgrupados[id]; //Obtiene el producto agrupado actual.
-        const etiquetaProductoEnCarrito = document.createElement('div');
-        etiquetaProductoEnCarrito.className = "productoCarrito";
-        etiquetaProductoEnCarrito.id = `id${producto.id}`;
-        etiquetaProductoEnCarrito.innerHTML = `
+        const etiquetaProductoEnCarrito = document.createElement('div'); //Se crea una etiqueta por cada tarjeta
+        etiquetaProductoEnCarrito.className = "productoCarrito";           //asignandole una className
+        etiquetaProductoEnCarrito.id = `id${producto.id}`;                 //y un id
+        etiquetaProductoEnCarrito.innerHTML = `  
             <img src="${producto.imagen}" alt="${producto.nombre}" width="140">
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Producto: ${producto.nombre}</h6>
             <h6 style="font-family: Fjalla One; font-size: 1.5rem;">Precio por unidad: $${producto.precio}</h6>
@@ -63,7 +65,7 @@ export function abrirSidebar() {
         `;
         contenedorSidebarProductos.appendChild(etiquetaProductoEnCarrito);
 
-        const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`);
+        const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`); //Lógica del boton para remover un conjunto de productos de la misma categoría del carrito con SweetAlert (pendiente remover una cantidad seleccionada)
         btnQuitarProducto.addEventListener('click', () => {
             swal({
                 title: "¿Está seguro de que quiere remover este producto del carrito?",
@@ -75,59 +77,58 @@ export function abrirSidebar() {
                         swal(`Se removió ${producto.nombre} del carrito`, {
                             icon: "success",
                         });
-                        carrito = quitarProducto(producto, carrito);
+                        carrito = quitarProducto(producto, carrito); //Si se elige remover el producto del carrito, se llama a la función quitarProducto
                     }
                 });
         })
     }
 
-    const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar');
-    btnVaciarCarritoSideBar && btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito);
+    const btnVaciarCarritoSideBar = document.getElementById('btnVaciarCarritoSideBar'); //boton de vaciar carrito del nav-bar
+    btnVaciarCarritoSideBar && btnVaciarCarritoSideBar.addEventListener('click', manejarCarrito); //Si hay un boton para vaciar el carrito, hacer click sobre el mismo llama a manejarCarrito
 };
 
-function quitarProducto(prod, carro){
+const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito'); //contador de items del carrito
+const subTotalProductos = document.getElementById('totalMiniCarrito');  //acumulador del subtotal
 
-    document.getElementById(`id${prod.id}`).innerHTML = "";
+function quitarProducto(prod, carro){ //Función que se encarga de remover un producto seleccionado del carro
 
-    const sinProducto = carro.filter(PROD => PROD.id !== prod.id);
-    localStorage.setItem('carrito', JSON.stringify(sinProducto)); //CONTINUAR LABURANDO LA LÓGICA
+    document.getElementById(`id${prod.id}`).innerHTML = ""; //Limpia el contenido del producto seleccionado por su id
+
+    const sinProducto = carro.filter(PROD => PROD.id !== prod.id); //constante que toma elementos del carrito filtrando por aquellos que no se le haya hecho click para remover
+    localStorage.setItem('carrito', JSON.stringify(sinProducto));  //se reemplaza el array actual por uno que no contenga el producto removido 
     let contadorActual = Number(localStorage.getItem('contadorProductos'));
-    localStorage.setItem('contadorProductos', contadorActual-prod.cantidad)
+    localStorage.setItem('contadorProductos', contadorActual-prod.cantidad) //se le resta al contador de productos la cantidad removida de cada uno
     let subtotalActual = Number(localStorage.getItem('subTotalProductos'));
-    localStorage.setItem('subTotalProductos', subtotalActual-(prod.precio*prod.cantidad));
+    localStorage.setItem('subTotalProductos', subtotalActual-(prod.precio*prod.cantidad)); //Se le resta al acumulador de precio el precio por la cantidad removida
 
-    cantidadElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
-    subTotalProductos.innerHTML = localStorage.getItem('subTotalProductos');
-    document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos');
+    cantidadElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');   //se recupera la cantidad actual de productos
+    subTotalProductos.innerHTML = localStorage.getItem('subTotalProductos');          //se recupera el subtotal actual del carrito
+    document.querySelector('.spanSubtotal').innerHTML = localStorage.getItem('subTotalProductos'); //Subtotal de productos renderizado en el carro
 
-    console.log(sinProducto);
-    if(localStorage.getItem('subTotalProductos')<= 0 || localStorage.getItem('contadorProductos')<=0) {
-        vaciarCarrito();
+    if(localStorage.getItem('subTotalProductos')<= 0 || localStorage.getItem('contadorProductos')<=0) { //si el subtotal o el contador de productos son menores o iguales a 0
+        vaciarCarrito();  //se llama a vaciar carrito
     } 
     return sinProducto;
 }
 
-const cantidadElementosCarrito = document.getElementById('cantidadItemsCarrito');
-const subTotalProductos = document.getElementById('totalMiniCarrito');
-
-function vaciarCarrito() {
-    localStorage.clear();
-    cantidadElementosCarrito.innerHTML = 0;
+function vaciarCarrito() { //Función que se encarga de vaciar el carrito completo (junto con el localStorage)
+    localStorage.clear(); //se limpia el localStorage
+    cantidadElementosCarrito.innerHTML = 0; 
     subTotalProductos.innerHTML = 0;
-    if (document.querySelector('.divBotonesCarrito')) {
-        document.querySelector('.divBotonesCarrito').innerHTML = "";
+    if (document.querySelector('.divBotonesCarrito')) { //Si hay botones 
+        document.querySelector('.divBotonesCarrito').innerHTML = ""; //se limpian
     }
-    const listaProductos = document.querySelector('.divListaProductos');
-    if (listaProductos) listaProductos.innerHTML = "";
+    const listaProductos = document.querySelector('.divListaProductos'); //Si se renderizaron productos 
+    if (listaProductos) listaProductos.innerHTML = ""; //Se limpia el contenido
 
-    const spanSubtotal = document.querySelector('.spanSubtotal');
-    if (spanSubtotal) spanSubtotal.innerHTML = 0
+    const spanSubtotal = document.querySelector('.spanSubtotal'); 
+    if (spanSubtotal) spanSubtotal.innerHTML = 0 //Si hay un acumulador de subtotal, se limpia
 }
 
-export function manejarCarrito() {
-    if (localStorage.getItem('contadorProductos')) {
+export function manejarCarrito() { //Funcion que maneja el vaciado del carrito
+    if (localStorage.getItem('contadorProductos')) { //Si hay un contador de productos
         swal({
-            title: "¿Está seguro de que desea vaciar el carrito?",
+            title: "¿Está seguro de que desea vaciar el carrito?", //Aparecen los botones para vaciarlo
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -140,8 +141,8 @@ export function manejarCarrito() {
                     vaciarCarrito();
                 }
             });
-    } else {
-        swal('No hay elementos en el carrito')
+    } else {                                    //Si no hay un contador (lo que es igual a que no haya productos):
+        swal('No hay elementos en el carrito')  
     }
 }
 

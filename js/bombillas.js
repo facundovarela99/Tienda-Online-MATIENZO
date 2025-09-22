@@ -1,46 +1,40 @@
 import { abrirSidebar, manejarCarrito } from "./carrito.js";
+import validarStorage from "./main.js";
 
 const url = "../js/data.json";
 
-fetch(url)
+fetch(url) //Se trae el contenido de data.json
     .then(res => res.json())
-    .then(data => mostrarBombillas(data.bombillas))
+    .then(data => mostrarBombillas(data.bombillas)) //se aplica la función a la respuesta de fetch, en este caso los productos de la categoría bombillas
     .catch(err => console.error("Error cargando JSON:", err));
 
 let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
 let subTotalCarrito = document.getElementById('totalMiniCarrito');
 let subTotal = 0;
 
-function validarStorage(storage) {
-    if (storage) {
-        return storage;
-    } 
-    return 0;
-}
+contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'), 0);
+subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'), 0);
 
-contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'));
-subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'));
+const contenedorBombillas = document.querySelector('.contenedorBombillas'); //contenedor de las tarjetas de bombillas
 
-const contenedorBombillas = document.querySelector('.contenedorBombillas');
-
-function renderDescripcion(array) {
+function renderDescripcion(array) { //Función que se encarga de renderizar el array de descripción del objeto json
     let html = "";
     for (let index = 0; index < array.length; index++) {
-        if (index === 0) {
-            html += `<p class="fs-2 fw-normal ps-5">${array[index]}</p>`
+        if (index === 0) { //si i = 0
+            html += `<p class="fs-2 fw-normal ps-5">${array[index]}</p>` //se le aplica mayor tamaño y negrita
         } else {
-            html += `<p class="fs-4 fw-normal ps-5">${array[index]}</p>`
+            html += `<p class="fs-4 fw-normal ps-5">${array[index]}</p>` //se le aplica menor tamaño e intensidad normal, junto con un poco de padding-left
         }
     }
-    return html
+    return html //retorna la lista de parrafos renderizada
 }
 
-function mostrarBombillas(bombillas) {
-    bombillas.forEach((bombilla) => {
+function mostrarBombillas(bombillas) { //Función que se encarga de renderizar los productos que se trajo como respuesta.
+    bombillas.forEach((bombilla) => { //Por cada producto de la categoría/objeto traid, se crea las tarjetas inyectando contenido dinámicamente:
         const divPadre = document.createElement('div');
-        (bombilla.id % 2 === 0)
-            ? divPadre.className = `bombilla w-100 d-flex flex-column align-items-start ps-5 py-5`
-            : divPadre.className = `bombilla w-100 d-flex flex-column align-items-end pe-5 py-5`
+        (bombilla.id % 2 === 0) //Si el id es par
+            ? divPadre.className = `bombilla w-100 d-flex flex-column align-items-start ps-5 py-5` //Se muestra del lado izquierdo
+            : divPadre.className = `bombilla w-100 d-flex flex-column align-items-end pe-5 py-5` //Si no, se muestra del lado derecho
 
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
@@ -63,10 +57,10 @@ function mostrarBombillas(bombillas) {
                     </div>
                 </div>
             </div>
-        `;
+        `; //Contenido de cada tarjeta inyectado dinámicamente
         contenedorBombillas.appendChild(divPadre);
 
-        const btnComprar = document.querySelector(`.btnComprar${bombilla.id}`);
+        const btnComprar = document.querySelector(`.btnComprar${bombilla.id}`); //Lógica del boton para 'agregar al carrito' un producto seleccionado
         btnComprar.addEventListener('click', () => {
             const idBombilla = btnComprar.getAttribute('data-id');
             const nombreBombilla = btnComprar.getAttribute('data-nombre');
@@ -81,9 +75,9 @@ function mostrarBombillas(bombillas) {
             ? carrito = []
             : carrito = JSON.parse(localStorage.getItem('carrito'));
 
-            const inputCantidad = document.getElementById(`inputCantidad${bombilla.id}`);
+            const inputCantidad = document.getElementById(`inputCantidad${bombilla.id}`); //input de la cantidad de productos a querer agregar al carro
 
-            let nuevoProducto = {
+            let nuevoProducto = { //objeto literal, con los valores traídos al presionar el boton 'agregar al carrito'
                 "id": idBombilla,
                 "nombre": nombreBombilla,
                 "precio": precioBombilla,
@@ -92,7 +86,7 @@ function mostrarBombillas(bombillas) {
             }
 
             for (let i = 0; i < inputCantidad.value; i++) {
-                carrito.push(nuevoProducto);
+                carrito.push(nuevoProducto); //se agrega la cantidad del input al carrito
             }
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -112,16 +106,17 @@ function mostrarBombillas(bombillas) {
     });
 };
 
-const botonSideBar = document.getElementById('sidebarButton');
-botonSideBar.addEventListener('click', abrirSidebar);
+const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
+botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
+botonVaciarCarrito.addEventListener('click', ()=>{
+    subTotal = 0;
+}); //limpia el acumulador subtotal
+
+
+const botonSideBar = document.getElementById('sidebarButton'); //boton que abre el sidebar (carrito)
+botonSideBar.addEventListener('click', abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
 botonSideBar.addEventListener('click', () => {
     subTotal = 0;
-})
+}); //limpia el acumulador subtotal
 
-const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-botonVaciarCarrito.addEventListener('click', manejarCarrito)
-botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
 
-function limpiarSubtotal() {
-    subTotal = 0;
-}

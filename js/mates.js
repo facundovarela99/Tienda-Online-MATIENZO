@@ -1,28 +1,22 @@
 import { abrirSidebar, manejarCarrito } from "./carrito.js";
+import validarStorage from "./main.js";
 
-async function obtenerMates() {
+async function obtenerMates() { //Función asíncrona que espera una respuesta trayendo la data de data.json
     const response = await fetch("../js/data.json")
     const data = await response.json();
 
-    return data.mates;
+    return data.mates; //retorna los objetos de mates
 }
 
-async function mostrarMates() {
+async function mostrarMates() { //Función asíncrona que espera la ejecución de obtenerMates
     try{
         const listaMates = await obtenerMates();
         listaMates.forEach((mate)=>{
-            crearTarjetaMate(mate);
+            crearTarjetaMate(mate); //por cada producto, crea la tarjeta
         })
     }catch(error){
         console.log(`ERROR DE TIPO: ${error}`)
     }
-}
-
-function validarStorage(storage, valorDefault){
-    if (storage) {
-        return storage
-    }
-    return valorDefault
 }
 
 let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
@@ -32,24 +26,24 @@ let subTotal = 0;
 contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'), 0);
 subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'), 0)
 
-function renderDescripcion(array){
+function renderDescripcion(array){ //Función que se encarga de renderizar el array de descripción del objeto json
     let html = "";
     for (let i = 0; i < array.length; i++) {
-        if(i===0){
-            html+=`<p class="fs-2 fw-bolder">${array[i]}</p>`
+        if(i===0){ //si i = 0
+            html+=`<p class="fs-2 fw-bolder">${array[i]}</p>` //se le aplica mayor tamaño y negrita
         } else{
-            html+=`<p class="fs-5 fw-normal">${array[i]}</p>`
+            html+=`<p class="fs-5 fw-normal">${array[i]}</p>` //se le aplica menor tamaño e intensidad normal
         }
     }
-    return html;
+    return html; //retorna la lista de parrafos renderizada
 }
 
 
-function crearTarjetaMate(producto){
+function crearTarjetaMate(producto){ //Función que se encarga de renderizar los productos que se trajo como respuesta y crear las cards.
     const divPadre = document.createElement('div');
-    (producto.id % 2 === 0)
-    ? divPadre.className = `mate w-100 d-flex flex-column align-items-start ps-5 py-5`
-    : divPadre.className = `mate w-100 d-flex flex-column align-items-end pe-5 py-5`;
+    (producto.id % 2 === 0) //Si el id es par
+    ? divPadre.className = `mate w-100 d-flex flex-column align-items-start ps-5 py-5` //Se muestra del lado izquierdo
+    : divPadre.className = `mate w-100 d-flex flex-column align-items-end pe-5 py-5`; //Si no, se muestra del lado derecho
 
     divPadre.innerHTML=`
         <div class="fila d-flex flex-row w-50" data-aos="fade-right">
@@ -70,13 +64,13 @@ function crearTarjetaMate(producto){
                 <button class="button btn btn-dark btnComprar${producto.id}" data-name="${producto.nombre}" data-id="${producto.id}" data-precio="${producto.precio}" data-img="${producto.imagen}" data-categoria="${producto.categoria}">Agregar al carrito</button>
             </div>
           </div>
-        </div>
-    `
+        </div> 
+    ` //Contenido de cada tarjeta inyectado dinámicamente
     
-    const contenedorMates = document.querySelector('.containerMates');
+    const contenedorMates = document.querySelector('.containerMates'); //contenedor de las tarjetas de yerbas
     contenedorMates.appendChild(divPadre);
 
-    const botonComprar = divPadre.querySelector(`.btnComprar${producto.id}`);
+    const botonComprar = divPadre.querySelector(`.btnComprar${producto.id}`);  //Lógica del boton para 'agregar al carrito' un producto seleccionado
     botonComprar.addEventListener('click',()=>{
         const idMate = botonComprar.getAttribute('data-id');
         const nombreMate = botonComprar.getAttribute('data-name');
@@ -91,9 +85,9 @@ function crearTarjetaMate(producto){
             carrito = JSON.parse(localStorage.getItem('carrito'));
         }
 
-        const inputCantidad = document.getElementById(`inputCantidad${producto.id}`);
+        const inputCantidad = document.getElementById(`inputCantidad${producto.id}`); //input de la cantidad de productos a querer agregar al carro
 
-        let mate = {
+        let mate = { //objeto literal, con los valores traídos al presionar el boton 'agregar al carrito'
             'id':idMate,
             'nombre':nombreMate,
             'precio':precioMate,
@@ -101,8 +95,9 @@ function crearTarjetaMate(producto){
             'categoria':categoriaMate
         }
         for (let i = 0; i <inputCantidad.value; i++) {
-            carrito.push(mate);
+            carrito.push(mate); //se agrega la cantidad del input al carrito
         }
+
         localStorage.setItem('carrito', JSON.stringify(carrito));
         let productosAlmacenados = Number(contadorElementosCarrito.textContent);
         (localStorage.getItem('subTotalProductos') === null)
@@ -119,20 +114,16 @@ function crearTarjetaMate(producto){
 }
 
 
+const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
+botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
+botonVaciarCarrito.addEventListener('click', ()=>{
+    subTotal=0;
+}); //limpia el acumulador subtotal
+
 const sidebarButton = document.getElementById('sidebarButton');
-sidebarButton.addEventListener('click',abrirSidebar);
+sidebarButton.addEventListener('click',abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
 sidebarButton.addEventListener('click',()=>{
     subTotal=0;
-})
+}); //limpia el acumulador subtotal
 
-
-const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-botonVaciarCarrito.addEventListener('click', manejarCarrito);
-botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
-
-function limpiarSubtotal(){
-    subTotal=0;
-}
-
-
-mostrarMates();
+mostrarMates(); //Al abrir la página, ejecuta toda la lógica que implica mostrarMates

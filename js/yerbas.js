@@ -1,10 +1,11 @@
 import { abrirSidebar, manejarCarrito } from "./carrito.js";
+import validarStorage from "./main.js";
 
 const url = "../js/data.json";
 
-fetch(url)
+fetch(url)      //Se trae el contenido de data.json
     .then(res => res.json())
-    .then(data => mostrarYerbas(data.yerbas))
+    .then(data => mostrarYerbas(data.yerbas)) //se aplica la función a la respuesta de fetch, en este caso los productos de la categoría yerbas
     .catch(err => console.error("Error cargando JSON:", err));
 
 
@@ -12,63 +13,52 @@ let contadorElementosCarrito = document.getElementById('cantidadItemsCarrito');
 let subTotalCarrito = document.getElementById('totalMiniCarrito');
 let subTotal = 0;
 
+contadorElementosCarrito.innerHTML = validarStorage(localStorage.getItem('contadorProductos'), 0);
+subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProductos'), 0);
 
-if (localStorage.getItem('contadorProductos') === null) {
-    contadorElementosCarrito.innerHTML = 0;
-} else {
-    contadorElementosCarrito.innerHTML = localStorage.getItem('contadorProductos');
-}
+const contenedorYerbas = document.querySelector('.containerYerbas');  //contenedor de las tarjetas de yerbas
 
-
-if (localStorage.getItem('subTotalProductos') === null) {
-    subTotalCarrito.innerHTML = 0;
-} else {
-    subTotalCarrito.innerHTML = localStorage.getItem('subTotalProductos');
-}
-
-const contenedorYerbas = document.querySelector('.containerYerbas');
-
-function renderDescripcion(array) {
+function renderDescripcion(array) { //Función que se encarga de renderizar el array de descripción del objeto json
     let html = ""
-    for (let i = 0; i < array.length; i++) {
-        if (i === 0) {
-            html += `<p class="fs-2 fw-bolder">${array[i]}</p>`;
+    for (let i = 0; i < array.length; i++) { 
+        if (i === 0) { //si i = 0
+            html += `<p class="fs-2 fw-bolder">${array[i]}</p>`; //se le aplica mayor tamaño y negrita
         } else {
-            html += `<p class="fs-5 fw-normal ps-5">${array[i]}</p>`;
+            html += `<p class="fs-5 fw-normal ps-5">${array[i]}</p>`; //se le aplica menor tamaño e intensidad normal, junto con un poco de padding-left
         }
     }
-    return html;
+    return html; //retorna la lista de parrafos renderizada
 }
 
-function mostrarYerbas(yerbas) {
-    yerbas.forEach(yerba => {
+function mostrarYerbas(yerbas) { //Función que se encarga de renderizar los productos que se trajo como respuesta.
+    yerbas.forEach(yerba => { //Por cada producto de la categoría/objeto traid, se crea las tarjetas inyectando contenido dinámicamente:
         const divPadre = document.createElement('div');
-        (yerba.id % 2 === 0)
-        ?divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5'
-        :divPadre.className = 'yerba w-100 d-flex flex-column align-items-end pe-5 py-5'
+        (yerba.id % 2 === 0) //Si el id es par
+        ?divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5' //Se muestra del lado izquierdo
+        :divPadre.className = 'yerba w-100 d-flex flex-column align-items-end pe-5 py-5' //Si no, se muestra del lado derecho
         divPadre.innerHTML = `
-        <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-          <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="${yerba.imagen}" alt="${yerba.nombre}">
-            </a>
-          </div>
-          <div class="parrafos d-flex flex-column ps-3">
-            <p class="fs-2 fw-bolder">${yerba.nombre}</p>
-            ${renderDescripcion(yerba.descripcion)}
-            <p class="fs-5 fw-normal ps-5">$ ${yerba.precio}.00</p>
-            <hr>
-            <div class="inputCantidadYagregar d-flex flex-row align-items-center">
-                <label for="inputCantidad${yerba.id}" class="visually-hidden">Cantidad</label>
-                <input name="cantidadParaAgregar" id="inputCantidad${yerba.id}" class="inputCantidad" type="number" value="1" min="1">
-                <button class="button btnComprar${yerba.id} btn btn-dark buttonAddToCart" data-name="${yerba.nombre}" data-id="${yerba.id}" data-precio="${yerba.precio}" data-img="${yerba.imagen}" data-categoria="${yerba.categoria}">Agregar al carrito</button>
+            <div class="fila d-flex flex-row w-50" data-aos="fade-right">
+            <div class="imagen w-50">
+                <a href="../pages/contacto.html">
+                <img src="${yerba.imagen}" alt="${yerba.nombre}">
+                </a>
             </div>
-          </div>
-        </div>
-        `
+            <div class="parrafos d-flex flex-column ps-3">
+                <p class="fs-2 fw-bolder">${yerba.nombre}</p>
+                ${renderDescripcion(yerba.descripcion)}
+                <p class="fs-5 fw-normal ps-5">$ ${yerba.precio}.00</p>
+                <hr>
+                <div class="inputCantidadYagregar d-flex flex-row align-items-center">
+                    <label for="inputCantidad${yerba.id}" class="visually-hidden">Cantidad</label>
+                    <input name="cantidadParaAgregar" id="inputCantidad${yerba.id}" class="inputCantidad" type="number" value="1" min="1">
+                    <button class="button btnComprar${yerba.id} btn btn-dark buttonAddToCart" data-name="${yerba.nombre}" data-id="${yerba.id}" data-precio="${yerba.precio}" data-img="${yerba.imagen}" data-categoria="${yerba.categoria}">Agregar al carrito</button>
+                </div>
+            </div>
+            </div>
+        ` //Contenido de cada tarjeta inyectado dinámicamente
         contenedorYerbas.appendChild(divPadre);
 
-        const botonComprar = document.querySelector(`.btnComprar${yerba.id}`);
+        const botonComprar = document.querySelector(`.btnComprar${yerba.id}`); //Lógica del boton para 'agregar al carrito' un producto seleccionado
         botonComprar.addEventListener('click', () => {
             const nombreYerba = botonComprar.getAttribute('data-name');
             const idYerba = botonComprar.getAttribute('data-id');
@@ -84,9 +74,9 @@ function mostrarYerbas(yerbas) {
                 carrito = JSON.parse(localStorage.getItem('carrito'));
             }
 
-            const inputCantidad = document.getElementById(`inputCantidad${yerba.id}`);
+            const inputCantidad = document.getElementById(`inputCantidad${yerba.id}`); //input de la cantidad de productos a querer agregar al carro
 
-            let nuevoProducto = {
+            let nuevoProducto = { //objeto literal, con los valores traídos al presionar el boton 'agregar al carrito'
                 'id': idYerba,
                 'nombre': nombreYerba,
                 'precio': precioYerba,
@@ -94,8 +84,8 @@ function mostrarYerbas(yerbas) {
                 'categoria':categoriaYerba
             };
 
-            for (let i = 0; i < inputCantidad.value; i++) {
-                carrito.push(nuevoProducto);
+            for (let i = 0; i < inputCantidad.value; i++) { 
+                carrito.push(nuevoProducto); //se agrega la cantidad del input al carrito
             }
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -114,16 +104,15 @@ function mostrarYerbas(yerbas) {
     });
 };
 
-const botonVaciarCarrito = document.getElementById('btnVaciarCarrito');
-botonVaciarCarrito.addEventListener('click', manejarCarrito);
-botonVaciarCarrito.addEventListener('click', limpiarSubtotal);
+const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
+botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
+botonVaciarCarrito.addEventListener('click', ()=>{
+    subTotal = 0
+}); //limpia el acumulador subtotal
 
-function limpiarSubtotal(){
-    subTotal=0;
-}
 
-const botonSideBar = document.getElementById('sidebarButton');
-botonSideBar.addEventListener('click', abrirSidebar);
+const botonSideBar = document.getElementById('sidebarButton'); //boton que abre el sidebar (carrito)
+botonSideBar.addEventListener('click', abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
 botonSideBar.addEventListener('click',()=>{
-    subTotal=0;
-})
+    subTotal=0
+}) //limpia el acumulador subtotal
