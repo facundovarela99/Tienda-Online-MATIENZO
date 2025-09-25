@@ -8,8 +8,8 @@ async function obtenerProductos() {
 
 async function mostrarProductos() {
     try {
-        const { mates } = await obtenerProductos();
-        mates.forEach(producto => crearTarjetaProducto(producto));
+        const productos = await obtenerProductos();
+        productos.forEach(producto => crearTarjetaProducto(producto));
     } catch (e) {
         console.error(e);
     }
@@ -34,7 +34,7 @@ function renderDescripcion(array) {
     return html;
 }
 
-function crearTarjetaProducto(producto) {
+export function crearTarjetaProducto(producto) {
     const divPadre = document.createElement('div');
     (producto.id % 2 === 0)
         ? divPadre.className = `mate w-100 d-flex flex-column align-items-start ps-5 py-5`
