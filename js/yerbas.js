@@ -20,7 +20,7 @@ const contenedorYerbas = document.querySelector('.containerYerbas');  //contened
 
 function renderDescripcion(array) { //Función que se encarga de renderizar el array de descripción del objeto json
     let html = ""
-    for (let i = 0; i < array.length; i++) { 
+    for (let i = 0; i < array.length; i++) {
         if (i === 0) { //si i = 0
             html += `<p class="fs-2 fw-bolder">${array[i]}</p>`; //se le aplica mayor tamaño y negrita
         } else {
@@ -34,13 +34,13 @@ function mostrarYerbas(yerbas) { //Función que se encarga de renderizar los pro
     yerbas.forEach(yerba => { //Por cada producto de la categoría/objeto traid, se crea las tarjetas inyectando contenido dinámicamente:
         const divPadre = document.createElement('div');
         (yerba.id % 2 === 0) //Si el id es par
-        ?divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5' //Se muestra del lado izquierdo
-        :divPadre.className = 'yerba w-100 d-flex flex-column align-items-end pe-5 py-5' //Si no, se muestra del lado derecho
+            ? divPadre.className = 'yerba w-100 d-flex flex-column align-items-start ps-5 py-5' //Se muestra del lado izquierdo
+            : divPadre.className = 'yerba w-100 d-flex flex-column align-items-end pe-5 py-5' //Si no, se muestra del lado derecho
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
             <div class="imagen w-50">
-                <a href="../pages/contacto.html">
-                <img src="${yerba.imagen}" alt="${yerba.nombre}">
+                <a href="#">
+                <img src="${yerba.imagen}" alt="${yerba.nombre}" id="anclaYerba${yerba.id}">
                 </a>
             </div>
             <div class="parrafos d-flex flex-column ps-3">
@@ -81,38 +81,57 @@ function mostrarYerbas(yerbas) { //Función que se encarga de renderizar los pro
                 'nombre': nombreYerba,
                 'precio': precioYerba,
                 'imagen': imagenYerba,
-                'categoria':categoriaYerba
+                'categoria': categoriaYerba
             };
 
-            for (let i = 0; i < inputCantidad.value; i++) { 
+            for (let i = 0; i < inputCantidad.value; i++) {
                 carrito.push(nuevoProducto); //se agrega la cantidad del input al carrito
             }
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
             let productosAlmacenados = Number(contadorElementosCarrito.textContent);
             (localStorage.getItem('subTotalProductos') === null)
-            ? subTotal += parseInt(precioYerba*inputCantidad.value)
-            : subTotal = parseInt(precioYerba*inputCantidad.value)+Number(localStorage.getItem('subTotalProductos'))
-            productosAlmacenados+=Number(inputCantidad.value);
+                ? subTotal += parseInt(precioYerba * inputCantidad.value)
+                : subTotal = parseInt(precioYerba * inputCantidad.value) + Number(localStorage.getItem('subTotalProductos'))
+            productosAlmacenados += Number(inputCantidad.value);
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             localStorage.setItem('subTotalProductos', Number(subTotal));
             contadorElementosCarrito.innerHTML = productosAlmacenados;
             subTotalCarrito.innerHTML = subTotal;
 
-            swal(`¡ Se agregaron x${inputCantidad.value} ${nombreYerba} al carrito!`,"", "success");
+            Swal.fire({
+                title: `¡ Se agregaron x${inputCantidad.value} ${nombreYerba} al carrito!`,
+                icon: "success",
+                draggable: true
+            });
         });
+
+        const imagenAnclaProducto = document.getElementById(`anclaYerba${yerba.id}`)
+        imagenAnclaProducto.addEventListener('click', () => {
+            Swal.fire({
+                title: "Sweet!",
+                text: "Modal with a custom image.",
+                imageUrl: "https://unsplash.it/400/200",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+            });
+        })
+
+
     });
 };
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
 botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
-botonVaciarCarrito.addEventListener('click', ()=>{
+botonVaciarCarrito.addEventListener('click', () => {
     subTotal = 0
 }); //limpia el acumulador subtotal
 
 
 const botonSideBar = document.getElementById('sidebarButton'); //boton que abre el sidebar (carrito)
 botonSideBar.addEventListener('click', abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
-botonSideBar.addEventListener('click',()=>{
-    subTotal=0
+botonSideBar.addEventListener('click', () => {
+    subTotal = 0
 }) //limpia el acumulador subtotal
+

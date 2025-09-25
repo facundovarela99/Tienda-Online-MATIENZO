@@ -39,8 +39,8 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
                 <div class="imagen w-50">
-                    <a href="../pages/contacto.html">
-                    <img src="${bombilla.imagen}" alt="${bombilla.nombre}">
+                    <a href="#">
+                    <img src="${bombilla.imagen}" alt="${bombilla.nombre}" id="anclaBombilla${bombilla.id}">
                     </a>
                 </div>
                 <div class="parrafos d-flex flex-column ps-3">
@@ -100,7 +100,11 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
             contadorElementosCarrito.innerHTML = productosAlmacenados;
             subTotalCarrito.innerHTML = subTotal;
 
-            swal(`¡ Se agregaron x${inputCantidad.value} ${nombreBombilla} al carrito!`,"", "success");
+            Swal.fire({
+                title: `¡ Se agregaron x${inputCantidad.value} ${nombreBombilla} al carrito!`,
+                icon: "success",
+                draggable: true
+            });
 
         });
     });

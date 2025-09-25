@@ -17,31 +17,31 @@ subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProduct
 
 const contenedorTermos = document.querySelector('.containerTermos'); //contenedor de las tarjetas de termos
 
-function renderDescripcion(array){ //Función que se encarga de renderizar el array de descripción del objeto json
+function renderDescripcion(array) { //Función que se encarga de renderizar el array de descripción del objeto json
     let html = "";
     for (let i = 0; i < array.length; i++) {
         if (i === 0) { //si i = 0
             html += `<p class="fs-2 fw-bolder">${array[i]}</p>`; //se le aplica mayor tamaño y negrita
-        } else{
+        } else {
             html += `<p class="fs-4 fw-normal ps-5">${array[i]}</p>`; //se le aplica menor tamaño e intensidad normal, junto con un poco de padding-left
-        }   
+        }
     }
     return html; //retorna la lista de parrafos
 }
 
 
-function mostrarTermos(termos){ //Función que se encarga de renderizar los productos que se trajo como respuesta.
-    termos.forEach((termo)=>{ //Por cada producto de la categoría/objeto traid, se crea las tarjetas inyectando contenido dinámicamente:
+function mostrarTermos(termos) { //Función que se encarga de renderizar los productos que se trajo como respuesta.
+    termos.forEach((termo) => { //Por cada producto de la categoría/objeto traid, se crea las tarjetas inyectando contenido dinámicamente:
         const divPadre = document.createElement('div');
         (termo.id % 2 === 0) //Si el id es par
-        ? divPadre.className = "termo1 w-100 d-flex flex-column align-items-start ps-5 py-5" //Se muestra del lado izquierdo
-        : divPadre.className = "termo1 w-100 d-flex flex-column align-items-end pe-5 py-5" //Si no, se muestra del lado derecho
+            ? divPadre.className = "termo1 w-100 d-flex flex-column align-items-start ps-5 py-5" //Se muestra del lado izquierdo
+            : divPadre.className = "termo1 w-100 d-flex flex-column align-items-end pe-5 py-5" //Si no, se muestra del lado derecho
 
-        divPadre.innerHTML=`
+        divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
                 <div class="imagen w-50">
-                    <a href="../pages/contacto.html">
-                        <img src="${termo.imagen}" alt="${termo.nombre}">
+                    <a href="#">
+                        <img src="${termo.imagen}" alt="${termo.nombre}" id="anclaTermo${termo.id}">
                     </a>
                 </div>
                 <div class="parrafos d-flex flex-column ps-3">
@@ -62,7 +62,7 @@ function mostrarTermos(termos){ //Función que se encarga de renderizar los prod
         contenedorTermos.appendChild(divPadre);
 
         const botonComprar = document.querySelector(`.btnComprar${termo.id}`); //Lógica del boton para 'agregar al carrito' un producto seleccionado
-        botonComprar.addEventListener('click',()=>{
+        botonComprar.addEventListener('click', () => {
             const idTermo = botonComprar.getAttribute('data-id');
             const nombreTermo = botonComprar.getAttribute('data-nombre');
             const precioTermo = botonComprar.getAttribute('data-precio');
@@ -72,17 +72,17 @@ function mostrarTermos(termos){ //Función que se encarga de renderizar los prod
             let carrito;
 
             (localStorage.getItem('carrito') === null)
-            ? carrito = []
-            : carrito = JSON.parse(localStorage.getItem('carrito'));
+                ? carrito = []
+                : carrito = JSON.parse(localStorage.getItem('carrito'));
 
             const inputCantidad = document.getElementById(`inputCantidad${termo.id}`); //input de la cantidad de productos a querer agregar al carro
 
             let nuevoProducto = { //objeto literal, con los valores traídos al presionar el boton 'agregar al carrito'
-                "id":idTermo,
-                "nombre":nombreTermo,
-                "precio":precioTermo,
-                "imagen":imagenTermo,
-                "categoria":categoriaTermo
+                "id": idTermo,
+                "nombre": nombreTermo,
+                "precio": precioTermo,
+                "imagen": imagenTermo,
+                "categoria": categoriaTermo
             };
 
             for (let i = 0; i < inputCantidad.value; i++) {
@@ -91,16 +91,20 @@ function mostrarTermos(termos){ //Función que se encarga de renderizar los prod
 
             localStorage.setItem('carrito', JSON.stringify(carrito));
             let productosAlmacenados = Number(contadorElementosCarrito.textContent);
-            (localStorage.getItem('subTotalProductos') ===  null)
-            ? subTotal += parseInt(precioTermo*inputCantidad.value)
-            : subTotal = parseInt(precioTermo*inputCantidad.value)+Number(localStorage.getItem('subTotalProductos'));
-            productosAlmacenados+=Number(inputCantidad.value);
+            (localStorage.getItem('subTotalProductos') === null)
+                ? subTotal += parseInt(precioTermo * inputCantidad.value)
+                : subTotal = parseInt(precioTermo * inputCantidad.value) + Number(localStorage.getItem('subTotalProductos'));
+            productosAlmacenados += Number(inputCantidad.value);
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             localStorage.setItem('subTotalProductos', Number(subTotal))
             contadorElementosCarrito.innerHTML = productosAlmacenados;
             subTotalCarrito.innerHTML = subTotal;
 
-            swal(`¡ Se agregaron x${inputCantidad.value} ${nombreTermo} al carrito!`,"", "success");
+            Swal.fire({
+                title: `¡ Se agregaron x${inputCantidad.value} ${nombreTermo} al carrito!`,
+                icon: "success",
+                draggable: true
+            });
 
         });
     });
@@ -108,10 +112,10 @@ function mostrarTermos(termos){ //Función que se encarga de renderizar los prod
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
 botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
-botonVaciarCarrito.addEventListener('click', ()=>{subTotal = 0}); //limpia el acumulador subtotal
+botonVaciarCarrito.addEventListener('click', () => { subTotal = 0 }); //limpia el acumulador subtotal
 
 
 
 const botonSideBar = document.getElementById('sidebarButton'); //boton que abre el sidebar (carrito)
-botonSideBar.addEventListener('click',abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
-botonSideBar.addEventListener('click',()=>{subTotal=0;}) //limpia el acumulador subtotal
+botonSideBar.addEventListener('click', abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
+botonSideBar.addEventListener('click', () => { subTotal = 0; }) //limpia el acumulador subtotal
