@@ -40,9 +40,7 @@ function mostrarTermos(termos) { //Función que se encarga de renderizar los pro
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
                 <div class="imagen w-50">
-                    <a href="#">
                         <img src="${termo.imagen}" alt="${termo.nombre}" id="anclaTermo${termo.id}">
-                    </a>
                 </div>
                 <div class="parrafos d-flex flex-column ps-3">
                     <p class="fs-2 fw-bolder">${termo.nombre}</p>
@@ -107,6 +105,17 @@ function mostrarTermos(termos) { //Función que se encarga de renderizar los pro
             });
 
         });
+
+        const imagenProducto = document.getElementById(`anclaTermo${termo.id}`)
+        imagenProducto.addEventListener('click', ()=>{
+            Swal.fire({
+                title: `${termo.nombre}`,
+                imageUrl: `${termo.imagen}`,
+                imageWidth: 250,
+                imageHeight: 250,
+                imageAlt: `${termo.nombre}`
+            });
+        })
     });
 };
 

@@ -39,9 +39,7 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
                 <div class="imagen w-50">
-                    <a href="#">
                     <img src="${bombilla.imagen}" alt="${bombilla.nombre}" id="anclaBombilla${bombilla.id}">
-                    </a>
                 </div>
                 <div class="parrafos d-flex flex-column ps-3">
                     <p class="fs-2 fw-bolder" id="itemName">${bombilla.nombre}</p>
@@ -70,10 +68,10 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
 
             let carrito;
 
-            
+
             (localStorage.getItem('carrito') === null)
-            ? carrito = []
-            : carrito = JSON.parse(localStorage.getItem('carrito'));
+                ? carrito = []
+                : carrito = JSON.parse(localStorage.getItem('carrito'));
 
             const inputCantidad = document.getElementById(`inputCantidad${bombilla.id}`); //input de la cantidad de productos a querer agregar al carro
 
@@ -82,7 +80,7 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
                 "nombre": nombreBombilla,
                 "precio": precioBombilla,
                 "imagen": imagenBombilla,
-                "categoria":categoriaBombilla
+                "categoria": categoriaBombilla
             }
 
             for (let i = 0; i < inputCantidad.value; i++) {
@@ -92,9 +90,9 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
             localStorage.setItem('carrito', JSON.stringify(carrito));
             let productosAlmacenados = Number(contadorElementosCarrito.textContent);
             (localStorage.getItem('subTotalProductos') === null)
-            ? subTotal += parseInt(precioBombilla*inputCantidad.value)
-            : subTotal = parseInt(precioBombilla*inputCantidad.value) + Number(localStorage.getItem('subTotalProductos'));
-            productosAlmacenados+=Number(inputCantidad.value);
+                ? subTotal += parseInt(precioBombilla * inputCantidad.value)
+                : subTotal = parseInt(precioBombilla * inputCantidad.value) + Number(localStorage.getItem('subTotalProductos'));
+            productosAlmacenados += Number(inputCantidad.value);
             localStorage.setItem('contadorProductos', Number(productosAlmacenados));
             localStorage.setItem('subTotalProductos', Number(subTotal));
             contadorElementosCarrito.innerHTML = productosAlmacenados;
@@ -107,12 +105,23 @@ function mostrarBombillas(bombillas) { //Función que se encarga de renderizar l
             });
 
         });
+
+        const imagenProducto = document.getElementById(`anclaBombilla${bombilla.id}`);
+        imagenProducto.addEventListener('click', () => {
+            Swal.fire({
+                title: `${bombilla.nombre}`,
+                imageUrl: `${bombilla.imagen}`,
+                imageWidth: 250,
+                imageHeight: 250,
+                imageAlt: `${bombilla.nombre}`
+            });
+        })
     });
 };
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
 botonVaciarCarrito.addEventListener('click', manejarCarrito); //implementa manejar carrito
-botonVaciarCarrito.addEventListener('click', ()=>{
+botonVaciarCarrito.addEventListener('click', () => {
     subTotal = 0;
 }); //limpia el acumulador subtotal
 

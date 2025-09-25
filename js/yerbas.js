@@ -39,9 +39,7 @@ function mostrarYerbas(yerbas) { //Función que se encarga de renderizar los pro
         divPadre.innerHTML = `
             <div class="fila d-flex flex-row w-50" data-aos="fade-right">
             <div class="imagen w-50">
-                <a href="#">
                 <img src="${yerba.imagen}" alt="${yerba.nombre}" id="anclaYerba${yerba.id}">
-                </a>
             </div>
             <div class="parrafos d-flex flex-column ps-3">
                 <p class="fs-2 fw-bolder">${yerba.nombre}</p>
@@ -106,15 +104,14 @@ function mostrarYerbas(yerbas) { //Función que se encarga de renderizar los pro
             });
         });
 
-        const imagenAnclaProducto = document.getElementById(`anclaYerba${yerba.id}`)
-        imagenAnclaProducto.addEventListener('click', () => {
+        const imagenProducto = document.getElementById(`anclaYerba${yerba.id}`)
+        imagenProducto.addEventListener('click', () => {
             Swal.fire({
-                title: "Sweet!",
-                text: "Modal with a custom image.",
-                imageUrl: "https://unsplash.it/400/200",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "Custom image"
+                title: `${yerba.nombre}`,
+                imageUrl: `${yerba.imagen}`,
+                imageWidth: 250,
+                imageHeight: 250,
+                imageAlt: `${yerba.nombre}`
             });
         })
 

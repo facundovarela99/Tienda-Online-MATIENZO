@@ -114,6 +114,18 @@ function crearTarjetaMate(producto) { //Función que se encarga de renderizar lo
             icon: "success",
             draggable: true
         });
+
+        const imagenProducto = document.getElementById(`anclaMate${mate.id}`);
+        imagenProducto.addEventListener('click', ()=>{
+            Swal.fire({
+                title: `${mate.nombre}`,
+                imageUrl: `${mate.imagen}`,
+                imageWidth: 250,
+                imageHeight: 250,
+                imageAlt: `${mate.nombre}`
+            });
+        })
+
     })
 }
 
