@@ -48,9 +48,7 @@ function crearTarjetaMate(producto) { //Función que se encarga de renderizar lo
     divPadre.innerHTML = `
         <div class="fila d-flex flex-row w-50" data-aos="fade-right">
           <div class="imagen w-50">
-            <a href="#">
-              <img src="${producto.imagen}" alt="${producto.nombre}" id="anclaMate${mate.id}">
-            </a>
+              <img src="${producto.imagen}" alt="${producto.nombre}" id="anclaMate${producto.id}">
           </div>
           <div class="parrafos d-flex flex-column ps-3">
             <p class="fs-2 fw-bolder">${producto.nombre}</p>
@@ -115,18 +113,18 @@ function crearTarjetaMate(producto) { //Función que se encarga de renderizar lo
             draggable: true
         });
 
-        const imagenProducto = document.getElementById(`anclaMate${mate.id}`);
-        imagenProducto.addEventListener('click', ()=>{
-            Swal.fire({
-                title: `${mate.nombre}`,
-                imageUrl: `${mate.imagen}`,
-                imageWidth: 250,
-                imageHeight: 250,
-                imageAlt: `${mate.nombre}`
-            });
-        })
-
-    })
+        
+    });
+    const imagenProducto = divPadre.querySelector(`#anclaMate${producto.id}`);
+    imagenProducto.addEventListener('click', () => {
+        Swal.fire({
+            title: `${producto.nombre}`,
+            imageUrl: `${producto.imagen}`,
+            imageWidth: 250,
+            imageHeight: 250,
+            imageAlt: `${producto.nombre}`
+        });
+    });
 }
 
 
