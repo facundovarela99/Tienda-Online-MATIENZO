@@ -22,9 +22,9 @@ export function crearTarjetaProducto(producto) {
     divPadre.innerHTML = `
         <div class="fila d-flex flex-row w-50" data-aos="fade-right">
           <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="${producto.imagen}" alt="${producto.nombre}">
-            </a>
+            <div class="imagen w-50">
+              <img src="${producto.imagen}" alt="${producto.nombre}" id="anclaProducto${producto.id}">
+            </div>
           </div>
           <div class="parrafos d-flex flex-column ps-3">
             <p class="fs-2 fw-bolder">${producto.nombre}</p>
@@ -48,6 +48,17 @@ export function crearTarjetaProducto(producto) {
     botonComprar.addEventListener('click', () => {
         comprar(botonComprar);
     });
+
+    const imagenProducto = document.getElementById(`anclaProducto${producto.id}`);
+        imagenProducto.addEventListener('click', () => {
+            Swal.fire({
+                title: `${producto.nombre}`,
+                imageUrl: `${producto.imagen}`,
+                imageWidth: 250,
+                imageHeight: 250,
+                imageAlt: `${producto.nombre}`
+            });
+        })
 }
 
 const botonVaciarCarrito = document.getElementById('btnVaciarCarrito'); //boton vaciar del nav-bar
