@@ -42,15 +42,15 @@ export function productosEnCarrito(){
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Vaciar",
                 cancelButtonText: "Cancelar"
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        Swal.fire(`Se removió ${producto.nombre} del carrito`, {
-                            icon: "success",
-                        });
-                        carrito = quitarProducto(producto, carrito); //Si se elige remover el producto del carrito, se llama a la función quitarProducto
-                    }
-                });
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: `Se removió ${producto.nombre} del carrito`,
+                        icon: "success"
+                    });
+                    carrito = quitarProducto(producto, carrito);
+                }
+            });
         })
     }
 }
