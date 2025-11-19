@@ -40,7 +40,7 @@ export function productosEnCarrito(){
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Vaciar",
+                confirmButtonText: "Aceptar",
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
