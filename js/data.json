@@ -11,6 +11,7 @@
       ],
       "precio": 5665,
       "imagen": "../assets/img/roapipo-tradicional.jpg",
+      "tipo":"yerba",
       "categoria":"yerbas"
     },
     {
@@ -25,6 +26,7 @@
       ],
       "precio": 7240,
       "imagen": "../assets/img/yerba_gritosagrado.jpg",
+      "tipo":"yerba",
       "categoria":"yerbas"
     },
     {
@@ -39,6 +41,7 @@
       ],
       "precio": 3450,
       "imagen": "../assets/img/yerba-mate-hija-de-la-selva.jpg",
+      "tipo":"yerba",
       "categoria":"yerbas"
     },
     {
@@ -53,6 +56,7 @@
       ],
       "precio": 3215,
       "imagen": "../assets/img/yerba-mate-sol-de-acuario.webp",
+      "tipo":"yerba",
       "categoria":"yerbas"
     }
   ],
@@ -68,6 +72,7 @@
       "precio": 35000,
       "cuotas": "4 cuotas de $8.750,00",
       "imagen": "../assets/img/imperial_negro.jpg",
+      "tipo":"mate",
       "categoria":"mates"
     },
     {
@@ -81,6 +86,7 @@
       "precio": 38400,
       "cuotas": "3 cuotas de $12.800,00",
       "imagen": "../assets/img/imperial_rojo.png",
+      "tipo":"mate",
       "categoria":"mates"
     },
     {
@@ -95,6 +101,7 @@
       "precio": 41200,
       "cuotas": "6 cuotas de $6.866,66",
       "imagen": "../assets/img/mate_stanley_verde.jpg",
+      "tipo":"mate",
       "categoria":"mates"
     },
     {
@@ -109,6 +116,7 @@
       "precio": 43000,
       "cuotas": "3 cuotas de $14.333,33",
       "imagen": "../assets/img/mate_stanley_rosa.png",
+      "tipo":"mate",
       "categoria":"mates"
     },
     {
@@ -121,6 +129,7 @@
       "precio": 55800,
       "cuotas": "4 cuotas de $13.950,00",
       "imagen": "../assets/img/mate_mundialista.png",
+      "tipo":"mate",
       "categoria":"mates"
     }
   ],
@@ -132,6 +141,7 @@
       "precio":60999,
       "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
       "imagen":"../assets/img/termo_stanley.png",
+      "tipo":"termo",
       "categoria":"termos"
     },
     {
@@ -141,6 +151,7 @@
       "precio":60999,
       "cuotas":"Hasta 6 cuotas sin interes de $10.166,50",
       "imagen":"../assets/img/termo-stanley-rosa.png",
+      "tipo":"termo",
       "categoria":"termos"
     },
     {
@@ -150,6 +161,7 @@
       "precio":54680,
       "cuotas":"Hasta 6 cuotas sin interes de $9.113,33",
       "imagen":"../assets/img/TERMO_COLEMAN_NEGRO.jpg",
+      "tipo":"termo",
       "categoria":"termos"
     },
     {
@@ -159,6 +171,7 @@
       "precio":48999,
       "cuotas":"Hasta 6 cuotas sin interes de $8.166,50",
       "imagen":"../assets/img/termo_stanley_blanco.png",
+      "tipo":"termo",
       "categoria":"termos"
     },
     {
@@ -168,6 +181,7 @@
       "precio":37560,
       "cuotas":"Hasta 6 cuotas sin interes de $6.260",
       "imagen":"../assets/img/termolar.jpg",
+      "tipo":"termo",
       "categoria":"termos"
     },
     {
@@ -177,6 +191,7 @@
       "precio":34870,
       "cuotas":"Hasta 6 cuotas sin interes de $5.811,66",
       "imagen":"../assets/img/termo_beige.jpg",
+      "tipo":"termo",
       "categoria":"termos"
     }
   ],
@@ -188,6 +203,7 @@
       "precio":15330,
       "cuotas":"3 cuotas de $5.110",
       "imagen":"../assets/img/bombilla_stanley_spoon.jpg",
+      "tipo":"bombilla",
       "categoria":"bombillas"
     },
     {
@@ -197,6 +213,7 @@
       "precio":12600,
       "cuotas":"3 cuotas sin interes de $4.200",
       "imagen":"../assets/img/bombilla_laMerced.jpg",
+      "tipo":"bombilla",
       "categoria":"bombillas"
     },
     {
@@ -206,6 +223,7 @@
       "precio":16800,
       "cuotas":"6 cuotas sin interes de $2.800",
       "imagen":"../assets/img/bombilla_union.jpg",
+      "tipo":"bombilla",
       "categoria":"bombillas"
     },
     {
@@ -215,6 +233,7 @@
       "precio":17200,
       "cuotas":"6 cuotas de $ 2.866,66",
       "imagen":"../assets/img/bombilla_pico_loro_cuchara.jpg",
+      "tipo":"bombilla",
       "categoria":"bombillas"
     }
   ]

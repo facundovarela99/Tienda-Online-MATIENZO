@@ -11,9 +11,9 @@ subTotalCarrito.innerHTML = validarStorage(localStorage.getItem('subTotalProduct
 export function comprar(boton){
     const idProducto = boton.getAttribute('data-id');
     const nombreProducto = boton.getAttribute('data-name');
-    const precioProducto = botonComprar.getAttribute('data-precio');
-    const imagenProducto = botonComprar.getAttribute('data-img');
-    const categoriaProducto = botonComprar.getAttribute('data-categoria');
+    const precioProducto = boton.getAttribute('data-precio');
+    const imagenProducto = boton.getAttribute('data-img');
+    const categoriaProducto = boton.getAttribute('data-categoria');
     let carrito;
 
     (!localStorage.getItem('carrito'))

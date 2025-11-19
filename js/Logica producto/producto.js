@@ -16,8 +16,8 @@ function renderDescripcion(array) {
 export function crearTarjetaProducto(producto) {
     const divPadre = document.createElement('div');
     (producto.id % 2 === 0)
-        ? divPadre.className = `${producto.categoria} w-100 d-flex flex-column align-items-start ps-5 py-5`
-        : divPadre.className = `${producto.categoria} w-100 d-flex flex-column align-items-end pe-5 py-5`;
+        ? divPadre.className = `${producto.tipo} w-100 d-flex flex-column align-items-start ps-5 py-5`
+        : divPadre.className = `${producto.tipo} w-100 d-flex flex-column align-items-end pe-5 py-5`;
 
     divPadre.innerHTML = `
         <div class="fila d-flex flex-row w-50" data-aos="fade-right">
@@ -58,6 +58,6 @@ botonVaciarCarrito.addEventListener('click', () => {
 
 const sidebarButton = document.getElementById('sidebarButton');
 sidebarButton.addEventListener('click', abrirSidebar); //implementa abrirSidebar con la lógica que implica (ver carrito.js)
-sidebarButton.addEventListener('click', () => {
-    subTotal = 0;
-}); //limpia el acumulador subtotal
+// sidebarButton.addEventListener('click', () => {
+//     subTotal = 0;
+// }); //limpia el acumulador subtotal
