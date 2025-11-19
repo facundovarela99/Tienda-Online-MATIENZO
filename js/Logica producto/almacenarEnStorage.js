@@ -10,5 +10,10 @@ export function almacenarEnStorage(carrito, producto, contadorElementosCarrito, 
     contadorElementosCarrito.innerHTML = productosAlmacenados;
     subTotalCarrito.innerHTML = subTotal;
 
-    swal(`¡ Se agregaron x${inputCantidad.value} ${producto.nombre} al carrito!`, "", "success");
+    Swal.fire({
+            title: `¡ Se agregaron x${inputCantidad.value} ${producto.nombre} al carrito!`,
+            icon: "success",
+            draggable: true
+        });
+
 }

@@ -42,22 +42,27 @@ export function quitarProducto(prod, carro){ //Función que se encarga de remove
 
 export function manejarCarrito() { //Funcion que maneja el vaciado del carrito
     if (localStorage.getItem('contadorProductos')) { //Si hay un contador de productos
-        swal({
-            title: "¿Está seguro de que desea vaciar el carrito?", //Aparecen los botones para vaciarlo
+
+        Swal.fire({
+            title: "¿Está seguro de que desea vaciar el carrito?",
             icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Su carrito fue vaciado", {
-                        icon: "success",
-                    });
-                    vaciarCarrito();
-                }
-            });
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Vaciar",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Carrito vaciado.",
+                    icon: "success"
+                });
+                vaciarCarrito();
+            }
+        });
+
     } else {                                    //Si no hay un contador (lo que es igual a que no haya productos):
-        swal('No hay elementos en el carrito')  
+        swal('No hay elementos en el carrito')
     }
 }
 

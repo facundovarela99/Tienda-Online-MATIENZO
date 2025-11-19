@@ -34,14 +34,18 @@ export function productosEnCarrito(){
 
         const btnQuitarProducto = document.getElementById(`botonQuitar${producto.id}`); //Lógica del boton para remover un conjunto de productos de la misma categoría del carrito con SweetAlert (pendiente remover una cantidad seleccionada)
         btnQuitarProducto.addEventListener('click', () => {
-            swal({
+            Swal.fire({
                 title: "¿Está seguro de que quiere remover este producto del carrito?",
-                buttons: true,
-                dangerMode: true,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Vaciar",
+                cancelButtonText: "Cancelar"
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal(`Se removió ${producto.nombre} del carrito`, {
+                        Swal.fire(`Se removió ${producto.nombre} del carrito`, {
                             icon: "success",
                         });
                         carrito = quitarProducto(producto, carrito); //Si se elige remover el producto del carrito, se llama a la función quitarProducto
