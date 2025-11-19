@@ -1,5 +1,5 @@
 //Script que maneja la lógica del carrito en general
-import validarStorage from "./main.js";
+import validarStorage from "../main.js";
 
 function renderBotonesCarrito(localStorage) { //Renderizado de los botones por cada producto en el carro siempre y cuando haya productos en el mismo
     let html = "";
