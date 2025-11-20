@@ -1,0 +1,55 @@
+Configuración JSON antes de utilizar Django:
+
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "auto-rename-tag.activationOnLanguage": [
+        "*"
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.includeItems": [
+        "/sass/**/*.scss"
+    ],
+    "liveSassCompile.settings.outputDir": "./css",
+    "auto-close-tag.activationOnLanguage": [
+        "xml",
+        "php",
+        "blade",
+        "ejs",
+        "jinja",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "plaintext",
+        "markdown",
+        "vue",
+        "liquid",
+        "erb",
+        "lang-cfml",
+        "cfml",
+        "HTML (EEx)",
+        "HTML (Eex)",
+        "plist"
+    ],
+    "debug.disassemblyView.showSourceCode": false,
+    "workbench.editor.enablePreview": false,
+    "php.validate.executablePath": "C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/php.exe",
+    "workbench.editor.empty.hint": "hidden",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none",
+    "hediet.vscode-drawio.resizeImages": null,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+}
+

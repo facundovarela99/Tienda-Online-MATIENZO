@@ -522,21 +522,21 @@ main .titulo_termos h1, main .titulo_termos h2 {
   }
 }
 
-.termo1 {
+.termo {
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
   background-color: rgb(252, 238, 221);
 }
-.termo1 .fila {
+.termo .fila {
   background-color: rgb(255, 255, 255);
   border: 3px solid, #000;
   position: relative;
 }
-.termo1 .fila .imagen {
+.termo .fila .imagen {
   overflow: hidden;
 }
-.termo1 .fila .imagen img {
+.termo .fila .imagen img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover !important;
@@ -544,45 +544,45 @@ main .titulo_termos h1, main .titulo_termos h2 {
   transition: transform 0.2s ease-in-out;
   filter: grayscale(100%);
 }
-.termo1 .fila .imagen img:hover {
+.termo .fila .imagen img:hover {
   transform: scale(1.09);
   filter: initial;
 }
-.termo1 .fila p {
+.termo .fila p {
   font-family: "Open Sans";
 }
-.termo1 .button {
+.termo .button {
   padding: 10px;
   margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .termo1 {
+  .termo {
     display: flex !important;
     flex-direction: row !important;
     width: 100% !important;
   }
-  .termo1 .fila {
+  .termo .fila {
     display: flex !important;
     flex-direction: column !important;
     align-items: end !important;
     width: 80% !important;
   }
-  .termo1 .fila p {
+  .termo .fila p {
     padding: 0 !important;
   }
 }
 @media screen and (max-width: 1400px) {
-  .termo1 {
+  .termo {
     display: flex !important;
     flex-direction: row !important;
   }
-  .termo1 .fila {
+  .termo .fila {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
   }
-  .termo1 .fila p {
+  .termo .fila p {
     padding: 0 !important;
   }
 }

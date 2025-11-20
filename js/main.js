@@ -1,4 +1,4 @@
-import { abrirSidebar, manejarCarrito } from "./carrito.js"; //Importamos funciones para ser llamadas desde los HTML que consuman main.js
+import { abrirSidebar, manejarCarrito } from "./Logica carrito/carrito.js"; //Importamos funciones para ser llamadas desde los HTML que consuman main.js
 
 export default function validarStorage(localstorage, valorDefault){ //función que recibe una key del localStorage
     if (localstorage) {      //Si se encuentra

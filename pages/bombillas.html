@@ -16,7 +16,7 @@
   <!-- SWEET ALERT 2 CDN-->
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.min.css" rel="stylesheet">
   <!-- JAVASCRIPT -->
-  <script type="module" defer src="../js/bombillas.js"></script>
+  <script type="module" defer src="../js/Productos/bombillas.js"></script>
 </head>
 
 <body>
@@ -83,86 +83,8 @@
         <h2 class="fw-bold text-center p-4">DE TUS PROXIMOS MOMENTOS</h2>
       </div>
     </div>
-    <div class="container-fluid contenedorBombillas">
-      <!-- <div class="bombilla w-100 d-flex flex-column align-items-start ps-5 py-5">
-        <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-          <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="../assets/img/bombilla_stanley_spoon.jpg" alt="">
-            </a>
-          </div>
-          <div class="parrafos d-flex flex-column ps-3">
-            <p class="fs-2 fw-bolder" id="itemName">Bombilla Stanley Spoon</p>
-            <p class="fs-2 fw-normal ps-5">Filtrado limitado de yerba</p>
-            <p class="fs-4 fw-normal ps-5">Boquilla ancha</p>
-            <p class="fs-4 fw-normal ps-5 itemValue">$ 32.750</p>
-            <p class="fs-4 fw-normal ps-5">3 cuotas de $ 10.666,67</p>
-            <button class="button btn btn-dark buttonAddToCart">Agregar al
-              carrito</button>
-          </div>
-        </div>
-      </div>
-  
-      <div class="bombilla w-100 d-flex flex-column align-items-end pe-5 py-5">
-        <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-          <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="../assets/img/bombilla_laMerced.jpg" alt="">
-            </a>
-          </div>
-          <div class="parrafos d-flex flex-column ps-3">
-            <p class="fs-2 fw-bolder" id="itemName">Bombilla La Merced</p>
-            <p class="fs-2 fw-bolder">Alpaca</p>
-            <p class="fs-4 fw-normal ps-5">Curva corta</p>
-            <p class="fs-4 fw-normal ps-5">Boquilla fina</p>
-            <p class="fs-4 fw-normal ps-5 itemValue">$37000</p>
-            <p class="fs-4 fw-normal ps-5">3 cuotas de $ 12.333,33</p>
-            <button class="button btn btn-dark buttonAddToCart">Agregar al
-              carrito</button>
-          </div>
-        </div>
-      </div>
-  
-      <div class="bombilla w-100 d-flex flex-column align-items-start ps-5 py-5">
-        <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-          <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="../assets/img/bombilla_union.jpg" alt="">
-            </a>
-          </div>
-          <div class="parrafos d-flex flex-column ps-3">
-            <p class="fs-2 fw-bolder" id="itemName">Bombilla Union</p>
-            <p class="fs-2 fw-bolder">Alpaca</p>
-            <p class="fs-4 fw-normal ps-5">Curva larga</p>
-            <p class="fs-4 fw-normal ps-5">Boquilla ancha</p>
-            <p class="fs-4 fw-normal ps-5 itemValue">$28.000</p>
-            <p class="fs-4 fw-normal ps-5">6 cuotas de $ 9.333,33</p>
-            <button class="button btn btn-dark buttonAddToCart">Agregar al
-              carrito</button>
-          </div>
-        </div>
-      </div>
-  
-      <div class="bombilla w-100 d-flex flex-column align-items-end pe-5 py-5">
-        <div class="fila d-flex flex-row w-50" data-aos="fade-right">
-          <div class="imagen w-50">
-            <a href="../pages/contacto.html">
-              <img src="../assets/img/bombilla_pico_loro_cuchara.jpg" alt="">
-            </a>
-          </div>
-          <div class="parrafos d-flex flex-column ps-3">
-            <p class="fs-2 fw-bolder" id="itemName">Bombilla Pico Loro</p>
-            <p class="fs-2 fw-bolder">Alpaca</p>
-            <p class="fs-4 fw-normal ps-5">Curva larga</p>
-            <p class="fs-4 fw-normal ps-5">Cincelada</p>
-            <p class="fs-4 fw-normal ps-5">Filtro cuchara</p>
-            <p class="fs-4 fw-normal ps-5 itemValue">$40.000,00</p>
-            <p class="fs-4 fw-normal ps-5">6 cuotas de $ 6.666,66</p>
-            <button class="button btn btn-dark buttonAddToCart">Agregar al
-              carrito</button>
-          </div>
-        </div>
-      </div> -->
+    <div class="container-fluid contenedorBombillas" id="bombillas">
+      
     </div>
   </main>
   <footer>
@@ -196,27 +118,14 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div id="sideBarBody" class="offcanvas-body">
-      <!-- <div class="divHrOffcanvas">
-        <hr class="hrOffcanvas">
-      </div>
-      <div class="divListaProductos">
-        <ul id="listaProductosCarrito">
-        </ul>
-      </div>
-      <div class="divHrOffcanvas">
-        <hr class="hrOffcanvas">
-      </div>
-      <div class="divSubtotalSidebar d-flex flex-row">
-        <h6>Subtotal: $</h6>
-        <span class="spanSubtotal"></span>
-      </div> -->
+
     </div>
   </div>
   <!--OFFCANVAS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <!--SWEET ALERT 2-->
+    <!--SWEET ALERT 2-->
   <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.23.0/dist/sweetalert2.all.min.js
 "></script>

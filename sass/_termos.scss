@@ -34,7 +34,7 @@ main{
         }
     }
 }
-.termo1 {
+.termo {
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -68,7 +68,7 @@ main{
 }
 @media screen and (max-width: 768px) {
 
-    .termo1{
+    .termo{
         display: flex !important;
         flex-direction: row !important;
         width: 100% !important;
@@ -86,7 +86,7 @@ main{
 }
 @media screen and (max-width: 1400px) {
 
-    .termo1{
+    .termo{
         display: flex !important;
         flex-direction: row !important;
         .fila{
