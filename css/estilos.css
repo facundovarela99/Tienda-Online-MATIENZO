@@ -46,7 +46,8 @@ body{
 }
 
 footer {
-  background-color: #91b706;
+  background-color: #0e234e;
+  color: #ccc;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 10;
@@ -230,7 +231,7 @@ footer .redesSociales a i:hover {
 }
 
 .img-opinion{
-  background-color: #b1d952;
+  background-color: #d46b5c;
 }
 
 .productos {
