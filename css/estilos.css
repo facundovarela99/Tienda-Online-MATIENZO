@@ -13,6 +13,10 @@
   /*LIMPIEZA DE ESPACIADOS Y MARGENES POR DEFECTO PARA ASI PODER CONFIGURAR LOS MIOS PROPIOS*/
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .bgHeader {
   background-color: #1A1A1A;
 }
@@ -91,11 +95,11 @@ footer .redesSociales a i:hover {
 
 @media screen and (max-width: 768px) {
   .seccionTitulos .tituloGrande {
-    padding-left: 40px;
+    /* padding-left: 40px; */
   }
   .seccionTitulos .tituloGrande .preparoUnos,
   .seccionTitulos .tituloGrande .luego {
-    padding-left: 80px;
+    /* padding-left: 80px; */
   }
   .seccionTitulos .tituloGrande .mates,
   .seccionTitulos .tituloGrande .existo {
@@ -103,7 +107,7 @@ footer .redesSociales a i:hover {
     font-size: 100px;
   }
   .seccionTitulos .subtitulo {
-    padding-left: 80px;
+    /* padding-left: 80px; */
   }
 }
 .productosDestacados .tituloDestacados {
