@@ -13,10 +13,6 @@
   /*LIMPIEZA DE ESPACIADOS Y MARGENES POR DEFECTO PARA ASI PODER CONFIGURAR LOS MIOS PROPIOS*/
 }
 
-body{
-  overflow-x: hidden;
-}
-
 .bgHeader {
   background-color: #1A1A1A;
 }
@@ -46,8 +42,7 @@ body{
 }
 
 footer {
-  background-color: #0e234e;
-  color: #ccc;
+  background-color: lightsteelblue;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 10;
@@ -96,11 +91,11 @@ footer .redesSociales a i:hover {
 
 @media screen and (max-width: 768px) {
   .seccionTitulos .tituloGrande {
-    /* padding-left: 40px; */
+    padding-left: 40px;
   }
   .seccionTitulos .tituloGrande .preparoUnos,
   .seccionTitulos .tituloGrande .luego {
-    /* padding-left: 80px; */
+    padding-left: 80px;
   }
   .seccionTitulos .tituloGrande .mates,
   .seccionTitulos .tituloGrande .existo {
@@ -108,12 +103,11 @@ footer .redesSociales a i:hover {
     font-size: 100px;
   }
   .seccionTitulos .subtitulo {
-    /* padding-left: 80px; */
+    padding-left: 80px;
   }
 }
 .productosDestacados .tituloDestacados {
-  /* background-color: rgb(84, 104, 131); */
-  background-color: #b55348;
+  background-color: rgb(84, 104, 131);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
   position: relative;
   z-index: 1;
@@ -155,24 +149,19 @@ footer .redesSociales a i:hover {
   font-family: "Fjalla One";
 }
 
-.destacado-container{
-  background-color: #d46b5c;
-}
-
 .guiaPreparacionMate {
   background-color: #1A1A1A;
   font-size: 30px;
   font-weight: 400;
 }
 .guiaPreparacionMate .tituloGuia {
-  background-color: #b55348;
+  background-color: rgb(84, 104, 131);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
   position: relative; /* necesario para que el z-index funcione */
   z-index: 1;
 }
 .guiaPreparacionMate .videoYPasos .bordeado {
-  /* border: 1px solid #102e73; */
-  /* border-radius: 20px; */
+  border: 1px solid rgba(244, 165, 96, 0.496);
 }
 .guiaPreparacionMate .videoYPasos .bordeado .listaPasos {
   background-color: #1A1A1A;
@@ -202,7 +191,7 @@ footer .redesSociales a i:hover {
   text-align: center;
 }
 .opiniones .TituloOpinionesClientes {
-  background-color: #b55348;
+  background-color: rgb(84, 104, 131);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 -6px 12px rgba(0, 0, 0, 0.7);
 }
 .opiniones h5 {
@@ -228,10 +217,6 @@ footer .redesSociales a i:hover {
 }
 .opiniones .imagenesOpiniones div img {
   width: 90%;
-}
-
-.img-opinion{
-  background-color: #d46b5c;
 }
 
 .productos {
